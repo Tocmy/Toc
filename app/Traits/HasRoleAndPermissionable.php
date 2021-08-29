@@ -123,7 +123,7 @@ trait HasRoleAndPermissionable
      {
          $permissions = Permission::class;
          if (!$permissions instanceof Model) {
-                 throw new InvalidArgumentException('[App\Models\User\Permission::class] must be an instance of \Illuminate\Databale\Eloquent\Model');
+                 throw new InvalidArgumentException('[Permission::class] must be an instance of \Illuminate\Databale\Eloquent\Model');
          }
 
          if (config('roles.inheritance')) {

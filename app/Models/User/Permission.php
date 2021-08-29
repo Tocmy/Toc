@@ -11,7 +11,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Permission extends Model
 {
-    use HasFactory, SoftDeletes,PermissionRelationship, PermissionAttribute;
+    use HasFactory, SoftDeletes,
+        PermissionRelationship, PermissionAttribute;
     /**
     * The table associated with the model.
     *
