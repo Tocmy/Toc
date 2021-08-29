@@ -1,10 +1,13 @@
 <?php
 namespace App\Traits;
 
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use App\Models\User\Permission;
 use App\Models\User\Role;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 use InvalidArgumentException;
 /**
@@ -13,8 +16,31 @@ use InvalidArgumentException;
 trait HasRoleAndPermissionable
 {
 
+
+    /**
+     * JerenyKenedy/LaravelRole
+     *
+     * @var [type]
+     */
+    /**
+     * Property for caching roles.
+     *
+     * @var Collection|null
+     */
      protected $roles;
      protected $permissions;
+
+    /**
+     * The roles that belong to the HasRoleAndPermissionable
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function roles(): BelongsToMany
+    {
+        return $this->belongsToMany(Role::class, 'role_user_table', 'user_id', 'role_id');
+    }
+
+
      public function getRoles()
      {
          return (!$this->roles) ? $this->roles = $this->roles()->get() : $this->roles;
@@ -95,7 +121,7 @@ trait HasRoleAndPermissionable
 
      public function rolePermissions()
      {
-         $permissions = App\Models\User\Permission::class;
+         $permissions = Permission::class;
          if (!$permissions instanceof Model) {
                  throw new InvalidArgumentException('[App\Models\User\Permission::class] must be an instance of \Illuminate\Databale\Eloquent\Model');
          }
@@ -136,7 +162,7 @@ trait HasRoleAndPermissionable
 
      public function userPermissions()
      {
-         return $this->belongToMany(App\Models\User\Permission::class)->withTimestamps();
+         return $this->belongToMany(Permission::class)->withTimestamps();
      }
 
      public function getPermissions()

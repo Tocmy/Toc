@@ -3,21 +3,24 @@
 namespace App\Models\User;
 
 use App\Models\User\Relationship\UserRelationship;
+use App\Traits\HasRoleAndPermissionable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use OwenIt\Auditing\Auditable;
 
 
 class User extends Authenticatable
 {
-    use HasFactory, softDeletes, UserRelationship,  Auditable;
+    use HasFactory, softDeletes, UserRelationship,
+        Auditable, Notifiable,HasRoleAndPermissionable;
     /**
      * The table associated with the model.
-     * 
+     *
      * @var string
      */
     protected $table = 'users';
