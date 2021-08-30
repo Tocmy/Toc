@@ -70,9 +70,9 @@ class Kernel extends HttpKernel
         'signed'          => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle'        => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified'        => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'VerifyLevel'       => \App\Http\Middleware\Role\VerifyLevel::class,
-        'VerifyPermission'  => \App\Http\Middleware\Role\VerifyPermission::class,
-        'VerifyRole'        => \App\Http\Middleware\Role\VerifyRole::class,
+        'role'            => \App\Http\Middleware\Role\VerifyRole::class,
+        'permission'      => \App\Http\Middleware\Role\VerifyPermission::class,
+        'level'           => \App\Http\Middleware\Role\VerifyLevel::class,
 
     ];
 }

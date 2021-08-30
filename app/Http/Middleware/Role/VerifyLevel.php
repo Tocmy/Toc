@@ -1,6 +1,7 @@
 <?php
-
 namespace App\Http\Middleware\Role;
+
+
 
 use App\Exceptions\Role\LevelDeniedException;
 use Closure;
