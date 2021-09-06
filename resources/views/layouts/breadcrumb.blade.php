@@ -4,9 +4,24 @@
         <h1 class="m-0">Dashboard</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
+
+
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard v1</li>
+            @if(Breadcrumbs::has())
+            @foreach (Breadcrumbs::current() as $crumbs)
+                @if ($crumbs->url() && !$loop->last)
+                    <li class="breadcrumb-item">
+                        <a href="{{ $crumbs->url() }}">
+                            {{ $crumbs->title() }}
+                        </a>
+                    </li>
+                @else
+                    <li class="breadcrumb-item active">
+                        {{ $crumbs->title() }}
+                    </li>
+                @endif
+            @endforeach
+        @endif
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
