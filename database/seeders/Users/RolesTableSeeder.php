@@ -24,11 +24,43 @@ class RolesTableSeeder extends Seeder
             ],
 
             [
+                'name'        => 'Affiliate',
+                'slug'        => 'affiliate',
+                'description' => __('Affiliate Role'),
+                'level'       => 1,
+            ],
+            [
+                'name'        => 'Customer',
+                'slug'        => 'customer',
+                'description' => __('Customer Role'),
+                'level'       => 1,
+            ],
+            [
+                'name'        => 'Dealer',
+                'slug'        => 'dealer',
+                'description' => __('Dealer Role'),
+                'level'       => 1,
+            ],
+            [
+                'name'        => 'Distributor',
+                'slug'        => 'distributor',
+                'description' => __('Distributor Role'),
+                'level'       => 1,
+            ],
+            [
+                'name'        => 'Author',
+                'slug'        => 'author',
+                'description' => __('author Role'),
+                'level'       => 1,
+            ],
+
+            [
                 'name'        => 'User',
                 'slug'        => 'user',
                 'description' => __('User Role'),
                 'level'       => 1,
             ],
+
             [
                 'name'        => 'Unverified',
                 'slug'        => 'unverified',
