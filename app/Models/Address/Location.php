@@ -6,24 +6,26 @@ use App\Models\Address\Relationship\LocationRelationship;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Nestable\NestableTrait;
 
 class Location extends Model
 {
-    use HasFactory, SoftDeletes, LocationRelationship;
+    use HasFactory, SoftDeletes, LocationRelationship, NestableTrait;
     /**
     * The table associated with the model.
     *
     * @var  string
     */
-    protected $table = 'locations';
 
+    protected $table = 'locations';
+    protected $parent = 'parent_id';
     /**
      * The attributes that are mass assignable.
      *
      * @var  array
      */
     protected $fillable = [
-        'parent_id', 'lft', 'rgt', 'depth', 'name', 'address_id', 'open', 'comment', 'image',
+        'parent_id', 'name', 'address_id', 'open', 'comment', 'image',
     ];
 
     /**

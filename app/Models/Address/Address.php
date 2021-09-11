@@ -19,7 +19,7 @@ class Address extends Model
     protected $table = 'addresses';
 
     protected $fillable = [
-        'country_id', 'addressable_type', 'addressable_id', 'company', 'company_id',
+        'country_id', 'addressable_type', 'addressable_id',  'address_type','company', 'company_id', 'state_id',
         'tax_id', 'address_1', 'address_2', 'postcode_required', 'postcode', 'telephone', 'fax', 'latitude', 'longitude',
     ];
 
@@ -38,5 +38,10 @@ class Address extends Model
         $fullPostalAddress .= $this->city ? ($fullPostalAddress ? ' ' : '') . $this->city : '';
 
         return $fullPostalAddress;
+    }
+
+    public function formattedFax()
+    {
+
     }
 }

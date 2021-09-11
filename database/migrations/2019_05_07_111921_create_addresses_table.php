@@ -18,7 +18,9 @@ class CreateAddressesTable extends Migration
             $table->timestamps();
             $table->softDeletes();
             $table->bigInteger('country_id')->unsigned()->index();
+            $table->bigInteger('state_id')->unsigned()->nullable();
             $table->morphs('addressable');
+            $table->string('address_type')->default('Primary')->nullable();
 			$table->string('company');
 			$table->string('company_id', 32)->unique();
 			$table->string('tax_id', 32)->unique();
@@ -90,10 +92,7 @@ class CreateAddressesTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 			$table->bigInteger('parent_id')->unsigned()->nullable();
-            $table->integer('lft')->nullable()->index();
-            $table->integer('rgt')->nullable()->index();
-            $table->integer('depth')->nullable();
-			$table->string('name', 64);
+            $table->string('name', 64);
 			$table->bigInteger('address_id')->unsigned();
 			$table->text('open');
 			$table->text('comment');

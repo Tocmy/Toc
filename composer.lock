@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cffca1f25e4de9e21432767710cc3a9f",
+    "content-hash": "5d5bac069ab53e00a37d932a1a8b074f",
     "packages": [
         {
             "name": "akaunting/laravel-firewall",
@@ -1800,6 +1800,69 @@
                 }
             ],
             "time": "2020-06-13T08:05:20+00:00"
+        },
+        {
+            "name": "kalnoy/nestedset",
+            "version": "v6.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lazychaser/laravel-nestedset.git",
+                "reference": "f5351234588a20b14134980552b1bf6dccb3e733"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lazychaser/laravel-nestedset/zipball/f5351234588a20b14134980552b1bf6dccb3e733",
+                "reference": "f5351234588a20b14134980552b1bf6dccb3e733",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^7.0|^8.0",
+                "illuminate/events": "^7.0|^8.0",
+                "illuminate/support": "^7.0|^8.0",
+                "php": ">=7.1.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "7.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "v5.0.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Kalnoy\\Nestedset\\NestedSetServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Kalnoy\\Nestedset\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander Kalnoy",
+                    "email": "lazychaser@gmail.com"
+                }
+            ],
+            "description": "Nested Set Model for Laravel 5.7 and up",
+            "keywords": [
+                "database",
+                "hierarchy",
+                "laravel",
+                "nested sets",
+                "nsm"
+            ],
+            "support": {
+                "issues": "https://github.com/lazychaser/laravel-nestedset/issues",
+                "source": "https://github.com/lazychaser/laravel-nestedset/tree/v6.0.0"
+            },
+            "time": "2021-05-28T07:08:55+00:00"
         },
         {
             "name": "kirschbaum-development/eloquent-power-joins",
@@ -8549,6 +8612,75 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.10.0"
             },
             "time": "2021-03-09T10:59:23+00:00"
+        },
+        {
+            "name": "webreinvent/laravel-nestable",
+            "version": "0.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webreinvent/laravel-nestable.git",
+                "reference": "af937987b0a8444bb1543ec11eda4daf5d6a8f91"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webreinvent/laravel-nestable/zipball/af937987b0a8444bb1543ec11eda4daf5d6a8f91",
+                "reference": "af937987b0a8444bb1543ec11eda4daf5d6a8f91",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "orchestra/database": "~3.1",
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "^9.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Nestable\\NestableServiceProvider"
+                    ],
+                    "aliases": {
+                        "Nestable": "Nestable\\Facades\\NestableService"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Nestable\\": "src/",
+                    "Nestable\\Tests\\": "tests/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "WebReinvent",
+                    "email": "we@webreinvent.com",
+                    "homepage": "https://www.webreinvent.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Laravel 8 nested categories library",
+            "homepage": "https://github.com/webreinvent",
+            "keywords": [
+                "category",
+                "laravel",
+                "nestable",
+                "nested",
+                "nestedset"
+            ],
+            "support": {
+                "issues": "https://github.com/webreinvent/laravel-nestable/issues",
+                "source": "https://github.com/webreinvent/laravel-nestable/tree/v0.0.3"
+            },
+            "time": "2021-05-04T12:42:12+00:00"
         },
         {
             "name": "xenolope/quahog",

@@ -26,9 +26,14 @@ trait AddressRelationship
          return $this->belongsTo(Country::class, 'country_id', 'id');
      }
 
-     public function states(): HasManyThrough
+     public function state(): BelongsTo
      {
-         return $this->hasManyThrough(Country::class, State::class);
+         return $this->belongsTo(State::class, 'state_id', 'id');
+     }
+
+     public function cities(): HasManyThrough
+     {
+         return $this->hasManyThrough(State::class, City::class);
      }
 }
 

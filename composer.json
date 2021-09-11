@@ -13,6 +13,7 @@
         "fruitcake/laravel-cors": "^2.0",
         "google/recaptcha": "^1.2",
         "guzzlehttp/guzzle": "^7.0.1",
+        "kalnoy/nestedset": "^6.0",
         "kirschbaum-development/eloquent-power-joins": "^2.4",
         "laravel/framework": "^8.40",
         "laravel/socialite": "^5.2",
@@ -31,6 +32,7 @@
         "stechstudio/laravel-zipstream": "^4.4",
         "sunspikes/clamav-validator": "^2.4",
         "tabuna/breadcrumbs": "^2.3",
+        "webreinvent/laravel-nestable": "^0.0.3",
         "yajra/laravel-datatables": "1.5"
     },
     "require-dev": {
