@@ -2,13 +2,14 @@
 
 namespace App\Models\Address;
 
+use App\Models\Address\Relationship\CountryRelationship;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\softDeletes;
 
 class Country extends Model
 {
-    use HasFactory, softDeletes;
+    use HasFactory, softDeletes, CountryRelationship;
     /**
     * The table associated with the model.
     *
