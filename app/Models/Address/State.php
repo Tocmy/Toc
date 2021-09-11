@@ -2,12 +2,13 @@
 
 namespace App\Models\Address;
 
+use App\Models\Address\Relationship\StateRelationship;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class State extends Model
 {
-    use HasFactory;
+    use HasFactory, StateRelationship;
 
     /**
     * The table associated with the model.
