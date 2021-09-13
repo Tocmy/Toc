@@ -5,9 +5,8 @@ use App\Models\Address\Address;
 use App\Models\Address\State;
 use App\Models\Address\Zone;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-/**
- *
- */
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
 trait CountryRelationship
 {
      /**
@@ -29,6 +28,16 @@ trait CountryRelationship
      public function zones(): HasMany
      {
          return $this->hasMany(Zone::class, 'country_id', 'id');
+     }
+
+     /**
+      * Get the timezone that owns the CountryRelationship
+      *
+      * @return \Illuminate\DatabTimezoneEloquent\Relations\BelongsTo
+      */
+     public function timezone(): BelongsTo
+     {
+         return $this->belongsTo(Timezone::class, 'timezone_id', 'id');
      }
 
 }

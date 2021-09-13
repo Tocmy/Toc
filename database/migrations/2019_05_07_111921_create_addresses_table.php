@@ -54,7 +54,7 @@ class CreateAddressesTable extends Migration
 			$table->softDeletes();
 			$table->bigInteger('country_id')->unsigned();
 			$table->string('code', 32);
-			$table->string('name');
+			$table->string('name',255);
             $table->tinyInteger('status')->default('0');
 
         });
@@ -100,6 +100,20 @@ class CreateAddressesTable extends Migration
 
 		});
 
+        Schema::create('timezones', function(Blueprint $table) {
+
+            $table->bigIncrements('id');
+            $table->timestamps();
+            $table->string('value')->nullable();
+            $table->string('abbr')->nullable();
+            $table->integer('offset')->nullable();
+            $table->string('text')->nullable();
+            $table->string('utc')->nullable();
+            $table->boolean('dst')->nullable()->default(false);
+
+		});
+
+
 
     }
 
@@ -117,5 +131,6 @@ class CreateAddressesTable extends Migration
         Schema::dropIfExists('geos');
         Schema::dropIfExists('zones');
         Schema::dropIfExists('locations');
+        Schema::dropIfExists('timezones');
     }
 }

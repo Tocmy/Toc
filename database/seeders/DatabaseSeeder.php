@@ -15,8 +15,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Model::unguard();
-
-
+         //Address
+         $this->call(Addresses\CountriesTableSeeder::class);
+         $this->call(Addresses\StatesTableSeeder::class);
+         $this->call(Addresses\TimeZonesTableSeeder::class);
         //Users
         $this->call(Users\PermissionsTableSeeder::class);
         $this->call(Users\RolesTableSeeder::class);

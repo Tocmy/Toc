@@ -30,18 +30,44 @@ class Address extends Model
      */
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
-    public function getFullPostalAddressAttribute(): string
-    {
-        $fullPostalAddress = '';
-        $fullPostalAddress .= $this->address ?: '';
-        $fullPostalAddress .= $this->zip_code ? ($fullPostalAddress ? ' ' : '') . $this->zip_code : '';
-        $fullPostalAddress .= $this->city ? ($fullPostalAddress ? ' ' : '') . $this->city : '';
+    //public function getFullPostalAddressAttribute(): string
+    //{
+        //$fullPostalAddress = '';
+        //$fullPostalAddress .= $this->address ?: '';
+        //$fullPostalAddress .= $this->zip_code ? ($fullPostalAddress ? ' ' : '') . $this->zip_code : '';
+        //$fullPostalAddress .= $this->city ? ($fullPostalAddress ? ' ' : '') . $this->city : '';
 
-        return $fullPostalAddress;
-    }
+        //return $fullPostalAddress;
+    //}
+
+
 
     public function formattedFax()
     {
+            $fax = preg_replace("/[^0-9]/", "", $this->fax);
+            if (strlen($fax)== 10) {
+                return '(' . substr($fax, 0,3). ')'. substr($fax, 3,3). '-' . substr($fax, -4);
+            }else {
+                return $this->fax;
+            }
+    }
+    public function formattedTelephone()
+    {
+            $telephone = preg_replace("/[^0-9]/", "", $this->telephone);
+            if (strlen($telephone)== 10) {
+                return '(' . substr($telephone, 0,3). ')'. substr($telephone, 3,3). '-' . substr($telephone, -4);
+            }else {
+                return $this->telephone;
+            }
+    }
 
+    public function formattedTollFree()
+    {
+        $temp = preg_replace("/[^0-9]/", "", $this->toll_free);
+        if (strlen($temp) == 10) {
+            return '1-' . substr($temp, 0, 3) . '-' . substr($temp, 3, 3) . '-' . substr($temp, -4);
+        } else {
+            return $this->toll_free;
+        }
     }
 }

@@ -32,6 +32,7 @@
         "stechstudio/laravel-zipstream": "^4.4",
         "sunspikes/clamav-validator": "^2.4",
         "tabuna/breadcrumbs": "^2.3",
+        "toin0u/geocoder-laravel": "^4.4",
         "webreinvent/laravel-nestable": "^0.0.3",
         "yajra/laravel-datatables": "1.5"
     },
