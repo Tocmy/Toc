@@ -40,11 +40,22 @@ class CreateAddressesTable extends Migration
 			$table->bigIncrements('id');
 			$table->timestamps();
 			$table->softDeletes();
+            $table->string('name');
+            $table->string('full_name', 255)->nullable();
+            $table->string('capital', 255)->nullable();
+            $table->string('citizenship', 255)->nullable();
+            $table->bigInteger('timezone_id')->unsigned();
 			$table->string('iso_code_2', 2);
 			$table->string('iso_code_3', 3);
+            $table->string('calling_code', 3)->nullable();
+            $table->string('flag', 6)->nullable();
+            $table->boolean('eea')->nullable()->default(false);
 			$table->tinyInteger('status')->default('1');
-			$table->string('calling_code', 3)->nullable();
-            $table->string('name');
+
+
+
+
+            $table->foreign('timezone_id')->references('id')->on('timezones')->onDelete('set null');
 
         });
 

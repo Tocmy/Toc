@@ -23,7 +23,9 @@ class Country extends Model
      * @var  array
      */
     protected $fillable = [
-        'iso_code_2', 'iso_code_3', 'status', 'calling_code', 'name',
+        'name', 'full_name','capital','citizenship', 'timezone_id',
+        'iso_code_2', 'iso_code_3', 'status', 'calling_code',
+        'flag', 'eea',
     ];
 
     /**
