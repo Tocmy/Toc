@@ -46,7 +46,7 @@ class CreateAddressesTable extends Migration
             $table->string('citizenship', 255)->nullable();
             $table->bigInteger('timezone_id')->unsigned();
 			$table->string('iso_code_2', 2);
-			$table->string('iso_code_3', 3);
+			$table->string('iso_numeric', 3);
             $table->string('calling_code', 3)->nullable();
             $table->string('flag', 6)->nullable();
             $table->boolean('eea')->nullable()->default(false);
@@ -64,8 +64,10 @@ class CreateAddressesTable extends Migration
 			$table->timestamps();
 			$table->softDeletes();
 			$table->bigInteger('country_id')->unsigned();
-			$table->string('code', 32);
-			$table->string('name',255);
+			$table->string('iso_code');
+            $table->string('iso_numeric')->nullable();
+            $table->string('calling_code', 5)->nullable();
+			$table->string('name',255)->nullable();
             $table->tinyInteger('status')->default('0');
 
         });

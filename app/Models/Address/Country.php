@@ -6,6 +6,7 @@ use App\Models\Address\Relationship\CountryRelationship;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\softDeletes;
+use phpDocumentor\Reflection\Types\Null_;
 
 class Country extends Model
 {
@@ -24,7 +25,7 @@ class Country extends Model
      */
     protected $fillable = [
         'name', 'full_name','capital','citizenship', 'timezone_id',
-        'iso_code_2', 'iso_code_3', 'status', 'calling_code',
+        'iso_code_2', 'iso_numeric', 'status', 'calling_code',
         'flag', 'eea',
     ];
 
@@ -35,7 +36,7 @@ class Country extends Model
     */
     protected $attributes = [
         'iso_code_2' => '',
-        'iso_code_3' => '',
+        'iso_numeric' => Null,
         'status' => NULL,
         'calling_code' => NULL,
         'name' => '',

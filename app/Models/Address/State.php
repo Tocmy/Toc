@@ -5,6 +5,7 @@ namespace App\Models\Address;
 use App\Models\Address\Relationship\StateRelationship;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use phpDocumentor\Reflection\Types\Null_;
 
 class State extends Model
 {
@@ -23,7 +24,7 @@ class State extends Model
      * @var  array
      */
     protected $fillable = [
-        'country_id', 'code', 'name', 'status',
+        'country_id', 'iso_code', 'iso_numeric','calling_code', 'name', 'status',
     ];
 
     /**
@@ -33,8 +34,10 @@ class State extends Model
     */
     protected $attributes = [
         'country_id' => 0,
-        'code' => '',
-        'name' => '',
+        'iso_code' => '',
+        'iso_numeric' => Null,
+        'calling_code' => Null,
+        'name' => Null,
         'status' => false,
     ];
 
