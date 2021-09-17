@@ -17,6 +17,7 @@ class CountriesTableSeeder extends Seeder
     {
         $countries = [
             [
+                'id' => '1',
                 'iso_code_2' => 'AF',
                 'iso_code_3' => 'AFG',
                 'iso_numeric' => '4',
@@ -46,6 +47,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '2',
                 'iso_code_2' => 'AL',
                 'iso_code_3' => 'ALB',
                 'iso_numeric' => '8',
@@ -75,6 +77,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '3',
                 'iso_code_2' => 'AQ',
                 'iso_code_3' => '',
                 'iso_numeric' => '010',
@@ -104,6 +107,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '4',
                 'iso_code_2' => 'DZ',
                 'iso_code_3' => 'DZA',
                 'iso_numeric' => '12',
@@ -133,6 +137,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '5',
                 'iso_code_2' => 'AS',
                 'iso_code_3' => 'ASM',
                 'iso_numeric' => '16',
@@ -162,6 +167,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '6',
                 'iso_code_2' => 'AD',
                 'iso_code_3' => 'AND',
                 'iso_numeric' => '20',
@@ -191,6 +197,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '7',
                 'iso_code_2' => 'AO',
                 'iso_code_3' => 'AGO',
                 'iso_numeric' => '24',
@@ -220,6 +227,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '8',
                 'iso_code_2' => 'AG',
                 'iso_code_3' => 'ATG',
                 'iso_numeric' => '28',
@@ -249,6 +257,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '9',
                 'iso_code_2' => 'AZ',
                 'iso_code_3' => 'AZE',
                 'iso_numeric' => '31',
@@ -278,6 +287,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '10',
                 'iso_code_2' => 'AR',
                 'iso_code_3' => 'ARG',
                 'iso_numeric' => '32',
@@ -307,6 +317,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '11',
                 'iso_code_2' => 'AU',
                 'iso_code_3' => 'AUS',
                 'iso_numeric' => '36',
@@ -336,6 +347,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '12',
                 'iso_code_2' => 'AT',
                 'iso_code_3' => 'AUT',
                 'iso_numeric' => '40',
@@ -365,6 +377,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '13',
                 'iso_code_2' => 'BS',
                 'iso_code_3' => 'BHS',
                 'iso_numeric' => '44',
@@ -394,6 +407,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '14',
                 'iso_code_2' => 'BH',
                 'iso_code_3' => 'BHR',
                 'iso_numeric' => '48',
@@ -423,6 +437,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '15',
                 'iso_code_2' => 'BD',
                 'iso_code_3' => 'BGD',
                 'iso_numeric' => '50',
@@ -452,6 +467,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '16',
                 'iso_code_2' => 'AM',
                 'iso_code_3' => 'ARM',
                 'iso_numeric' => '51',
@@ -481,6 +497,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '17',
                 'iso_code_2' => 'BB',
                 'iso_code_3' => 'BRB',
                 'iso_numeric' => '52',
@@ -510,6 +527,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '18',
                 'iso_code_2' => 'BE',
                 'iso_code_3' => 'BEL',
                 'iso_numeric' => '56',
@@ -539,6 +557,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '19',
                 'iso_code_2' => 'BM',
                 'iso_code_3' => 'BMU',
                 'iso_numeric' => '60',
@@ -568,6 +587,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '20',
                 'iso_code_2' => 'BT',
                 'iso_code_3' => 'BTN',
                 'iso_numeric' => '64',
@@ -598,6 +618,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '21',
                 'iso_code_2' => 'BO',
                 'iso_code_3' => 'BOL',
                 'iso_numeric' => '68',
@@ -628,6 +649,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '22',
                 'iso_code_2' => 'BA',
                 'iso_code_3' => 'BIH',
                 'iso_numeric' => '70',
@@ -658,6 +680,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '23',
                 'iso_code_2' => 'BW',
                 'iso_code_3' => 'BWA',
                 'iso_numeric' => '72',
@@ -688,6 +711,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '24',
                 'iso_code_2' => 'BV',
                 'iso_code_3' => 'BVT',
                 'iso_numeric' => '74',
@@ -718,6 +742,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '0',
             ],
             [
+                'id' => '25',
                 'iso_code_2' => 'BR',
                 'iso_code_3' => 'BRA',
                 'iso_numeric' => '76',
@@ -746,6 +771,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '26',
                 'iso_code_2' => 'BZ',
                 'iso_code_3' => 'BLZ',
                 'iso_numeric' => '84',
@@ -775,6 +801,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '27',
                 'iso_code_2' => 'IO',
                 'iso_code_3' => 'IOT',
                 'iso_numeric' => '86',
@@ -804,6 +831,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '28',
                 'iso_code_2' => 'SB',
                 'iso_code_3' => 'SLB',
                 'iso_numeric' => '90',
@@ -834,6 +862,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '29',
                 'iso_code_2' => 'VG',
                 'iso_code_3' => 'VGB',
                 'iso_numeric' => '92',
@@ -864,6 +893,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '30',
                 'iso_code_2' => 'BN',
                 'iso_code_3' => 'BRN',
                 'iso_numeric' => '96',
@@ -893,6 +923,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '31',
                 'iso_code_2' => 'BG',
                 'iso_code_3' => 'BGR',
                 'iso_numeric' => '100',
@@ -923,6 +954,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '32',
                 'iso_code_2' => 'MM',
                 'iso_code_3' => 'MMR',
                 'iso_numeric' => '104',
@@ -952,6 +984,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '33',
                 'iso_code_2' => 'BI',
                 'iso_code_3' => 'BDI',
                 'iso_numeric' => '108',
@@ -982,6 +1015,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '34',
                 'iso_code_2' => 'BY',
                 'iso_code_3' => 'BLR',
                 'iso_numeric' => '112',
@@ -1013,6 +1047,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '35',
                 'iso_code_2' => 'KH',
                 'iso_code_3' => 'KHM',
                 'iso_numeric' => '116',
@@ -1043,6 +1078,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '36',
                 'iso_code_2' => 'CM',
                 'iso_code_3' => 'CMR',
                 'iso_numeric' => '120',
@@ -1073,6 +1109,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '37',
                 'iso_code_2' => 'CA',
                 'iso_code_3' => 'CAN',
                 'iso_numeric' => '124',
@@ -1101,6 +1138,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '38',
                 'iso_code_2' => 'CV',
                 'iso_code_3' => 'CPV',
                 'iso_numeric' => '132',
@@ -1131,6 +1169,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '39',
                 'iso_code_2' => 'KY',
                 'iso_code_3' => 'CYM',
                 'iso_numeric' => '136',
@@ -1161,6 +1200,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '40',
                 'iso_code_2' => 'CF',
                 'iso_code_3' => 'CAF',
                 'iso_numeric' => '140',
@@ -1191,6 +1231,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '41',
                 'iso_code_2' => 'LK',
                 'iso_code_3' => 'LKA',
                 'iso_numeric' => '144',
@@ -1221,6 +1262,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '42',
                 'iso_code_2' => 'TD',
                 'iso_code_3' => 'TCD',
                 'iso_numeric' => '148',
@@ -1251,6 +1293,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '43',
                 'iso_code_2' => 'CL',
                 'iso_code_3' => 'CHL',
                 'iso_numeric' => '152',
@@ -1281,6 +1324,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '44',
                 'iso_code_2' => 'CN',
                 'iso_code_3' => 'CHN',
                 'iso_numeric' => '156',
@@ -1311,6 +1355,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '45',
                 'iso_code_2' => 'TW',
                 'iso_code_3' => 'TWN',
                 'iso_numeric' => '158',
@@ -1341,6 +1386,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '46',
                 'iso_code_2' => 'CX',
                 'iso_code_3' => 'CXR',
                 'iso_numeric' => '162',
@@ -1371,6 +1417,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '47',
                 'iso_code_2' => 'CC',
                 'iso_code_3' => 'CCK',
                 'iso_numeric' => '166',
@@ -1401,6 +1448,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '48',
                 'iso_code_2' => 'CO',
                 'iso_code_3' => 'COL',
                 'iso_numeric' => '170',
@@ -1431,6 +1479,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '49',
                 'iso_code_2' => 'KM',
                 'iso_code_3' => 'COM',
                 'iso_numeric' => '174',
@@ -1460,6 +1509,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '50',
                 'iso_code_2' => 'YT',
                 'iso_code_3' => 'MYT',
                 'iso_numeric' => '175',
@@ -1490,6 +1540,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '51',
                 'iso_code_2' => 'CG',
                 'iso_code_3' => 'COG',
                 'iso_numeric' => '178',
@@ -1520,6 +1571,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '52',
                 'iso_code_2' => 'CD',
                 'iso_code_3' => 'COD',
                 'iso_numeric' => '180',
@@ -1550,6 +1602,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '53',
                 'iso_code_2' => 'CK',
                 'iso_code_3' => 'COK',
                 'iso_numeric' => '184',
@@ -1580,6 +1633,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '54',
                 'iso_code_2' => 'CR',
                 'iso_code_3' => 'CRI',
                 'iso_numeric' => '188',
@@ -1609,6 +1663,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '55',
                 'iso_code_2' => 'HR',
                 'iso_code_3' => 'HRV',
                 'iso_numeric' => '191',
@@ -1639,6 +1694,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '56',
                 'iso_code_2' => 'CU',
                 'iso_code_3' => 'CUB',
                 'iso_numeric' => '192',
@@ -1669,6 +1725,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '57',
                 'iso_code_2' => 'CY',
                 'iso_code_3' => 'CYP',
                 'iso_numeric' => '196',
@@ -1699,6 +1756,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '58',
                 'iso_code_2' => 'CZ',
                 'iso_code_3' => 'CZE',
                 'iso_numeric' => '203',
@@ -1729,6 +1787,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '59',
                 'iso_code_2' => 'BJ',
                 'iso_code_3' => 'BEN',
                 'iso_numeric' => '204',
@@ -1759,6 +1818,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '60',
                 'iso_code_2' => 'DK',
                 'iso_code_3' => 'DNK',
                 'iso_numeric' => '208',
@@ -1789,6 +1849,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '61',
                 'iso_code_2' => 'DM',
                 'iso_code_3' => 'DMA',
                 'iso_numeric' => '212',
@@ -1819,6 +1880,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '62',
                 'iso_code_2' => 'DO',
                 'iso_code_3' => 'DOM',
                 'iso_numeric' => '214',
@@ -1849,6 +1911,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '63',
                 'iso_code_2' => 'EC',
                 'iso_code_3' => 'ECU',
                 'iso_numeric' => '218',
@@ -1879,6 +1942,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '64',
                 'iso_code_2' => 'SV',
                 'iso_code_3' => 'SLV',
                 'iso_numeric' => '222',
@@ -1909,6 +1973,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '65',
                 'iso_code_2' => 'GQ',
                 'iso_code_3' => 'GNQ',
                 'iso_numeric' => '226',
@@ -1940,6 +2005,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '66',
                 'iso_code_2' => 'ET',
                 'iso_code_3' => 'ETH',
                 'iso_numeric' => '231',
@@ -1955,7 +2021,7 @@ class CountriesTableSeeder extends Seeder
                 'currency' => 'birr (inv.)',
                 'currency_code' => 'ETB',
                 'currency_sub_unit' => 'cent',
-
+                'currency_symbol' => '',
                 'calling_code' => '251',
                 'postal_code_format' => '####',
                 'postal_code_regex' => '^(d{4})$',
@@ -1970,6 +2036,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '67',
                 'iso_code_2' => 'ER',
                 'iso_code_3' => 'ERI',
                 'iso_numeric' => '232',
@@ -2000,6 +2067,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '68',
                 'iso_code_2' => 'EE',
                 'iso_code_3' => 'EST',
                 'iso_numeric' => '233',
@@ -2029,6 +2097,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '69',
                 'iso_code_2' => 'FO',
                 'iso_code_3' => 'FRO',
                 'iso_numeric' => '234',
@@ -2059,6 +2128,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '70',
                 'iso_code_2' => 'FK',
                 'iso_code_3' => 'FLK',
                 'iso_numeric' => '238',
@@ -2089,6 +2159,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '71',
                 'iso_code_2' => 'GS',
                 'iso_code_3' => 'SGS',
                 'iso_numeric' => '239',
@@ -2120,6 +2191,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '72',
                 'iso_code_2' => 'FJ',
                 'iso_code_3' => 'FJI',
                 'iso_numeric' => '242',
@@ -2149,6 +2221,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '73',
                 'iso_code_2' => 'FI',
                 'iso_code_3' => 'FIN',
                 'iso_numeric' => '246',
@@ -2179,6 +2252,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '74',
                 'iso_code_2' => 'AX',
                 'iso_code_3' => 'ALA',
                 'iso_numeric' => '248',
@@ -2209,6 +2283,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '75',
                 'iso_code_2' => 'FR',
                 'iso_code_3' => 'FRA',
                 'iso_numeric' => '250',
@@ -2239,6 +2314,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '76',
                 'iso_code_2' => 'GF',
                 'iso_code_3' => 'GUF',
                 'iso_numeric' => '254',
@@ -2269,6 +2345,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '77',
                 'iso_code_2' => 'PF',
                 'iso_code_3' => 'PYF',
                 'iso_numeric' => '258',
@@ -2299,6 +2376,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '78',
                 'iso_code_2' => 'TF',
                 'iso_code_3' => 'ATF',
                 'iso_numeric' => '260',
@@ -2329,6 +2407,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '79',
                 'iso_code_2' => 'DJ',
                 'iso_code_3' => 'DJI',
                 'iso_numeric' => '262',
@@ -2359,6 +2438,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '80',
                 'iso_code_2' => 'GA',
                 'iso_code_3' => 'GAB',
                 'iso_numeric' => '266',
@@ -2388,6 +2468,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '81',
                 'iso_code_2' => 'GE',
                 'iso_code_3' => 'GEO',
                 'iso_numeric' => '268',
@@ -2417,6 +2498,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '82',
                 'iso_code_2' => 'GM',
                 'iso_code_3' => 'GMB',
                 'iso_numeric' => '270',
@@ -2447,6 +2529,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '83',
                 'iso_code_2' => 'PS',
                 'iso_code_3' => 'PSE',
                 'iso_numeric' => '275',
@@ -2477,6 +2560,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '84',
                 'iso_code_2' => 'DE',
                 'iso_code_3' => 'DEU',
                 'iso_numeric' => '276',
@@ -2507,6 +2591,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '85',
                 'iso_code_2' => 'GH',
                 'iso_code_3' => 'GHA',
                 'iso_numeric' => '288',
@@ -2537,6 +2622,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '86',
                 'iso_code_2' => 'GI',
                 'iso_code_3' => 'GIB',
                 'iso_numeric' => '292',
@@ -2567,6 +2653,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '87',
                 'iso_code_2' => 'KI',
                 'iso_code_3' => 'KIR',
                 'iso_numeric' => '296',
@@ -2597,6 +2684,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '88',
                 'iso_code_2' => 'GR',
                 'iso_code_3' => 'GRC',
                 'iso_numeric' => '300',
@@ -2627,6 +2715,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '89',
                 'iso_code_2' => 'GL',
                 'iso_code_3' => 'GRL',
                 'iso_numeric' => '304',
@@ -2657,6 +2746,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '90',
                 'iso_code_2' => 'GD',
                 'iso_code_3' => 'GRD',
                 'iso_numeric' => '308',
@@ -2687,6 +2777,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '91',
                 'iso_code_2' => 'GP',
                 'iso_code_3' => 'GLP',
                 'iso_numeric' => '312',
@@ -2717,6 +2808,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '92',
                 'iso_code_2' => 'GU',
                 'iso_code_3' => 'GUM',
                 'iso_numeric' => '316',
@@ -2747,6 +2839,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '93',
                 'iso_code_2' => 'GT',
                 'iso_code_3' => 'GTM',
                 'iso_numeric' => '320',
@@ -2777,6 +2870,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '94',
                 'iso_code_2' => 'GN',
                 'iso_code_3' => 'GIN',
                 'iso_numeric' => '324',
@@ -2807,6 +2901,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '95',
                 'iso_code_2' => 'GY',
                 'iso_code_3' => 'GUY',
                 'iso_numeric' => '328',
@@ -2838,6 +2933,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '96',
                 'iso_code_2' => 'HT',
                 'iso_code_3' => 'HTI',
                 'iso_numeric' => '332',
@@ -2868,6 +2964,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '97',
                 'iso_code_2' => 'HM',
                 'iso_code_3' => 'HMD',
                 'iso_numeric' => '334',
@@ -2899,6 +2996,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '98',
                 'iso_code_2' => 'VA',
                 'iso_code_3' => 'VAT',
                 'iso_numeric' => '336',
@@ -2928,6 +3026,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '99',
                 'iso_code_2' => 'HN',
                 'iso_code_3' => 'HND',
                 'iso_numeric' => '340',
@@ -2958,6 +3057,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '100',
                 'iso_code_2' => 'HK',
                 'iso_code_3' => 'HKG',
                 'iso_numeric' => '344',
@@ -2989,6 +3089,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '101',
                 'iso_code_2' => 'HU',
                 'iso_code_3' => 'HUN',
                 'iso_numeric' => '348',
@@ -3019,6 +3120,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '102',
                 'iso_code_2' => 'IS',
                 'iso_code_3' => 'ISL',
                 'iso_numeric' => '352',
@@ -3049,6 +3151,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '103',
                 'iso_code_2' => 'IN',
                 'iso_code_3' => 'IND',
                 'iso_numeric' => '356',
@@ -3080,6 +3183,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '104',
                 'iso_code_2' => 'ID',
                 'iso_code_3' => 'IDN',
                 'iso_numeric' => '360',
@@ -3110,6 +3214,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '105',
                 'iso_code_2' => 'IR',
                 'iso_code_3' => 'IRN',
                 'iso_numeric' => '364',
@@ -3140,6 +3245,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '106',
                 'iso_code_2' => 'IQ',
                 'iso_code_3' => 'IRQ',
                 'iso_numeric' => '368',
@@ -3169,6 +3275,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '107',
                 'iso_code_2' => 'IE',
                 'iso_code_3' => 'IRL',
                 'iso_numeric' => '372',
@@ -3198,6 +3305,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '108',
                 'iso_code_2' => 'IL',
                 'iso_code_3' => 'ISR',
                 'iso_numeric' => '376',
@@ -3227,6 +3335,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '109',
                 'iso_code_2' => 'IT',
                 'iso_code_3' => 'ITA',
                 'iso_numeric' => '380',
@@ -3257,6 +3366,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '110',
                 'iso_code_2' => 'CI',
                 'iso_code_3' => 'CIV',
                 'iso_numeric' => '384',
@@ -3287,6 +3397,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '111',
                 'iso_code_2' => 'JM',
                 'iso_code_3' => 'JAM',
                 'iso_numeric' => '388',
@@ -3317,6 +3428,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '112',
                 'iso_code_2' => 'JP',
                 'iso_code_3' => 'JPN',
                 'iso_numeric' => '392',
@@ -3347,6 +3459,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '113',
                 'iso_code_2' => 'KZ',
                 'iso_code_3' => 'KAZ',
                 'iso_numeric' => '398',
@@ -3377,6 +3490,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '114',
                 'iso_code_2' => 'JO',
                 'iso_code_3' => 'JOR',
                 'iso_numeric' => '400',
@@ -3407,6 +3521,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '115',
                 'iso_code_2' => 'KE',
                 'iso_code_3' => 'KEN',
                 'iso_numeric' => '404',
@@ -3436,6 +3551,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '116',
                 'iso_code_2' => 'KP',
                 'iso_code_3' => 'PRK',
                 'iso_numeric' => '408',
@@ -3452,7 +3568,6 @@ class CountriesTableSeeder extends Seeder
                 'currency_code' => 'KPW',
                 'currency_sub_unit' => 'chun (inv.)',
                 'currency_symbol' => '\u20a9',
-
                 'calling_code' => '850',
                 'postal_code_format' => '###-###',
                 'postal_code_regex' => '^(d{6})$',
@@ -3463,10 +3578,10 @@ class CountriesTableSeeder extends Seeder
                 'sub-region-code' => '030',
                 'eea' => false,
                 'flag' => 'KP.png',
-
                 'status' => '1',
             ],
             [
+                'id' => '117',
                 'iso_code_2' => 'KR',
                 'iso_code_3' => 'KOR',
                 'iso_numeric' => '410',
@@ -3497,6 +3612,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '118',
                 'iso_code_2' => 'KW',
                 'iso_code_3' => 'KWT',
                 'iso_numeric' => '414',
@@ -3527,6 +3643,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '119',
                 'iso_code_2' => 'KG',
                 'iso_code_3' => 'KGZ',
                 'iso_numeric' => '417',
@@ -3557,6 +3674,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '120',
                 'iso_code_2' => 'LA',
                 'iso_code_3' => 'LAO',
                 'iso_numeric' => '418',
@@ -3587,6 +3705,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '121',
                 'iso_code_2' => 'LB',
                 'iso_code_3' => 'LBN',
                 'iso_numeric' => '422',
@@ -3617,6 +3736,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '122',
                 'iso_code_2' => 'LS',
                 'iso_code_3' => 'LSO',
                 'iso_numeric' => '426',
@@ -3647,6 +3767,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '123',
                 'iso_code_2' => 'LV',
                 'iso_code_3' => 'LVA',
                 'iso_numeric' => '428',
@@ -3677,6 +3798,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '124',
                 'iso_code_2' => 'LR',
                 'iso_code_3' => 'LBR',
                 'iso_numeric' => '430',
@@ -3693,7 +3815,6 @@ class CountriesTableSeeder extends Seeder
                 'currency_code' => 'LRD',
                 'currency_sub_unit' => 'cent',
                 'currency_symbol' => '$',
-
                 'calling_code' => '231',
                 'postal_code_format' => '####',
                 'postal_code_regex' => '^(d{4})$',
@@ -3708,6 +3829,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '125',
                 'iso_code_2' => 'LY',
                 'iso_code_3' => 'LBY',
                 'iso_numeric' => '434',
@@ -3724,7 +3846,6 @@ class CountriesTableSeeder extends Seeder
                 'currency_code' => 'LYD',
                 'currency_sub_unit' => 'dirham',
                 'currency_symbol' => 'LYD',
-
                 'calling_code' => '218',
                 'postal_code_format' => '',
                 'postal_code_regex' => '',
@@ -3735,10 +3856,10 @@ class CountriesTableSeeder extends Seeder
                 'sub-region-code' => '015',
                 'eea' => false,
                 'flag' => 'LY.png',
-
                 'status' => '1',
             ],
             [
+                'id' => '126',
                 'iso_code_2' => 'LI',
                 'iso_code_3' => 'LIE',
                 'iso_numeric' => '438',
@@ -3769,6 +3890,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '127',
                 'iso_code_2' => 'LT',
                 'iso_code_3' => 'LTU',
                 'iso_numeric' => '440',
@@ -3799,6 +3921,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '128',
                 'iso_code_2' => 'LU',
                 'iso_code_3' => 'LUX',
                 'iso_numeric' => '442',
@@ -3829,6 +3952,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '129',
                 'iso_code_2' => 'MO',
                 'iso_code_3' => 'MAC',
                 'iso_numeric' => '446',
@@ -3860,6 +3984,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '130',
                 'iso_code_2' => 'MG',
                 'iso_code_3' => 'MDG',
                 'iso_numeric' => '450',
@@ -3890,6 +4015,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '131',
                 'iso_code_2' => 'MW',
                 'iso_code_3' => 'MWI',
                 'iso_numeric' => '454',
@@ -3920,6 +4046,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '132',
                 'iso_code_2' => 'MY',
                 'iso_code_3' => 'MYS',
                 'iso_numeric' => '458',
@@ -3950,6 +4077,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '133',
                 'iso_code_2' => 'MV',
                 'iso_code_3' => 'MDV',
                 'iso_numeric' => '462',
@@ -3980,6 +4108,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '134',
                 'iso_code_2' => 'ML',
                 'iso_code_3' => 'MLI',
                 'iso_numeric' => '466',
@@ -4010,6 +4139,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '135',
                 'iso_code_2' => 'MT',
                 'iso_code_3' => 'MLT',
                 'iso_numeric' => '470',
@@ -4040,6 +4170,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '136',
                 'iso_code_2' => 'MQ',
                 'iso_code_3' => 'MTQ',
                 'iso_numeric' => '474',
@@ -4070,6 +4201,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '137',
                 'iso_code_2' => 'MR',
                 'iso_code_3' => 'MRT',
                 'iso_numeric' => '478',
@@ -4100,6 +4232,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '138',
                 'iso_code_2' => 'MU',
                 'iso_code_3' => 'MUS',
                 'iso_numeric' => '480',
@@ -4130,6 +4263,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '139',
                 'iso_code_2' => 'MX',
                 'iso_code_3' => 'MEX',
                 'iso_numeric' => '484',
@@ -4160,6 +4294,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '140',
                 'iso_code_2' => 'MC',
                 'iso_code_3' => 'MCO',
                 'iso_numeric' => '492',
@@ -4190,6 +4325,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '141',
                 'iso_code_2' => 'MN',
                 'iso_code_3' => 'MNG',
                 'iso_numeric' => '496',
@@ -4220,6 +4356,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '142',
                 'iso_code_2' => 'MD',
                 'iso_code_3' => 'MDA',
                 'iso_numeric' => '498',
@@ -4250,6 +4387,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '143',
                 'iso_code_2' => 'ME',
                 'iso_code_3' => 'MNE',
                 'iso_numeric' => '499',
@@ -4280,6 +4418,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '144',
                 'iso_code_2' => 'MS',
                 'iso_code_3' => 'MSR',
                 'iso_numeric' => '500',
@@ -4310,6 +4449,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '145',
                 'iso_code_2' => 'MA',
                 'iso_code_3' => 'MAR',
                 'iso_numeric' => '504',
@@ -4340,6 +4480,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '146',
                 'iso_code_2' => 'MZ',
                 'iso_code_3' => 'MOZ',
                 'iso_numeric' => '508',
@@ -4370,6 +4511,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '147',
                 'iso_code_2' => 'OM',
                 'iso_code_3' => 'OMN',
                 'iso_numeric' => '512',
@@ -4400,6 +4542,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '148',
                 'iso_code_2' => 'NA',
                 'iso_code_3' => 'NAM',
                 'iso_numeric' => '516',
@@ -4430,6 +4573,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '149',
                 'iso_code_2' => 'NR',
                 'iso_code_3' => 'NRU',
                 'iso_numeric' => '520',
@@ -4460,6 +4604,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '150',
                 'iso_code_2' => 'NP',
                 'iso_code_3' => 'NPL',
                 'iso_numeric' => '524',
@@ -4490,6 +4635,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '151',
                 'iso_code_2' => 'NL',
                 'iso_code_3' => 'NLD',
                 'iso_numeric' => '528',
@@ -4520,6 +4666,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '152',
                 'iso_code_2' => 'AN',
                 'iso_code_3' => 'ANT',
                 'iso_numeric' => '530',
@@ -4550,6 +4697,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '153',
                 'iso_code_2' => 'CW',
                 'iso_code_3' => 'CUW',
                 'iso_numeric' => '531',
@@ -4580,6 +4728,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '154',
                 'iso_code_2' => 'AW',
                 'iso_code_3' => 'ABW',
                 'iso_numeric' => '533',
@@ -4610,6 +4759,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '155',
                 'iso_code_2' => 'SX',
                 'iso_code_3' => 'SXM',
                 'iso_numeric' => '534',
@@ -4640,6 +4790,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '156',
                 'iso_code_2' => 'BQ',
                 'iso_code_3' => 'BES',
                 'iso_numeric' => '535',
@@ -4670,6 +4821,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '157',
                 'iso_code_2' => 'NC',
                 'iso_code_3' => 'NCL',
                 'iso_numeric' => '540',
@@ -4700,6 +4852,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '158',
                 'iso_code_2' => 'VU',
                 'iso_code_3' => 'VUT',
                 'iso_numeric' => '548',
@@ -4730,6 +4883,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '159',
                 'iso_code_2' => 'NZ',
                 'iso_code_3' => 'NZL',
                 'iso_numeric' => '554',
@@ -4760,6 +4914,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '160',
                 'iso_code_2' => 'NI',
                 'iso_code_3' => 'NIC',
                 'iso_numeric' => '558',
@@ -4790,6 +4945,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '161',
                 'iso_code_2' => 'NE',
                 'iso_code_3' => 'NER',
                 'iso_numeric' => '562',
@@ -4819,6 +4975,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '162',
                 'iso_code_2' => 'NG',
                 'iso_code_3' => 'NGA',
                 'iso_numeric' => '566',
@@ -4849,6 +5006,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '163',
                 'iso_code_2' => 'NU',
                 'iso_code_3' => 'NIU',
                 'iso_numeric' => '570',
@@ -4879,6 +5037,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '164',
                 'iso_code_2' => 'NF',
                 'iso_code_3' => 'NFK',
                 'iso_numeric' => '574',
@@ -4909,6 +5068,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '165',
                 'iso_code_2' => 'NO',
                 'iso_code_3' => 'NOR',
                 'iso_numeric' => '578',
@@ -4939,6 +5099,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '166',
                 'iso_code_2' => 'MP',
                 'iso_code_3' => 'MNP',
                 'iso_numeric' => '580',
@@ -4969,6 +5130,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '167',
                 'iso_code_2' => 'UM',
                 'iso_code_3' => 'UMI',
                 'iso_numeric' => '581',
@@ -4999,6 +5161,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '168',
                 'iso_code_2' => 'FM',
                 'iso_code_3' => 'FSM',
                 'iso_numeric' => '583',
@@ -5029,6 +5192,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '169',
                 'iso_code_2' => 'MH',
                 'iso_code_3' => 'MHL',
                 'iso_numeric' => '584',
@@ -5059,6 +5223,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '170',
                 'iso_code_2' => 'PW',
                 'iso_code_3' => 'PLW',
                 'iso_numeric' => '585',
@@ -5088,6 +5253,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '171',
                 'iso_code_2' => 'PK',
                 'iso_code_3' => 'PAK',
                 'iso_numeric' => '586',
@@ -5117,6 +5283,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '172',
                 'iso_code_2' => 'PA',
                 'iso_code_3' => 'PAN',
                 'iso_numeric' => '591',
@@ -5147,6 +5314,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '173',
                 'iso_code_2' => 'PG',
                 'iso_code_3' => 'PNG',
                 'iso_numeric' => '598',
@@ -5173,10 +5341,10 @@ class CountriesTableSeeder extends Seeder
                 'sub-region-code' => '054',
                 'eea' => false,
                 'flag' => 'PG.png',
-
                 'status' => '1',
             ],
             [
+                'id' => '174',
                 'iso_code_2' => 'PY',
                 'iso_code_3' => 'PRY',
                 'iso_numeric' => '600',
@@ -5207,6 +5375,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '175',
                 'iso_code_2' => 'PE',
                 'iso_code_3' => 'PER',
                 'iso_numeric' => '604',
@@ -5237,6 +5406,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '176',
                 'iso_code_2' => 'PH',
                 'iso_code_3' => 'PHL',
                 'iso_numeric' => '608',
@@ -5267,6 +5437,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '177',
                 'iso_code_2' => 'PN',
                 'iso_code_3' => 'PCN',
                 'iso_numeric' => '612',
@@ -5297,6 +5468,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '178',
                 'iso_code_2' => 'PL',
                 'iso_code_3' => 'POL',
                 'iso_numeric' => '616',
@@ -5327,6 +5499,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '179',
                 'iso_code_2' => 'PT',
                 'iso_code_3' => 'PRT',
                 'iso_numeric' => '620',
@@ -5356,6 +5529,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '180',
                 'iso_code_2' => 'GW',
                 'iso_code_3' => 'GNB',
                 'iso_numeric' => '624',
@@ -5386,6 +5560,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '181',
                 'iso_code_2' => 'TL',
                 'iso_code_3' => 'TLS',
                 'iso_numeric' => '626',
@@ -5415,6 +5590,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '182',
                 'iso_code_2' => 'PR',
                 'iso_code_3' => 'PRI',
                 'iso_numeric' => '630',
@@ -5445,6 +5621,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '183',
                 'iso_code_2' => 'QA',
                 'iso_code_3' => 'QAT',
                 'iso_numeric' => '634',
@@ -5475,6 +5652,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '184',
                 'iso_code_2' => 'RE',
                 'iso_code_3' => 'REU',
                 'iso_numeric' => '638',
@@ -5505,6 +5683,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '185',
                 'iso_code_2' => 'RO',
                 'iso_code_3' => 'ROU',
                 'iso_numeric' => '642',
@@ -5535,6 +5714,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '186',
                 'iso_code_2' => 'RU',
                 'iso_code_3' => 'RUS',
                 'iso_numeric' => '643',
@@ -5566,6 +5746,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '187',
                 'iso_code_2' => 'RW',
                 'iso_code_3' => 'RWA',
                 'iso_numeric' => '646',
@@ -5596,6 +5777,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '188',
                 'iso_code_2' => 'BL',
                 'iso_code_3' => 'BLM',
                 'iso_numeric' => '652',
@@ -5626,6 +5808,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '189',
                 'iso_code_2' => 'SH',
                 'iso_code_3' => 'SHN',
                 'iso_numeric' => '654',
@@ -5656,6 +5839,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '190',
                 'iso_code_2' => 'KN',
                 'iso_code_3' => 'KNA',
                 'iso_numeric' => '659',
@@ -5686,6 +5870,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '191',
                 'iso_code_2' => 'AI',
                 'iso_code_3' => 'AIA',
                 'iso_numeric' => '660',
@@ -5716,6 +5901,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '192',
                 'iso_code_2' => 'LC',
                 'iso_code_3' => 'LCA',
                 'iso_numeric' => '662',
@@ -5746,6 +5932,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '193',
                 'iso_code_2' => 'MF',
                 'iso_code_3' => 'MAF',
                 'iso_numeric' => '663',
@@ -5775,6 +5962,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '194',
                 'iso_code_2' => 'PM',
                 'iso_code_3' => 'SPM',
                 'iso_numeric' => '666',
@@ -5806,6 +5994,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '195',
                 'iso_code_2' => 'VC',
                 'iso_code_3' => 'VCT',
                 'iso_numeric' => '670',
@@ -5835,6 +6024,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '196',
                 'iso_code_2' => 'SM',
                 'iso_code_3' => 'SMR',
                 'iso_numeric' => '674',
@@ -5865,6 +6055,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '197',
                 'iso_code_2' => 'ST',
                 'iso_code_3' => 'STP',
                 'iso_numeric' => '678',
@@ -5895,6 +6086,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '198',
                 'iso_code_2' => 'SA',
                 'iso_code_3' => 'SAU',
                 'iso_numeric' => '682',
@@ -5925,6 +6117,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '199',
                 'iso_code_2' => 'SN',
                 'iso_code_3' => 'SEN',
                 'iso_numeric' => '686',
@@ -5955,6 +6148,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '200',
                 'iso_code_2' => 'RS',
                 'iso_code_3' => 'SRB',
                 'iso_numeric' => '688',
@@ -5985,6 +6179,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '201',
                 'iso_code_2' => 'SC',
                 'iso_code_3' => 'SYC',
                 'iso_numeric' => '690',
@@ -6015,6 +6210,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '202',
                 'iso_code_2' => 'SL',
                 'iso_code_3' => 'SLE',
                 'iso_numeric' => '694',
@@ -6041,10 +6237,10 @@ class CountriesTableSeeder extends Seeder
                 'sub-region-code' => '011',
                 'eea' => false,
                 'flag' => 'SL.png',
-
                 'status' => '1',
             ],
             [
+                'id' => '203',
                 'iso_code_2' => 'SG',
                 'iso_code_3' => 'SGP',
                 'iso_numeric' => '702',
@@ -6075,6 +6271,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '204',
                 'iso_code_2' => 'SK',
                 'iso_code_3' => 'SVK',
                 'iso_numeric' => '703',
@@ -6105,6 +6302,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '205',
                 'iso_code_2' => 'VN',
                 'iso_code_3' => 'VNM',
                 'iso_numeric' => '704',
@@ -6134,6 +6332,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '206',
                 'iso_code_2' => 'SI',
                 'iso_code_3' => 'SVN',
                 'iso_numeric' => '705',
@@ -6163,6 +6362,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '207',
                 'iso_code_2' => 'SO',
                 'iso_code_3' => 'SOM',
                 'iso_numeric' => '706',
@@ -6192,6 +6392,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '208',
                 'iso_code_2' => 'ZA',
                 'iso_code_3' => 'ZAF',
                 'iso_numeric' => '710',
@@ -6221,6 +6422,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '209',
                 'iso_code_2' => 'ZW',
                 'iso_code_3' => 'ZWE',
                 'iso_numeric' => '716',
@@ -6250,6 +6452,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '210',
                 'iso_code_2' => 'ES',
                 'iso_code_3' => 'ESP',
                 'iso_numeric' => '724',
@@ -6279,6 +6482,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '211',
                 'iso_code_2' => 'SS',
                 'iso_code_3' => 'SSD',
                 'iso_numeric' => '728',
@@ -6309,6 +6513,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '212',
                 'iso_code_2' => 'SD',
                 'iso_code_3' => 'SDN',
                 'iso_numeric' => '729',
@@ -6338,6 +6543,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '213',
                 'iso_code_2' => 'EH',
                 'iso_code_3' => 'ESH',
                 'iso_numeric' => '732',
@@ -6367,6 +6573,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '214',
                 'iso_code_2' => 'SR',
                 'iso_code_3' => 'SUR',
                 'iso_numeric' => '740',
@@ -6396,6 +6603,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '215',
                 'iso_code_2' => 'SJ',
                 'iso_code_3' => 'SJM',
                 'iso_numeric' => '744',
@@ -6425,6 +6633,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '216',
                 'iso_code_2' => 'SZ',
                 'iso_code_3' => 'SWZ',
                 'iso_numeric' => '748',
@@ -6454,6 +6663,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '217',
                 'iso_code_2' => 'SE',
                 'iso_code_3' => 'SWE',
                 'iso_numeric' => '752',
@@ -6483,6 +6693,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '218',
                 'iso_code_2' => 'CH',
                 'iso_code_3' => 'CHE',
                 'iso_numeric' => '756',
@@ -6512,6 +6723,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '219',
                 'iso_code_2' => 'SY',
                 'iso_code_3' => 'SYR',
                 'iso_numeric' => '760',
@@ -6541,6 +6753,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '220',
                 'iso_code_2' => 'TJ',
                 'iso_code_3' => 'TJK',
                 'iso_numeric' => '762',
@@ -6570,6 +6783,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '221',
                 'iso_code_2' => 'TH',
                 'iso_code_3' => 'THA',
                 'iso_numeric' => '764',
@@ -6599,6 +6813,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '222',
                 'iso_code_2' => 'TG',
                 'iso_code_3' => 'TGO',
                 'iso_numeric' => '768',
@@ -6628,6 +6843,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '223',
                 'iso_code_2' => 'TK',
                 'iso_code_3' => 'TKL',
                 'iso_numeric' => '772',
@@ -6657,6 +6873,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '224',
                 'iso_code_2' => 'TO',
                 'iso_code_3' => 'TON',
                 'iso_numeric' => '776',
@@ -6686,6 +6903,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '225',
                 'iso_code_2' => 'TT',
                 'iso_code_3' => 'TTO',
                 'iso_numeric' => '780',
@@ -6715,6 +6933,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '226',
                 'iso_code_2' => 'AE',
                 'iso_code_3' => 'ARE',
                 'iso_numeric' => '784',
@@ -6744,6 +6963,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '227',
                 'iso_code_2' => 'TN',
                 'iso_code_3' => 'TUN',
                 'iso_numeric' => '788',
@@ -6773,6 +6993,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '228',
                 'iso_code_2' => 'TR',
                 'iso_code_3' => 'TUR',
                 'iso_numeric' => '792',
@@ -6802,6 +7023,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '229',
                 'iso_code_2' => 'TM',
                 'iso_code_3' => 'TKM',
                 'iso_numeric' => '795',
@@ -6831,6 +7053,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '230',
                 'iso_code_2' => 'TC',
                 'iso_code_3' => 'TCA',
                 'iso_numeric' => '796',
@@ -6860,6 +7083,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '231',
                 'iso_code_2' => 'TV',
                 'iso_code_3' => 'TUV',
                 'iso_numeric' => '798',
@@ -6889,6 +7113,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '232',
                 'iso_code_2' => 'UG',
                 'iso_code_3' => 'UGA',
                 'iso_numeric' => '800',
@@ -6918,6 +7143,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '233',
                 'iso_code_2' => 'UA',
                 'iso_code_3' => 'UKR',
                 'iso_numeric' => '804',
@@ -6947,6 +7173,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '234',
                 'iso_code_2' => 'MK',
                 'iso_code_3' => 'MKD',
                 'iso_numeric' => '807',
@@ -6976,6 +7203,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '235',
                 'iso_code_2' => 'EG',
                 'iso_code_3' => 'EGY',
                 'iso_numeric' => '818',
@@ -7005,6 +7233,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '236',
                 'iso_code_2' => 'UK',
                 'iso_code_3' => 'GBR',
                 'iso_numeric' => '826',
@@ -7037,6 +7266,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '237',
                 'iso_code_2' => 'GG',
                 'iso_code_3' => 'GGY',
                 'iso_numeric' => '831',
@@ -7068,6 +7298,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '238',
                 'iso_code_2' => 'JE',
                 'iso_code_3' => 'JEY',
                 'iso_numeric' => '832',
@@ -7099,6 +7330,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '239',
                 'iso_code_2' => 'IM',
                 'iso_code_3' => 'IMN',
                 'iso_numeric' => '833',
@@ -7130,6 +7362,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '240',
                 'iso_code_2' => 'TZ',
                 'iso_code_3' => 'TZA',
                 'iso_numeric' => '834',
@@ -7159,6 +7392,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '241',
                 'iso_code_2' => 'US',
                 'iso_code_3' => 'USA',
                 'iso_numeric' => '840',
@@ -7188,6 +7422,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '242',
                 'iso_code_2' => 'VI',
                 'iso_code_3' => 'VIR',
                 'iso_numeric' => '850',
@@ -7217,6 +7452,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '243',
                 'iso_code_2' => 'BF',
                 'iso_code_3' => 'BFA',
                 'iso_numeric' => '854',
@@ -7246,6 +7482,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '244',
                 'iso_code_2' => 'UY',
                 'iso_code_3' => 'URY',
                 'iso_numeric' => '858',
@@ -7275,6 +7512,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '245',
                 'iso_code_2' => 'UZ',
                 'iso_code_3' => 'UZB',
                 'iso_numeric' => '860',
@@ -7304,6 +7542,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '246',
                 'iso_code_2' => 'VE',
                 'iso_code_3' => 'VEN',
                 'iso_numeric' => '862',
@@ -7334,6 +7573,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '247',
                 'iso_code_2' => 'WF',
                 'iso_code_3' => 'WLF',
                 'iso_numeric' => '876',
@@ -7364,6 +7604,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '248',
                 'iso_code_2' => 'WS',
                 'iso_code_3' => 'WSM',
                 'iso_numeric' => '882',
@@ -7393,6 +7634,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '249',
                 'iso_code_2' => 'YE',
                 'iso_code_3' => 'YEM',
                 'iso_numeric' => '887',
@@ -7422,6 +7664,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '250',
                 'iso_code_2' => 'CS',
                 'iso_code_3' => 'SCG',
                 'iso_numeric' => '891',
@@ -7451,6 +7694,7 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
             [
+                'id' => '251',
                 'iso_code_2' => 'ZM',
                 'iso_code_3' => 'ZMB',
                 'iso_numeric' => '894',
@@ -7480,21 +7724,29 @@ class CountriesTableSeeder extends Seeder
                 'status' => '1',
             ],
         ];
-        foreach($countries as $country){
+        foreach ($countries as $country) {
             Country::insert([
-                'name'              =>$country['name'],
-                'full_name'         =>$country['full_name'] ? $country['full_name'] :null,
-                'capital'           =>$country['capital'] ? $country['capital'] :null,
-                'timezone_id'       =>$country['timezone_id'] ? $country['timezone_id'] :null,
-                'citizenship'       =>$country['citizenship'] ? $country['citizenship'] :null,
-                'iso_code_2'         =>$country['iso_code_2'] ,
-                'iso_numeric'        =>$country['iso_numeric'] ? $country['iso_numberic'] :null,
-                'calling_code'       =>$country['calling_code'] ,
-                'flag'              =>$country['flag'] ? $country['flag'] :null,
-                'eea'                =>(bool)$country['eea'],
-                'status'             =>$country['status'] ? :1,
-                'created_at'         =>Carbon::Now(),
-                'updated_at'         =>Carbon::Now(),
+                'name' => $country['name'],
+                'full_name' => $country['full_name']
+                    ? $country['full_name']
+                    : null,
+                'capital' => $country['capital'] ? $country['capital'] : null,
+                'timezone_id' => $country['timezone_id']
+                    ? $country['timezone_id']
+                    : null,
+                'citizenship' => $country['citizenship']
+                    ? $country['citizenship']
+                    : null,
+                'iso_code_2' => $country['iso_code_2'],
+                'iso_numeric' => $country['iso_numeric']
+                    ? $country['iso_numberic']
+                    : null,
+                'calling_code' => $country['calling_code'],
+                'flag' => $country['flag'] ? $country['flag'] : null,
+                'eea' => (bool) $country['eea'],
+                'status' => $country['status'] ? $country['status'] :1,
+                'created_at' => Carbon::Now(),
+                'updated_at' => Carbon::Now(),
             ]);
         }
     }

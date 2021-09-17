@@ -1,0 +1,130 @@
+[
+  {
+    "country_id": "132",
+    "iso_code": "MY-01",
+    "iso_number": "",
+    "calling_code": "07",
+    "name": "Johor",
+    "status": "1"
+  },
+  {
+    "country_id": "132",
+    "iso_code": "MY-02",
+    "iso_number": "",
+    "calling_code": "04",
+    "name": "Kedah",
+    "status": "1"
+  },
+  {
+    "country_id": "132",
+    "iso_code": "MY-09",
+    "iso_number": "",
+    "calling_code": "04",
+    "name": "Perlis",
+    "status": "1"
+  },
+  {
+    "country_id": "132",
+    "iso_code": "MY-07",
+    "iso_number": "",
+    "calling_code": "04",
+    "name": "Pulau Pinang",
+    "status": "1"
+  },
+  {
+    "country_id": "132",
+    "iso_code": "MY-08",
+    "iso_number": "",
+    "calling_code": "05",
+    "name": "Perak",
+    "status": "1"
+  },
+  {
+    "country_id": "132",
+    "iso_code": "MY-10",
+    "iso_number": "",
+    "calling_code": "03",
+    "name": "Selangor",
+    "status": "1"
+  },
+  {
+    "country_id": "132",
+    "iso_code": "",
+    "iso_number": "",
+    "calling_code": "06",
+    "name": "Negeri Sembilan",
+    "status": "1"
+  },
+  {
+    "country_id": "132",
+    "iso_code": "",
+    "iso_number": "",
+    "calling_code": "06",
+    "name": "Melaka",
+    "status": "1"
+  },
+  {
+    "country_id": "132",
+    "iso_code": "MY-03",
+    "iso_number": "",
+    "calling_code": "09",
+    "name": "Kelantan",
+    "status": "1"
+  },
+  {
+    "country_id": "132",
+    "iso_code": "MY-11",
+    "iso_number": "",
+    "calling_code": "09",
+    "name": "Terengganu",
+    "status": "1"
+  },
+  {
+    "country_id": "132",
+    "iso_code": "MY-06",
+    "iso_number": "",
+    "calling_code": "09",
+    "name": "Pahang",
+    "status": "1"
+  },
+  {
+    "country_id": "132",
+    "iso_code": "MY-13",
+    "iso_number": "",
+    "calling_code": "082",
+    "name": "Serawak",
+    "status": "1"
+  },
+  {
+    "country_id": "132",
+    "iso_code": "MY-12",
+    "iso_number": "",
+    "calling_code": "088",
+    "name": "Sabah",
+    "status": "1"
+  },
+  {
+    "country_id": "132",
+    "iso_code": "MY-14",
+    "iso_number": "",
+    "calling_code": "03",
+    "name": "Kuala Lumpur",
+    "status": "1"
+  },
+  {
+    "country_id": "132",
+    "iso_code": "MY-15",
+    "iso_number": "",
+    "calling_code": "0",
+    "name": "Labuan",
+    "status": "1"
+  },
+  {
+    "country_id": "132",
+    "iso_code": "MY-16",
+    "iso_number": "",
+    "calling_code": "0",
+    "name": "Putrajaya",
+    "status": "1"
+  }
+]
