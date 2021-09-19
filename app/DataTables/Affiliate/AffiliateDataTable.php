@@ -84,6 +84,6 @@ class AffiliateDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Affiliate\Affiliate_' . date('YmdHis');
+        return 'Affiliate_' . date('YmdHis');
     }
 }

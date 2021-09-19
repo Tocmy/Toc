@@ -22,7 +22,8 @@ class Affiliate extends Model
      * @var array
      */
     protected $fillable = [
-        'id','user_id', 'address_id', 'newsletter_id', 'payment_method_id', 'lifetime', 'commission_id', 'web', 'code', 'payment', 'tax', 'ip', 'status', 'approved'
+        'id','user_id', 'address_id', 'newsletter_id', 'payment_method_id',
+        'lifetime', 'commission_id', 'web', 'code', 'payment', 'tax', 'ip', 'status', 'approved'
     ];
 
     /**
