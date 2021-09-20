@@ -1,15 +1,15 @@
 <?php
 
-namespace App\DataTables\Affiliate;
+namespace App\DataTables\Article;
 
-use App\Models\Affiliate\Affiliate;
+use App\Models\Article\Article;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class AffiliateDataTable extends DataTable
+class ArticleDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -21,18 +21,16 @@ class AffiliateDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('checkbox','')
-            ->addColumn('action', 'affiliate\affiliatedatatable.action')
-            ->rawColumns(['checkbox']);
+            ->addColumn('action', 'article\articledatatable.action');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Affiliate\Affiliate $model
+     * @param \App\Models\Article\Article $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Affiliate $model)
+    public function query(Article $model)
     {
         return $model->newQuery();
     }
@@ -45,7 +43,7 @@ class AffiliateDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('affiliate\affiliatedatatable-table')
+                    ->setTableId('article\articledatatable-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
@@ -67,20 +65,15 @@ class AffiliateDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            [
-                'name'    => 'checkbox',
-                'data'    => 'checkbox',
-                'title'   => '<input type="checkbox" class="check_all" onclick="check_all()">',
-                'exportable'=>false,
-                'printable'=>false,
-                'orderable'=>false,
-                'searchable'=>false,
-            ],
-            [
-            'name'    => '',
-            'data'    => '',
-            'title'   => '',
-            ],
+            Column::computed('action')
+                  ->exportable(false)
+                  ->printable(false)
+                  ->width(60)
+                  ->addClass('text-center'),
+            Column::make('id'),
+            Column::make('add your columns'),
+            Column::make('created_at'),
+            Column::make('updated_at'),
         ];
     }
 
@@ -91,6 +84,6 @@ class AffiliateDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Affiliate_' . date('YmdHis');
+        return 'Article\Article_' . date('YmdHis');
     }
 }
