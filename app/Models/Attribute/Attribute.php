@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Kyslik\ColumnSortable\Sortable;
 use App\Models\Attribute\Relationship\AttributeRelationship;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Attribute extends Model
 {
-    use HasFactory, softDeletes, Sortable, AttributeRelationship;
+    use HasFactory, softDeletes, Sortable,Sluggable, AttributeRelationship;
 
     /**
     * The table associated with the model.
@@ -39,7 +40,7 @@ class Attribute extends Model
         'position' => 0,
     ];
 
-    public $softable =['position'];
+    public $sortable = ['position'];
 
 
     /**
@@ -56,6 +57,23 @@ class Attribute extends Model
              </div>">
 
         ';
+    }
+
+    public function getNameAttribute($value)
+    {
+        return __($value);
+    }
+
+    public function sluggable()
+    {
+        return [
+          'slug' => ['source'  => 'name']
+        ];
+    }
+
+    public function getLink()
+    {
+        return Url('attributes/'.$this->slug);
     }
 
 }

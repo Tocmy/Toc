@@ -10,7 +10,7 @@ use App\Models\Attribute\Relationship\AttributeGroupRelationship;
 
 class AttributeGroup extends Model
 {
-    use HasFactory, softDeletes, sortable, AttributeGroupRelationship;
+    use HasFactory, softDeletes, Sortable, AttributeGroupRelationship;
     /**
     * The table associated with the model.
     *
@@ -37,5 +37,10 @@ class AttributeGroup extends Model
         'name' => '',
     ];
 
-    public $softable =['position'];
+    public $sortable = ['position'];
+
+    public function getNameAttribute($value)
+    {
+        return __($value);
+    }
 }
