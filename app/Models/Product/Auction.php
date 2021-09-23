@@ -2,15 +2,23 @@
 
 namespace App\Models\Product;
 
+use App\Models\Product\Relationship\AuctionRelationship;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Auction extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, AuctionRelationship;
     /**
     * The table associated with the model.
+    * Some Note
+    * The hammer price is a legal term.
+    *It comes from the “Fall of the Hammer”,
+    *ie. the verbal or physical close of the bidding when the Auctioneer says “SOLD!”.
+    *Then the term Final Price is determined after any surcharges are added.
+    * Surcharges range at different auctions but should always be clearly stated before the bidding begins.
+    * Examples: most typical Buyer Premium. Sales tax.
     *
     * @var  string
     */
@@ -22,7 +30,9 @@ class Auction extends Model
      * @var  array
      */
     protected $fillable = [
-        'product_id', 'bid_min_increase', 'expires_date', 'status', 'overbid_amount', 'notified', 'auction_paid', 'auctions_nb', 'auctions_max', 'auctions_high_cust', 'auction_clock', 'buynow_price', 'reserve_price', 'start_price', 'auction_start',
+        'product_id', 'bid_min_increase', 'expires_date', 'status', 'overbid_amount',
+         'notified', 'auction_paid', 'auctions_nb', 'auctions_max', 'auctions_high_cust', 'auction_clock',
+         'buynow_price', 'reserve_price', 'start_price', 'auction_start',
     ];
 
     /**
