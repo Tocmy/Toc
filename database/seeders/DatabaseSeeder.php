@@ -19,6 +19,11 @@ class DatabaseSeeder extends Seeder
          $this->call(Addresses\CountriesTableSeeder::class);
          $this->call(Addresses\StatesTableSeeder::class);
          $this->call(Addresses\TimeZonesTableSeeder::class);
+        //Attribute
+        $this->call(Attributes\AttributeGroupsTableSeeder::class);
+        $this->call(Attributes\AttributesTableSeeder::class);
+        //Banner
+        $this->call(Banners\BannerGroupsTableSeeder::class);
         //Users
         $this->call(Users\PermissionsTableSeeder::class);
         $this->call(Users\RolesTableSeeder::class);

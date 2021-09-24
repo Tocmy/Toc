@@ -1,6 +1,6 @@
 <?php
 namespace App\Models\Banner\Relationship;
-
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 /**
  *
  */
@@ -12,7 +12,7 @@ trait ImageRelationship
         *
         * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
         */
-       public function banner()
+       public function banner():BelongsTo
        {
            return $this->belongsTo(App\Models\Banner\Banner::class, 'banner_id', 'id');
        }

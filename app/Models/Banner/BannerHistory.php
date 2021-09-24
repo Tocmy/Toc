@@ -2,12 +2,13 @@
 
 namespace App\Models\Banner;
 
+use App\Models\Banner\Relationship\BannerHistoryRelationship;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class BannerHistory extends Model
 {
-    use HasFactory;
+    use HasFactory, BannerHistoryRelationship;
 
     protected $table = 'banner_histories';
 

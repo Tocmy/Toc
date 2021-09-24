@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Banner\Relationship\ImageRelationship;
+use Kyslik\ColumnSortable\Sortable;
 
 class Image extends Model
 {
-    use HasFactory ,SoftDeletes, ImageRelationship;
+    use HasFactory ,SoftDeletes, ImageRelationship, Sortable;
 
     /**
     * The table associated with the model.
@@ -24,7 +25,8 @@ class Image extends Model
      * @var  array
      */
     protected $fillable = [
-        'banner_id', 'link', 'image', 'product_id', 'position', 'params', 'title', 'description', 'custom_code',
+        'banner_id', 'link', 'image', 'product_id', 'position',
+        'params', 'title', 'description', 'custom_code',
     ];
 
     /**
@@ -46,12 +48,14 @@ class Image extends Model
 
     /**
     * The attributes that should be cast to native types.
-    *
+    * 
     * @var  array
     */
     protected $casts = [
         'position' => 'boolean',
     ];
+
+    public $sortable = ['position'];
 
 
 }
