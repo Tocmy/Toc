@@ -14,7 +14,8 @@ class Image extends Model
 
     /**
     * The table associated with the model.
-    *
+    *alokcart -imageable
+    *neon->fileupload,
     * @var  string
     */
     protected $table = 'images';
@@ -48,7 +49,7 @@ class Image extends Model
 
     /**
     * The attributes that should be cast to native types.
-    * 
+    *
     * @var  array
     */
     protected $casts = [

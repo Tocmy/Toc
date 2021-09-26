@@ -17,15 +17,25 @@ class BannerGroupsTableSeeder extends Seeder
     {
         $bannergroups=[
             [
-                'name'         => '',
-                'position'     => '',
-                'status'       => '',
+                'name'         => 'Advertiment',
+                'position'     => '1',
+                'status'       => '1',
             ],
 
             [
-                'name'         => '',
-                'position'     => '',
-                'status'       => '',
+                'name'         => 'Banner',
+                'position'     => '2',
+                'status'       => '1',
+            ],
+            [
+                'name'         => 'Carousel',
+                'position'     => '3',
+                'status'       => '1',
+            ],
+            [
+                'name'         => 'Slidershow',
+                'position'     => '4',
+                'status'       => '1',
             ],
         ];
 

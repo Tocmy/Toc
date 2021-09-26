@@ -66,4 +66,17 @@ class User extends Authenticatable
         $this->attributes['password'] = Hash::make($value);
     }
 
+    public function getFullNameAttribute() {
+        return ucfirst($this->firstname) . ' ' . ucfirst($this->lastname);
+    }
+
+    public function getConfirmedLabelAttribute()
+    {
+        if ($this->email_verified_at != null) {
+            return '<span class="badge badge-success">Confirmed</span>';
+        } else {
+            return '<span class="badge badge-danger">Not Confirmed</span>';
+        }
+    }
+
 }
