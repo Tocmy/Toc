@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\Banners;
 
 use App\Models\Banner\BannerGroup;
 use Carbon\Carbon;
