@@ -32,7 +32,7 @@ class Category extends Model
         'images',
         'position',
         'status',
-        'meta_id',
+        'seo_id',
         'name',
         'slug',
         'description'
