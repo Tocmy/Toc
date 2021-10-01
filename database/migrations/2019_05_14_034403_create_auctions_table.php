@@ -42,6 +42,25 @@ class CreateAuctionsTable extends Migration
 			$table->decimal('bid_price', 15,4)->default('0.0000');
 			$table->string('bid_status');
 		});
+
+        Schema::table('auctions', function(Blueprint $table) {
+            $table->foreign('product_id')->references('id')->on('products')
+                        ->onDelete('cascade')
+                        ->onUpdate('cascade');
+
+
+           });
+           Schema::table('bids', function(Blueprint $table) {
+            $table->foreign('auction_id')->references('id')->on('auctions')
+                        ->onDelete('cascade')
+                        ->onUpdate('cascade');
+            $table->foreign('customer_id')->references('id')->on('customers')
+                        ->onDelete('cascade')
+                        ->onUpdate('cascade');
+
+
+           });
+
     }
 
     /**
@@ -53,5 +72,17 @@ class CreateAuctionsTable extends Migration
     {
         Schema::dropIfExists('auctions');
         Schema::dropIfExists('bids');
+        Schema::table('auctions', function(Blueprint $table) {
+            $table->dropForeign(['product_id']);
+
+
+       });
+       Schema::table('bids', function(Blueprint $table) {
+            $table->dropForeign(['auction_id','customer_id']);
+
+
+       });
+
+
     }
 }

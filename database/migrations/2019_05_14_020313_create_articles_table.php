@@ -82,6 +82,75 @@ class CreateArticlesTable extends Migration
 			$table->text('comments');
 			$table->tinyInteger('status')->default('0');
 		});
+
+        Schema::table('articles', function(Blueprint $table) {
+			$table->foreign('tag_id')->references('id')->on('tags')
+						->onDelete('cascade')
+                        ->onUpdate('cascade');
+            $table->foreign('seo_id')->references('id')->on('seos')
+						->onDelete('cascade')
+                        ->onUpdate('cascade');
+
+        });
+
+        Schema::table('article_product', function(Blueprint $table) {
+			$table->foreign('article_id')->references('id')->on('articles')
+						->onDelete('cascade')
+                        ->onUpdate('cascade');
+            $table->foreign('product_id')->references('id')->on('products')
+						->onDelete('cascade')
+                        ->onUpdate('cascade');
+
+        });
+
+        Schema::table('article_relateds', function(Blueprint $table) {
+			$table->foreign('article_id')->references('id')->on('articles')
+						->onDelete('cascade')
+                        ->onUpdate('cascade');
+            $table->foreign('related_id')->references('id')->on('articles')
+						->onDelete('cascade')
+                        ->onUpdate('cascade');
+
+        });
+
+        Schema::table('article_store', function(Blueprint $table) {
+			$table->foreign('article_id')->references('id')->on('articles')
+						->onDelete('cascade')
+                        ->onUpdate('cascade');
+            $table->foreign('store_id')->references('id')->on('companies')
+						->onDelete('cascade')
+                        ->onUpdate('cascade');
+
+        });
+
+        Schema::table('article_topic', function(Blueprint $table) {
+			$table->foreign('article_id')->references('id')->on('articles')
+						->onDelete('cascade')
+                        ->onUpdate('cascade');
+            $table->foreign('topic_id')->references('id')->on('categories')
+						->onDelete('cascade')
+                        ->onUpdate('cascade');
+
+        });
+
+        Schema::table('comments', function(Blueprint $table) {
+			$table->foreign('article_id')->references('id')->on('articles')
+						->onDelete('cascade')
+                        ->onUpdate('cascade');
+            $table->foreign('reply_id')->references('id')->on('comments')
+						->onDelete('cascade')
+                        ->onUpdate('cascade');
+
+            $table->foreign('customer_id')->references('id')->on('customers')
+						->onDelete('cascade')
+                        ->onUpdate('cascade');
+           $table->foreign('author_id')->references('id')->on('users')
+						->onDelete('cascade')
+                        ->onUpdate('cascade');
+
+        });
+
+
     }
 
     /**
@@ -98,5 +167,46 @@ class CreateArticlesTable extends Migration
         Schema::dropIfExists('article_store');
         Schema::dropIfExists('article_topic');
         Schema::dropIfExists('comments');
+        Schema::table('articles', function(Blueprint $table) {
+            $table->dropForeign(['tag_id']);
+            $table->dropForeign(['seo_id']);
+
+        });
+
+        Schema::table('article_product', function(Blueprint $table) {
+            $table->dropForeign(['article_id']);
+            $table->dropForeign(['product_id']);
+
+
+        });
+
+        Schema::table('article_relateds', function(Blueprint $table) {
+            $table->dropForeign(['article_id']);
+            $table->dropForeign(['related_id']);
+
+        });
+
+        Schema::table('article_store', function(Blueprint $table) {
+            $table->dropForeign(['article_id']);
+            $table->dropForeign(['store_id']);
+
+
+        });
+
+        Schema::table('article_topic', function(Blueprint $table) {
+            $table->dropForeign(['article_id']);
+            $table->dropForeign(['topic_id']);
+
+
+        });
+
+        Schema::table('comments', function(Blueprint $table) {
+            $table->dropForeign(['article_id']);
+            $table->dropForeign(['reply_id']);
+            $table->dropForeign(['customer_id']);
+            $table->dropForeign(['author_id']);
+
+        });
+
     }
 }

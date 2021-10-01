@@ -40,6 +40,16 @@ class CreateCompaniesTable extends Migration
 			$table->bigInteger('address_id')->unsigned();
 			$table->bigInteger('setting_id')->unsigned();
         });
+        Schema::table('companies', function(Blueprint $table) {
+            $table->foreign('address_id')->references('id')->on('addresses')
+                        ->onDelete('cascade')
+                        ->onUpdate('cascade');
+            $table->foreign('setting_id')->references('id')->on('settings')
+                        ->onDelete('cascade')
+                        ->onUpdate('cascade');
+
+
+        });
     }
 
     /**
@@ -50,5 +60,10 @@ class CreateCompaniesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('companies');
+        Schema::table('companies', function(Blueprint $table) {
+            $table->dropForeign(['address_id']);
+            $table->dropForeign(['setting_id']);
+
+        });
     }
 }

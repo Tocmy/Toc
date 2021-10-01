@@ -57,9 +57,36 @@ class CreateBannersTable extends Migration
             $table->string('title', 100);
 			$table->text('description');
 			$table->text('custom_code');
-            
+
 
 		});
+        Schema::table('banners', function(Blueprint $table) {
+            $table->foreign('banner_group_id')->references('id')->on('banner_groups')
+                        ->onDelete('cascade')
+                        ->onUpdate('cascade');
+
+
+           });
+
+           Schema::table('banner_histories', function(Blueprint $table) {
+            $table->foreign('banner_id')->references('id')->on('banners')
+                        ->onDelete('cascade')
+                        ->onUpdate('cascade');
+
+
+           });
+
+           Schema::table('images', function(Blueprint $table) {
+            $table->foreign('banner_id')->references('id')->on('banners')
+                        ->onDelete('cascade')
+                        ->onUpdate('cascade');
+            $table->foreign('product_id')->references('id')->on('products')
+                        ->onDelete('cascade')
+                        ->onUpdate('cascade');
+
+
+           });
+
     }
 
     /**
@@ -73,5 +100,22 @@ class CreateBannersTable extends Migration
         Schema::dropIfExists('banner_groups');
         Schema::dropIfExists('banner_histories');
         Schema::dropIfExists('images');
+        Schema::table('banners', function(Blueprint $table) {
+            $table->dropForeign(['banner_group_id']);
+
+
+        });
+
+        Schema::table('banner_histories', function(Blueprint $table) {
+              $table->dropForeign(['banner_id']);
+
+
+        });
+
+        Schema::table('images', function(Blueprint $table) {
+             $table->dropForeign(['banner_id','product_id']);
+             
+
+        });
     }
 }

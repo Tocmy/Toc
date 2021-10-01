@@ -35,6 +35,7 @@ class CreateAddressesTable extends Migration
             $table->string('longitude', 32);
 
 
+
         });
         Schema::create('countries', function(Blueprint $table) {
 			$table->bigIncrements('id');
@@ -51,11 +52,6 @@ class CreateAddressesTable extends Migration
             $table->string('flag', 6)->nullable();
             $table->boolean('eea')->nullable()->default(false);
 			$table->tinyInteger('status')->default('1');
-
-
-
-
-
 
 
         });
@@ -157,13 +153,6 @@ class CreateAddressesTable extends Migration
 
 
 
-
-
-
-
-
-
-
     }
 
     /**
@@ -181,10 +170,10 @@ class CreateAddressesTable extends Migration
         Schema::dropIfExists('zones');
         Schema::dropIfExists('locations');
         Schema::dropIfExists('timezones');
-        Schema::table('addresses', function(Blueprint $table) {
-			$table->dropForeign(['country_id', 'state_id']);
+        //Schema::table('addresses', function(Blueprint $table) {
+			//$table->dropForeign(['country_id', 'state_id']);
 
-        });
+        //});
 
         Schema::table('countries', function(Blueprint $table) {
 			$table->dropForeign(['timezone_id']);

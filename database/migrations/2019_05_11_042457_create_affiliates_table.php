@@ -129,6 +129,102 @@ class CreateAffiliatesTable extends Migration
 			$table->string('type');
 		});
 
+        Schema::table('affiliates', function(Blueprint $table) {
+			$table->foreign('user_id')->references('id')->on('users')
+						->onDelete('cascade')
+                        ->onUpdate('cascade');
+            $table->foreign('address_id')->references('id')->on('addresses')
+						->onDelete('cascade')
+                        ->onUpdate('cascade');
+            $table->foreign('newsletter_id')->references('id')->on('newsletters')
+						->onDelete('cascade')
+                        ->onUpdate('cascade');
+            $table->foreign('commission_id')->references('id')->on('commissions')
+						->onDelete('cascade')
+                        ->onUpdate('cascade');
+            $table->foreign('payment_method_id')->references('id')->on('payment_methods')
+						->onDelete('cascade')
+						->onUpdate('cascade');
+
+
+        });
+
+        Schema::table('affiliate_payments', function(Blueprint $table) {
+			$table->foreign('affiliate_id')->references('id')->on('affiliates')
+						->onDelete('cascade')
+                        ->onUpdate('cascade');
+            $table->foreign('address_id')->references('id')->on('addresses')
+						->onDelete('cascade')
+                        ->onUpdate('cascade');
+            $table->foreign('affiliate_payment_status_id')->references('id')->on('affiliate_payment_statuses')
+						->onDelete('cascade')
+						->onUpdate('cascade');
+
+        });
+
+        Schema::table('affiliate_sales', function(Blueprint $table) {
+			$table->foreign('affiliate_id')->references('id')->on('affiliates')
+						->onDelete('cascade')
+                        ->onUpdate('cascade');
+            $table->foreign('order_id')->references('id')->on('orders')
+						->onDelete('cascade')
+                        ->onUpdate('cascade');
+            $table->foreign('payment_id')->references('id')->on('affiliate_payments')
+						->onDelete('cascade')
+						->onUpdate('cascade');
+
+        });
+
+        Schema::table('affiliate_payment_histories', function(Blueprint $table) {
+			$table->foreign('payment_id')->references('id')->on('affiliate_payments')
+						->onDelete('cascade')
+                        ->onUpdate('cascade');
+            $table->foreign('history_id')->references('id')->on('histories')
+						->onDelete('cascade')
+						->onUpdate('cascade');
+        });
+
+        Schema::table('affiliate_news', function(Blueprint $table) {
+			$table->foreign('news_id')->references('id')->on('news')
+						->onDelete('cascade')
+                        ->onUpdate('cascade');
+            $table->foreign('affiliate_id')->references('id')->on('affiliates')
+						->onDelete('cascade')
+						->onUpdate('cascade');
+        });
+
+        Schema::table('affiliate_banners', function(Blueprint $table) {
+			$table->foreign('banner_id')->references('id')->on('banners')
+						->onDelete('cascade')
+                        ->onUpdate('cascade');
+            $table->foreign('affiliate_id')->references('id')->on('affiliates')
+						->onDelete('cascade')
+						->onUpdate('cascade');
+        });
+
+        Schema::table('affiliate_banner_histories', function(Blueprint $table) {
+			$table->foreign('banner_history_id')->references('id')->on('banner_histories')
+						->onDelete('cascade')
+                        ->onUpdate('cascade');
+            $table->foreign('affiliate_id')->references('id')->on('affiliates')
+						->onDelete('cascade')
+						->onUpdate('cascade');
+        });
+
+
+        Schema::table('affiliate_clicks', function(Blueprint $table) {
+			$table->foreign('banner_id')->references('id')->on('banners')
+						->onDelete('cascade')
+                        ->onUpdate('cascade');
+            $table->foreign('product_id')->references('id')->on('products')
+						->onDelete('cascade')
+                        ->onUpdate('cascade');
+            $table->foreign('affiliate_id')->references('id')->on('affiliates')
+						->onDelete('cascade')
+						->onUpdate('cascade');
+        });
+
+
     }
 
     /**
@@ -148,6 +244,65 @@ class CreateAffiliatesTable extends Migration
         Schema::dropIfExists('affiliate_banners_history');
         Schema::dropIfExists('commissions');
         Schema::dropIfExists('affiliate_clicks');
+
+        Schema::table('affiliates', function(Blueprint $table) {
+            $table->dropForeign(['user_id']);
+            $table->dropForeign(['address_id']);
+            $table->dropForeign(['newsletter_id']);
+            $table->dropForeign(['payment_method_id']);
+            $table->dropForeign(['commission_id']);
+
+        });
+
+        Schema::table('affiliate_payments', function(Blueprint $table) {
+            $table->dropForeign(['affiliate_id']);
+            $table->dropForeign(['affiliate_payment_status_id']);
+            $table->dropForeign(['address_id']);
+
+
+        });
+
+        Schema::table('affiliate_sales', function(Blueprint $table) {
+			$table->dropForeign(['affiliate_id']);
+            $table->dropForeign(['order_id']);
+            $table->dropForeign(['payment_id']);
+
+
+        });
+
+        Schema::table('affiliate_payment_histories', function(Blueprint $table) {
+            $table->dropForeign(['payment_id']);
+            $table->dropForeign(['history_id']);
+
+
+        });
+
+        Schema::table('affiliate_news', function(Blueprint $table) {
+		    $table->dropForeign(['affiliate_id']);
+            $table->dropForeign(['news_id']);
+        });
+
+        Schema::table('affiliate_banners', function(Blueprint $table) {
+            $table->dropForeign(['affiliate_id']);
+            $table->dropForeign(['banner_id']);
+
+
+        });
+
+        Schema::table('affiliate_banner_histories', function(Blueprint $table) {
+            $table->dropForeign(['affiliate_id']);
+            $table->dropForeign(['banner_history_id']);
+
+
+		});
+
+        Schema::table('affiliate_clicks', function(Blueprint $table) {
+            $table->dropForeign(['affiliate_id']);
+            $table->dropForeign(['banner_id']);
+            $table->dropForeign(['product_id']);
+
+
+        });
 
 
     }

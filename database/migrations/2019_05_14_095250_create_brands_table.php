@@ -31,6 +31,17 @@ class CreateBrandsTable extends Migration
 			$table->bigInteger('store_id')->unsigned();
 
 		});
+
+        Schema::table('brand_store', function(Blueprint $table) {
+            $table->foreign('brand_id')->references('id')->on('brands')
+                        ->onDelete('cascade')
+                        ->onUpdate('cascade');
+            $table->foreign('store_id')->references('id')->on('companies')
+                        ->onDelete('cascade')
+                        ->onUpdate('cascade');
+
+
+        });
     }
 
     /**
@@ -42,5 +53,9 @@ class CreateBrandsTable extends Migration
     {
         Schema::dropIfExists('brands');
         Schema::dropIfExists('brand_store');
+        Schema::table('brand_store', function(Blueprint $table) {
+            $table->dropForeign(['brand_id', 'store_id']);
+
+   });
     }
 }
