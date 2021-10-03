@@ -2,15 +2,16 @@
 
 namespace App\Models\Banner;
 
+use App\Models\Banner\Attribute\ImageAttribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Models\Banner\Relationship\ImageRelationship;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Kyslik\ColumnSortable\Sortable;
 
 class Image extends Model
 {
-    use HasFactory ,SoftDeletes, ImageRelationship, Sortable;
+    use HasFactory ,SoftDeletes,  Sortable, ImageAttribute;
 
     /**
     * The table associated with the model.
@@ -26,8 +27,10 @@ class Image extends Model
      * @var  array
      */
     protected $fillable = [
-        'banner_id', 'link', 'image', 'product_id', 'position',
+        'link', 'image',  'position',
         'params', 'title', 'description', 'custom_code',
+        'status', 'path', 'name', 'extension', 'size',
+        'imageable_id','imageable_type',
     ];
 
     /**
@@ -36,10 +39,9 @@ class Image extends Model
     * @var  array
     */
     protected $attributes = [
-        'banner_id' => 0,
+
         'link' => '',
         'image' => '',
-        'product_id' => 0,
         'position' => false,
         'params' => '',
         'title' => '',
@@ -57,6 +59,11 @@ class Image extends Model
     ];
 
     public $sortable = ['position'];
+
+    Public function imageable() :MorphTo  {
+        return $this->morphTo();
+    }
+
 
 
 }
