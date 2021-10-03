@@ -48,15 +48,20 @@ class CreateBannersTable extends Migration
 			$table->bigIncrements('id');
 			$table->timestamps();
 			$table->softDeletes();
-			$table->bigInteger('banner_id')->unsigned();
+			//$table->bigInteger('banner_id')->unsigned();
 			$table->string('link',255);
-			$table->string('image',255);
-			$table->bigInteger('product_id')->unsigned();
+			$table->morphs('imageable');
+			//$table->bigInteger('product_id')->unsigned();
 			$table->tinyInteger('position');
 			$table->text('params');
             $table->string('title', 100);
 			$table->text('description');
 			$table->text('custom_code');
+            $table->tinyInteger('status')->default('1');
+            $table->text('path');
+            $table->text('name')->nullable();
+            $table->string('extension')->nullable();
+            $table->string('size')->nullable()->default(0);
 
 
 		});
@@ -114,7 +119,7 @@ class CreateBannersTable extends Migration
 
         Schema::table('images', function(Blueprint $table) {
              $table->dropForeign(['banner_id','product_id']);
-             
+
 
         });
     }
