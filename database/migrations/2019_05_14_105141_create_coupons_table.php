@@ -17,8 +17,6 @@ class CreateCouponsTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->string('code')->unique();
-			$table->bigInteger('type_id')->unsigned();
-			$table->bigInteger('setting_id')->unsigned();
 			$table->decimal('coupon_discount', 15,4)->default('0.0000');
 			$table->tinyInteger('logged');
 			$table->tinyInteger('shipping');
@@ -34,6 +32,15 @@ class CreateCouponsTable extends Migration
 			$table->string('descriptions');
             $table->integer('quantity');
             $table->string('image');
+            $table->foreignId('store_id')->constrained('companies')
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
+            $table->foreignId('type_id')->constrained('types')
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
+            $table->foreignId('setting_id')->constrained('settings')
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
         });
 
         Schema::create('coupon_histories', function(Blueprint $table) {
@@ -71,12 +78,7 @@ class CreateCouponsTable extends Migration
 			$table->datetime('date_sent');
 
 		});
-		Schema::create('coupon_store', function(Blueprint $table) {
-			$table->timestamps();
-			$table->bigInteger('coupon_id')->unsigned();
-			$table->bigInteger('store_id')->unsigned();
 
-		});
 		Schema::create('coupon_restrict', function(Blueprint $table) {
 			$table->bigIncrements('id');
 			$table->timestamps();
@@ -99,17 +101,8 @@ class CreateCouponsTable extends Migration
 			$table->text('description');
 		});
 
-        Schema::table('coupons', function(Blueprint $table) {
-            $table->foreign('type_id')->references('id')->on('types')
-                        ->onDelete('cascade')
-                        ->onUpdate('cascade');
-            $table->foreign('setting_id')->references('id')->on('settings')
-                        ->onDelete('cascade')
-                        ->onUpdate('cascade');
 
-
-           });
-           Schema::table('coupon_histories', function(Blueprint $table) {
+        Schema::table('coupon_histories', function(Blueprint $table) {
             $table->foreign('coupon_id')->references('id')->on('coupons')
                         ->onDelete('cascade')
                         ->onUpdate('cascade');
@@ -148,17 +141,7 @@ class CreateCouponsTable extends Migration
 
 
            });
-           Schema::table('coupon_store', function(Blueprint $table) {
-            $table->foreign('coupon_id')->references('id')->on('coupons')
-                        ->onDelete('cascade')
-                        ->onUpdate('cascade');
 
-            $table->foreign('store_id')->references('id')->on('companies')
-                        ->onDelete('cascade')
-                        ->onUpdate('cascade');
-
-
-           });
 
            Schema::table('coupon_restrict', function(Blueprint $table) {
             $table->foreign('coupon_id')->references('id')->on('coupons')
@@ -206,37 +189,26 @@ class CreateCouponsTable extends Migration
         Schema::dropIfExists('coupon_histories');
         Schema::dropIfExists('coupon_redeems');
         Schema::dropIfExists('coupon_tracks');
-        Schema::dropIfExists('coupon_store');
         Schema::dropIfExists('coupon_restrict');
         Schema::dropIfExists('restricts');
         Schema::table('coupons', function(Blueprint $table) {
-            $table->dropForeign(['type_id']);
-            $table->dropForeign(['setting_id']);
+            $table->dropForeign(['type_id','setting_id']);
 
-
-
-           });
+        });
            Schema::table('coupon_histories', function(Blueprint $table) {
-            $table->dropForeign(['coupon_id']);
-            $table->dropForeign(['order_id']);
-            $table->dropForeign(['customer_id']);
+            $table->dropForeign(['coupon_id','order_id', 'customer_id']);
 
-           });
+        });
 
            Schema::table('coupon_redeems', function(Blueprint $table) {
-            $table->dropForeign(['coupon_id']);
-            $table->dropForeign(['order_id']);
-            $table->dropForeign(['customer_id']);
+            $table->dropForeign(['coupon_id', 'order_id', 'customer_id']);
 
-
-           });
+        });
 
            Schema::table('coupon_tracks', function(Blueprint $table) {
-            $table->dropForeign(['coupon_id']);
-            $table->dropForeign(['customer_id']);
+            $table->dropForeign(['coupon_id', 'customer_id']);
 
-
-           });
+         });
            Schema::table('coupon_store', function(Blueprint $table) {
             $table->dropForeign(['coupon_id']);
             $table->dropForeign(['store_id']);
