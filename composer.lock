@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1ba028866f8cc8dfd5191d78f0da86b5",
+    "content-hash": "79db62547dd83f88098c815398ca49d6",
     "packages": [
         {
             "name": "akaunting/laravel-firewall",
@@ -5443,6 +5443,71 @@
             "time": "2020-12-15T19:19:43+00:00"
         },
         {
+            "name": "ozankurt/laravel-intl",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/OzanKurt/Laravel-Intl.git",
+                "reference": "c8bc17d28c11d7bc446d5a7b5d750002a334658b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/OzanKurt/Laravel-Intl/zipball/c8bc17d28c11d7bc446d5a7b5d750002a334658b",
+                "reference": "c8bc17d28c11d7bc446d5a7b5d750002a334658b",
+                "shasum": ""
+            },
+            "require": {
+                "commerceguys/intl": "^1.0.6",
+                "guzzlehttp/guzzle": "^6.2|^7.0",
+                "laravel/framework": "^7.0|^8.0",
+                "php": "^7.2|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "*",
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Kurt\\LaravelIntl\\IntlServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Kurt\\LaravelIntl\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ozan Kurt",
+                    "email": "hello@ozankurt.com"
+                }
+            ],
+            "description": "Easy to use internationalization functions for Laravel",
+            "keywords": [
+                "i18n",
+                "internationalization",
+                "intl",
+                "l10n",
+                "language",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/OzanKurt/Laravel-Intl/issues",
+                "source": "https://github.com/OzanKurt/Laravel-Intl/tree/1.0.3"
+            },
+            "time": "2021-07-20T12:59:40+00:00"
+        },
+        {
             "name": "paragonie/constant_time_encoding",
             "version": "v2.4.0",
             "source": {
@@ -6946,93 +7011,6 @@
             "time": "2021-04-10T16:23:39+00:00"
         },
         {
-            "name": "punic/punic",
-            "version": "3.6.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/punic/punic.git",
-                "reference": "046917d7bb931ab944c0995898608491820fcdf9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/punic/punic/zipball/046917d7bb931ab944c0995898608491820fcdf9",
-                "reference": "046917d7bb931ab944c0995898608491820fcdf9",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3"
-            },
-            "replace": {
-                "punic/calendar": "*",
-                "punic/common": "*"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.8 || ^5.7 || ^6.5 || ^7.4 || ^8.5 || ^9.5"
-            },
-            "bin": [
-                "bin/punic-data"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Punic\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michele Locati",
-                    "email": "mlocati@gmail.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Remo Laubacher",
-                    "email": "remo.laubacher@gmail.com",
-                    "role": "Collaborator, motivator and perfectionist supporter"
-                },
-                {
-                    "name": "Christian Schmidt",
-                    "email": "github@chsc.dk",
-                    "role": "Developer"
-                }
-            ],
-            "description": "PHP-Unicode CLDR",
-            "homepage": "https://github.com/punic/punic",
-            "keywords": [
-                "calendar",
-                "cldr",
-                "date",
-                "date-time",
-                "i18n",
-                "internationalization",
-                "l10n",
-                "localization",
-                "php",
-                "time",
-                "translate",
-                "translations",
-                "unicode"
-            ],
-            "support": {
-                "issues": "https://github.com/punic/punic/issues",
-                "source": "https://github.com/punic/punic/tree/3.6.1"
-            },
-            "funding": [
-                {
-                    "url": "https://paypal.me/mlocati",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/mlocati",
-                    "type": "github"
-                }
-            ],
-            "time": "2021-08-18T16:25:23+00:00"
-        },
-        {
             "name": "ralouphie/getallheaders",
             "version": "3.0.3",
             "source": {
@@ -7382,74 +7360,6 @@
                 "source": "https://github.com/renatomarinho/laravel-page-speed/tree/2.0.0"
             },
             "time": "2021-01-15T21:21:00+00:00"
-        },
-        {
-            "name": "rivalex/laravel-intl",
-            "version": "1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/rivalex/laravel-intl.git",
-                "reference": "cb38d70ee295d3b5c8ab27c430d280194d3bbca4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/rivalex/laravel-intl/zipball/cb38d70ee295d3b5c8ab27c430d280194d3bbca4",
-                "reference": "cb38d70ee295d3b5c8ab27c430d280194d3bbca4",
-                "shasum": ""
-            },
-            "require": {
-                "commerceguys/intl": "^1.0.5",
-                "illuminate/events": "^8.0",
-                "illuminate/support": "^8.0",
-                "nesbot/carbon": "^2.0",
-                "php": ">=7.3",
-                "punic/punic": "^3.5",
-                "umpirsky/country-list": "^2.0",
-                "umpirsky/locale-list": "^1.0"
-            },
-            "require-dev": {
-                "orchestra/testbench": "^5.0",
-                "phpunit/phpunit": "^8.5"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Rivalex\\LaravelIntl\\IntlServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Rivalex\\LaravelIntl\\": "src/"
-                },
-                "files": [
-                    "src/helpers.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Rivalex",
-                    "email": "info@rivalex.com"
-                }
-            ],
-            "description": "Easy to use internationalization functions for Laravel",
-            "keywords": [
-                "i18n",
-                "internationalization",
-                "intl",
-                "l10n",
-                "laravel"
-            ],
-            "support": {
-                "issues": "https://github.com/rivalex/laravel-intl/issues",
-                "source": "https://github.com/rivalex/laravel-intl/tree/1.1"
-            },
-            "time": "2020-09-29T12:56:49+00:00"
         },
         {
             "name": "stechstudio/laravel-zipstream",
@@ -10305,91 +10215,6 @@
                 "source": "https://github.com/geocoder-php/GeocoderLaravel/tree/4.4.4"
             },
             "time": "2020-12-02T18:00:51+00:00"
-        },
-        {
-            "name": "umpirsky/country-list",
-            "version": "2.0.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/umpirsky/country-list.git",
-                "reference": "6dddae6983c1bc4d314b513c5decb7c8c6c879dc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/umpirsky/country-list/zipball/6dddae6983c1bc4d314b513c5decb7c8c6c879dc",
-                "reference": "6dddae6983c1bc4d314b513c5decb7c8c6c879dc",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.0 || ^8.0"
-            },
-            "require-dev": {
-                "slowprog/composer-copy-file": "^0.2",
-                "symfony/intl": "^4.3",
-                "umpirsky/list-generator": "^1.2"
-            },
-            "type": "library",
-            "extra": {
-                "copy-file": {
-                    "vendor/umpirsky/list-generator/Dockerfile": "./",
-                    "vendor/umpirsky/list-generator/docker-compose.yml": "./"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Saša Stamenković",
-                    "email": "umpirsky@gmail.com"
-                }
-            ],
-            "description": "List of all countries with names and ISO 3166-1 codes in all languages and data formats.",
-            "support": {
-                "issues": "https://github.com/umpirsky/country-list/issues",
-                "source": "https://github.com/umpirsky/country-list/tree/2.0.6"
-            },
-            "time": "2020-12-03T10:09:09+00:00"
-        },
-        {
-            "name": "umpirsky/locale-list",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/umpirsky/locale-list.git",
-                "reference": "8141f749e16e568a5a9f7e813c50f72efa794c2e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/umpirsky/locale-list/zipball/8141f749e16e568a5a9f7e813c50f72efa794c2e",
-                "reference": "8141f749e16e568a5a9f7e813c50f72efa794c2e",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4"
-            },
-            "require-dev": {
-                "symfony/locale": "^2.7|^3.0",
-                "umpirsky/list-generator": "^1.1"
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Saša Stamenković",
-                    "email": "umpirsky@gmail.com"
-                }
-            ],
-            "description": "List of all locales with names and codes in all languages and all data formats.",
-            "support": {
-                "issues": "https://github.com/umpirsky/locale-list/issues",
-                "source": "https://github.com/umpirsky/locale-list/tree/1.0.0"
-            },
-            "time": "2018-06-01T17:50:07+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

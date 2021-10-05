@@ -23,24 +23,39 @@ class CreateCustomFieldsTable extends Migration
 			$table->smallInteger('position');
 			$table->tinyInteger('status')->default('0');
             $table->string('name');
+            $table->foreignId('customer_group_id')->constrained('customer_groups')
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
         });
 
         Schema::create('custom_field_values', function(Blueprint $table) {
 			$table->bigIncrements('id');
 			$table->timestamps();
-			$table->bigInteger('custom_field_id')->unsigned();
 			$table->smallInteger('position');
             $table->string('name');
+            $table->foreignId('custom_field_id')->constrained('custom_fields')
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
 
 
 		});
 
-		Schema::create('custom_field_customer_group', function(Blueprint $table) {
-			$table->timestamps();
-			$table->bigInteger('custom_field_id')->unsigned();
-			$table->bigInteger('customer_group_id')->unsigned();
 
-		});
+        //Schema::table('custom_field_values', function(Blueprint $table) {
+            //$table->foreign('custom_field_id')->references('id')->on('custom_fields')
+                        //->onDelete('cascade')
+                        //->onUpdate('cascade');
+           //});
+
+           //Schema::table('custom_field_customer_group', function(Blueprint $table) {
+            //$table->foreign('custom_field_id')->references('id')->on('custom_fields')
+                        //->onDelete('cascade')
+                        //->onUpdate('cascade');
+            //$table->foreign('customer_group_id')->references('id')->on('customer_groups')
+                        //->onDelete('cascade')
+                        //->onUpdate('cascade');
+
+           //});
 
     }
 
@@ -53,6 +68,14 @@ class CreateCustomFieldsTable extends Migration
     {
         Schema::dropIfExists('custom_fields');
         Schema::dropIfExists('custom_field_values');
-        Schema::dropIfExists('custom_field_customer_group');
+        //Schema::table('custom_field_values', function(Blueprint $table) {
+            //$table->dropForeign(['custom_field_id']);
+       //});
+
+       //Schema::table('custom_fields', function(Blueprint $table) {
+             //$table->dropForeign(['customer_group_id']);
+
+       //});
+
     }
 }
