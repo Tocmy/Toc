@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
-
 class Coupon extends Model
 {
     use HasFactory, CouponRelationship;
@@ -101,5 +100,7 @@ class Coupon extends Model
         }
         return $customer;
     }
+
+
 
 }

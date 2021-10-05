@@ -19,7 +19,19 @@ class CouponDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'coupon\coupondatatable.action');
+            ->addColumn('coupon_id', function ($coupon){
+                return '<input type="checkbox" class="", name="post[]" data-id="'.$coupon->coupon_id.' " value=" '.$coupon->coupon_id.'">';
+            })
+            ->addColumn('status', function($coupon){
+                if ($coupon->status ==1) {
+                    return '';
+                }else {
+                    return '';
+                }
+            })
+            ->addColumn('action', function ($coupon){
+                return '<a href="'. action('Admin\Coupons\CouponController@edit', [$coupon->coupon_id]) .'" class="btn btn-xs btn-primary"><i class="fa fa-pencil-square-o"></i> Edit</a>';
+            });
     }
 
     /**
