@@ -48,10 +48,8 @@ class CreateBannersTable extends Migration
 			$table->bigIncrements('id');
 			$table->timestamps();
 			$table->softDeletes();
-			//$table->bigInteger('banner_id')->unsigned();
 			$table->string('link',255);
 			$table->morphs('imageable');
-			//$table->bigInteger('product_id')->unsigned();
 			$table->tinyInteger('position');
 			$table->text('params');
             $table->string('title', 100);

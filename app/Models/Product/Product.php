@@ -2,13 +2,14 @@
 
 namespace App\Models\Product;
 
+use App\Traits\Imageable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
-    use HasFactory, softDeletes;
+    use HasFactory, softDeletes, Imageable;
 
     /**
      * The table associated with the model.

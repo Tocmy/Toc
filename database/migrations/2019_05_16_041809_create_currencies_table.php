@@ -22,11 +22,20 @@ class CreateCurrenciesTable extends Migration
 			$table->string('symbol_right', 12);
 			$table->string('code', 3);
 			$table->string('decimal_place');
-			$table->float('value', 15,8);
+			$table->float('exchange_rate', 15,8)->nullable()->default(null);
+            $table->float('currency_rate', 15,8)->nullable()->default(null);
 			$table->string('decimal_point', 3);
             $table->string('thousand_point', 3);
 			$table->tinyInteger('status')->default('1');
             $table->tinyInteger('is_default')->unsigned()->default('0');
+            $table->boolean('is_cryptocurrency')->default(false);
+            $table->foreignId('company_id')->constrained('companies')
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
+            $table->foreignId('setting_id')->constrained('settings')
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
+
         });
     }
 
@@ -38,5 +47,10 @@ class CreateCurrenciesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('currencies');
+        Schema::table('currencies', function(Blueprint $table) {
+            $table->dropForeign(['company_id', 'setting_id']);
+
+
+        });
     }
 }

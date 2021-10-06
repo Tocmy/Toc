@@ -1,7 +1,8 @@
 <?php
-namespace App\Models\Currency;
 
-use App\Models\Currency\Relationship\CurrencyRelationship;
+namespace App\Models\Setting;
+
+use App\Models\Setting\Relationship\CurrencyRelationship;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -22,10 +23,7 @@ class Currency extends Model
      * @var  array
      */
     protected $fillable = [
-        'title', 'symbol_left', 'symbol_right', 'code',
-        'decimal_place', 'currency_rate', 'decimal_point', 'thousand_point',
-        'status','is_default',
-        'exchange_rate', 'is_cryptocurrency', 'company_id', 'setting_id',
+        'title', 'symbol_left', 'symbol_right', 'code', 'decimal_place', 'value', 'decimal_point', 'thousand_point', 'status','is_default',
     ];
 
     /**
@@ -55,6 +53,4 @@ class Currency extends Model
         'status' => 'boolean',
         'is_default' => 'boolean',
     ];
-
-
 }

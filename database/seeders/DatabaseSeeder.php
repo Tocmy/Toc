@@ -24,6 +24,8 @@ class DatabaseSeeder extends Seeder
         $this->call(Attributes\AttributesTableSeeder::class);
         //Banner
         $this->call(Banners\BannerGroupsTableSeeder::class);
+        //Currencies
+        $this->call(Currencies\CurrenciesTableSeeder::class);
         //Users
         $this->call(Users\PermissionsTableSeeder::class);
         $this->call(Users\RolesTableSeeder::class);
