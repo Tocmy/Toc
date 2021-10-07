@@ -17,13 +17,15 @@ class CreateSettingsTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->softDeletes();
-			$table->bigInteger('setting_group_id')->unsigned();
 			$table->string('key');
             $table->string('name');
             $table->string('description')->nullable();
             $table->text('value')->nullable();
             $table->text('field');
             $table->tinyInteger('status')->default('1');
+            $table->foreignId('setting_group_id')->constrained('setting_groups')
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
         });
 
         Schema::create('setting_groups', function(Blueprint $table) {
