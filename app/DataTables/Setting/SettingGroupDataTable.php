@@ -5,8 +5,6 @@ namespace App\DataTables\Setting;
 use App\Models\Setting\SettingGroup;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
 class SettingGroupDataTable extends DataTable
@@ -21,7 +19,37 @@ class SettingGroupDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'setting\settinggroupdatatable.action');
+            ->addColumn('checkbox', function ($settinggroup){
+                return '<input type="checkbox" class="", name="post[]" data-id="'.$settinggroup->setting_group_id.' " value=" '.$settinggroup->setting_group_id.'">';
+            })
+            ->editColumn('visible', function($settinggroup){
+                if ($settinggroup->visible ==1) {
+                    return '<input class="switch swith-pink" type="checkbox" id="pink" checked /> ';
+                }else {
+                    return '<input class="switch swith-pink" type="checkbox" id="pink" />';
+                }
+            })
+            ->addColumn('action', function($settinggroup){
+                $action = '<div class="btn-group dropdown">
+                  <button aria-expanded ="false" data-toggle="dropdown" class="btn dropdown" type="button">
+                  <i class="las la-ellipsis-v"></i>
+                  </button>
+                  <div class="dropdown-menu">
+                  <a href="'.route('admin.settinggroups.edit', [$settinggroup->id]).'" class="dropdown-item">
+                  <i class="las la-pen-nib" aria-hidden="true"></i>
+                  '.__('Edit').'
+                  </a>
+                  <a href="'.route('admin.settinggroups.destroy', [$settinggroup->id]).'" class="dropdown-item">
+                  <i class="las la-trash aria-hidden="true"></i>
+                  '.__('Delete').'
+                  </a>';
+
+
+
+                $action .='</div></div>';
+                return $action;
+            })
+            ->rawColumns(['checkbox', 'visible', 'action']);
     }
 
     /**

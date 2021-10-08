@@ -75,6 +75,17 @@ class CouponDataTable extends DataTable
     protected function getColumns()
     {
         return [
+            [
+                'name'     => 'checkbox',
+                'data'     => 'checkbox',
+                'title'    =>  '<input type="checkbox" class="check_all" onclick="check_all">',
+                'exportable'=>false,
+                'printable'=>false,
+                'orderable'=>false,
+                'searchable'=>false,
+
+            ],
+
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
