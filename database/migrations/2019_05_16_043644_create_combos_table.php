@@ -17,32 +17,26 @@ class CreateCombosTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->softDeletes();
-			$table->string('name');
-			$table->bigInteger('discount_id')->unsigned();
-			$table->integer('discount_number');
-			$table->tinyInteger('display_details');
-			$table->smallInteger('position');
-			$table->tinyInteger('status')->default('1');
-			$table->tinyInteger('override');
-			$table->bigInteger('subproduct_id')->unsigned();
-			$table->integer('sub_product_qty')->nullable();
+            $table->string('name');
+            $table->integer('discount_number');
+            $table->tinyInteger('display_details');
+            $table->smallInteger('position');
+            $table->tinyInteger('status')->default('1');
+            $table->tinyInteger('override');
+            $table->integer('sub_product_qty')->nullable();
+            $table->foreignId('subproduct_id')->nullable()->constrained('products')
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
+            $table->foreignId('product_id')->nullable()->constrained('products')
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
+            $table->foreignId('category_id')->nullable()->constrained('categories')
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
+            $table->foreignId('discount_id')->constrained('discounts')
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
         });
-
-        Schema::create('combo_product', function(Blueprint $table) {
-			$table->timestamps();
-			$table->bigInteger('combo_id')->unsigned();
-			$table->bigInteger('product_id')->unsigned();
-
-
-		});
-
-
-		Schema::create('combo_category', function(Blueprint $table) {
-			$table->timestamps();
-			$table->bigInteger('combo_id')->unsigned();
-			$table->bigInteger('category_id')->unsigned();
-
-		});
     }
 
     /**
@@ -53,7 +47,10 @@ class CreateCombosTable extends Migration
     public function down()
     {
         Schema::dropIfExists('combos');
-        Schema::dropIfExists('combo_product');
-        Schema::dropIfExists('combo_category');
+
+        //Schema::table('combos', function(Blueprint $table) {
+            //$table->dropForeign(['discount_id', 'product_id', 'category_id', 'subproduct_id']);
+
+     //});
     }
 }
