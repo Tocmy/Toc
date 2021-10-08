@@ -1,13 +1,15 @@
 <?php
 
-namespace App\DataTables\Coupon;
+namespace App\DataTables\Download;
 
-use App\Models\Marketing\Coupon;
+use App\Models\Download\Download;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
+use Yajra\DataTables\Html\Editor\Editor;
+use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class CouponDataTable extends DataTable
+class DownloadDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -19,28 +21,16 @@ class CouponDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('coupon_id', function ($coupon){
-                return '<input type="checkbox" class="", name="post[]" data-id="'.$coupon->coupon_id.' " value=" '.$coupon->coupon_id.'">';
-            })
-            ->addColumn('status', function($coupon){
-                if ($coupon->status ==1) {
-                    return '';
-                }else {
-                    return '';
-                }
-            })
-            ->addColumn('action', function ($coupon){
-                return '<a href="'. action('Admin\Coupons\CouponController@edit', [$coupon->coupon_id]) .'" class="btn btn-xs btn-primary"><i class="fa fa-pencil-square-o"></i> Edit</a>';
-            });
+            ->addColumn('action', 'download\downloaddatatable.action');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Marketing\Coupon $model
+     * @param \App\Models\Download\Download $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Coupon $model)
+    public function query(Download $model)
     {
         return $model->newQuery();
     }
@@ -53,7 +43,7 @@ class CouponDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('coupon\coupondatatable-table')
+                    ->setTableId('download\downloaddatatable-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
@@ -75,24 +65,6 @@ class CouponDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            [
-                'name'     => 'checkbox',
-                'data'     => 'checkbox',
-                'title'    =>  '<input type="checkbox" class="check_all" onclick="check_all">',
-                'exportable'=>false,
-                'printable'=>false,
-                'orderable'=>false,
-                'searchable'=>false,
-
-            ],
-            [ 'name'=>'action',
-                'data'=>'action',
-                'title'=>__('action'),
-                "orderable" => false,
-                "exportable" => false,
-                "printable" => false,
-            ],
-
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
@@ -112,6 +84,6 @@ class CouponDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Coupon\Coupon_' . date('YmdHis');
+        return 'Download\Download_' . date('YmdHis');
     }
 }

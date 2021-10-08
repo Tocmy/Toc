@@ -1,23 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Catalog\Customers;
+namespace App\Http\Controllers\Admin\Downloads;
 
 use App\Http\Controllers\Controller;
-use App\Models\Customer\Customer;
-use App\Models\Address\Address;
-use App\Models\User\User;
+use App\Models\Download\Download;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class AccountController extends Controller
+class DownloadController extends Controller
 {
-
-     public function __construct()
-     {
-         $this->pageTitle ="Customer Profile";
-         $this->pageIcon  ="mdi mdi-account";
-     }
-
     /**
      * Display a listing of the resource.
      *
@@ -25,8 +15,7 @@ class AccountController extends Controller
      */
     public function index()
     {
-        
-        return view('catalog.customer.accounts.index');
+        //
     }
 
     /**
@@ -53,10 +42,10 @@ class AccountController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Customer\Customer  $customer
+     * @param  \App\Models\Download\Download  $download
      * @return \Illuminate\Http\Response
      */
-    public function show(Customer $customer)
+    public function show(Download $download)
     {
         //
     }
@@ -64,10 +53,10 @@ class AccountController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Customer\Customer  $customer
+     * @param  \App\Models\Download\Download  $download
      * @return \Illuminate\Http\Response
      */
-    public function edit(Customer $customer)
+    public function edit(Download $download)
     {
         //
     }
@@ -76,10 +65,10 @@ class AccountController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Customer\Customer  $customer
+     * @param  \App\Models\Download\Download  $download
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Customer $customer)
+    public function update(Request $request, Download $download)
     {
         //
     }
@@ -87,10 +76,10 @@ class AccountController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Customer\Customer  $customer
+     * @param  \App\Models\Download\Download  $download
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Customer $customer)
+    public function destroy(Download $download)
     {
         //
     }
