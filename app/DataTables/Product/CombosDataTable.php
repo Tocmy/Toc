@@ -1,19 +1,19 @@
 <?php
 
-namespace App\DataTables\Setting;
+namespace App\DataTables\Product;
 
-use App\Models\Setting\Setting;
+use App\Models\Product\Combo;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class SettingDataTable extends DataTable
+class CombosDataTable extends DataTable
 {
     /**
      * Build DataTable class.
-     * datatable/homeservice
+     *
      * @param mixed $query Results from query() method.
      * @return \Yajra\DataTables\DataTableAbstract
      */
@@ -21,20 +21,18 @@ class SettingDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'setting\settingdatatable.action');
+            ->addColumn('action', 'product\combogdatatable.action');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Setting\Setting $model
+     * @param \App\Models\Product\Combo $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Setting $model)
+    public function query(Combo $model)
     {
-        return $model->newQuery()
-                     ->with('settinggroup')
-                     ->select('setting.*');
+        return $model->newQuery();
     }
 
     /**
@@ -45,7 +43,7 @@ class SettingDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('setting\settingdatatable-table')
+                    ->setTableId('product\combogdatatable-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
@@ -86,6 +84,6 @@ class SettingDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Setting\Setting_' . date('YmdHis');
+        return 'Product\Combog_' . date('YmdHis');
     }
 }

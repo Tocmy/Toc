@@ -1,15 +1,15 @@
 <?php
 
-namespace App\DataTables\Product;
+namespace App\DataTables\General;
 
-use App\Models\Product\Combo;
+use App\Models\General\Email;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class CombogDataTable extends DataTable
+class EmailDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -21,16 +21,16 @@ class CombogDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'product\combogdatatable.action');
+            ->addColumn('action', 'general\emaildatatable.action');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Product\Combo $model
+     * @param \App\Models\General\Email $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Combo $model)
+    public function query(Email $model)
     {
         return $model->newQuery();
     }
@@ -43,7 +43,7 @@ class CombogDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('product\combogdatatable-table')
+                    ->setTableId('general\emaildatatable-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
@@ -84,6 +84,6 @@ class CombogDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Product\Combog_' . date('YmdHis');
+        return 'General\Email_' . date('YmdHis');
     }
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "79db62547dd83f88098c815398ca49d6",
+    "content-hash": "20c115fc48e45bf86afbb7bc45f6ad5d",
     "packages": [
         {
             "name": "akaunting/laravel-firewall",
@@ -7360,6 +7360,59 @@
                 "source": "https://github.com/renatomarinho/laravel-page-speed/tree/2.0.0"
             },
             "time": "2021-01-15T21:21:00+00:00"
+        },
+        {
+            "name": "stackkit/laravel-database-emails",
+            "version": "4.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stackkit/laravel-database-emails.git",
+                "reference": "5bf425e7e60178b73a8c7cdff83587c77391e44f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stackkit/laravel-database-emails/zipball/5bf425e7e60178b73a8c7cdff83587c77391e44f",
+                "reference": "5bf425e7e60178b73a8c7cdff83587c77391e44f",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.2",
+                "orchestra/testbench": "^3.5 || ^3.6 || ^3.7 || ^3.8 || ^4.0 || ^5.0",
+                "symfony/console": "^4.4|^5.0",
+                "tecnickcom/tcpdf": "^6.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Stackkit\\LaravelDatabaseEmails\\LaravelDatabaseEmailsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Stackkit\\LaravelDatabaseEmails\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marick van Tuil",
+                    "email": "info@marickvantuil.nl"
+                }
+            ],
+            "description": "Store and send e-mails using the database",
+            "support": {
+                "issues": "https://github.com/stackkit/laravel-database-emails/issues",
+                "source": "https://github.com/stackkit/laravel-database-emails/tree/4.2.0"
+            },
+            "time": "2020-05-16T09:51:22+00:00"
         },
         {
             "name": "stechstudio/laravel-zipstream",

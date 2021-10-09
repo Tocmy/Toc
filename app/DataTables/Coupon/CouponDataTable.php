@@ -24,10 +24,17 @@ class CouponDataTable extends DataTable
             })
             ->addColumn('status', function($coupon){
                 if ($coupon->status ==1) {
-                    return '';
+                    $status = '<div class="switch d-inline m-r-10">
+                    <input class="status" type="checkbox" data-coupon_id="'. $coupon->id .'"  id="switch-'. $coupon->id .'" checked="">
+                    <label for="switch-'. $coupon->id .'" class="cr"></label>
+                </div>';;
                 }else {
-                    return '';
+                    $status = '<div class="switch d-inline m-r-10">
+                            <input class="status" type="checkbox" data-coupon_id="'. $coupon->id .'"  id="switch-'. $coupon->id .'">
+                            <label for="switch-'. $coupon->id .'" class="cr"></label>
+                        </div>';;
                 }
+                return $status;
             })
             ->addColumn('action', function ($coupon){
                 return '<a href="'. action('Admin\Coupons\CouponController@edit', [$coupon->coupon_id]) .'" class="btn btn-xs btn-primary"><i class="fa fa-pencil-square-o"></i> Edit</a>';
