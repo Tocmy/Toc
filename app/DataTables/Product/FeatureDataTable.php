@@ -12,7 +12,7 @@ class FeatureDataTable extends DataTable
 {
     /**
      * Build DataTable class.
-     *
+     * technoshop
      * @param mixed $query Results from query() method.
      * @return \Yajra\DataTables\DataTableAbstract
      */
@@ -20,7 +20,33 @@ class FeatureDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'product\featuredatatable.action');
+            ->addColumn('checkbox', function ($feature){
+                return '<input type="checkbox" class="", name="post[]" data-id="'.$feature->feature_id.' " value=" '.$feature->feature_id.'">';
+            })
+            ->addColumn('image', function($feature){
+                $url = asset('storage/' .$feature->image);
+                return '<img src="'.$url.'" border="0" width="40" class="img-rounded" align="center" />';
+            })
+            ->addColumn('action', function ($feature){
+                $action = '<div class="btn-group dropdown">
+                  <button aria-expanded ="false" data-toggle="dropdown" class="btn dropdown" type="button">
+                  <i class="las la-ellipsis-v"></i>
+                  </button>
+                  <div class="dropdown-menu">
+                  <a href="'.route('admin.settinggroups.edit', [$feature->id]).'" class="dropdown-item">
+                  <i class="las la-pen-nib" aria-hidden="true"></i>
+                  '.__('Edit').'
+                  </a>
+                  <a href="'.route('admin.settinggroups.destroy', [$feature->id]).'" class="dropdown-item">
+                  <i class="las la-trash aria-hidden="true"></i>
+                  '.__('Delete').'
+                  </a>';
+
+
+
+                $action .='</div></div>';
+                return $action;
+            });
     }
 
     /**
@@ -31,7 +57,9 @@ class FeatureDataTable extends DataTable
      */
     public function query(Feature $model)
     {
-        return $model->newQuery();
+        return $model->newQuery()
+                     ->with('product')
+                     ->select('feature.*') ;
     }
 
     /**
@@ -58,12 +86,40 @@ class FeatureDataTable extends DataTable
 
     /**
      * Get columns.
-     *
+     *$column = [
+    *'name' => 'id',
+    *'data' => 'id',
+    *'title' => 'Id',
+    *'searchable' => true,
+    *'orderable' => true,
+    *'render' => 'function(){}',
+    *'footer' => 'Id',
+    *'exportable' => true,
+    *'printable' => true,
+    *];  to html
+    *$column = Column::make('id')
+    *    ->title('Id')
+    *    ->searchable(true)
+    *    ->orderable(true)
+    *    ->render('function(){}')
+    *    ->footer('Id')
+    *    ->exportable(true)
+    *    ->printable(true);
+
+    *
      * @return array
      */
     protected function getColumns()
     {
         return [
+
+            
+
+
+
+
+
+
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
