@@ -101,6 +101,6 @@ class Coupon extends Model
         return $customer;
     }
 
-
+  
 
 }

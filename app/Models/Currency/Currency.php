@@ -12,6 +12,7 @@ class Currency extends Model
     /**
     * The table associated with the model.
     *ecom-backend/property valuation
+    *classy and cka
     * @var  string
     */
     protected $table = 'currencies';
