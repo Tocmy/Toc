@@ -80,6 +80,6 @@ class CreateInsurancesTable extends Migration
         Schema::dropIfExists('insurances');
         Schema::dropIfExists('insurance_rates');
         Schema::dropIfExists('insurance_rules');
-     
+
     }
 }
