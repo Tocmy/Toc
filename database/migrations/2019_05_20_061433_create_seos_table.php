@@ -18,10 +18,13 @@ class CreateMetadatasTable extends Migration
             $table->timestamps();
             $table->string('title');
 			$table->string('description',155);
+            $table->morphs('seoable');
 			$table->string('keyword');
             $table->string('referrer');
+
             $table->string('meta_image')->default()->nullable();
             $table->string('canonical')->nullable();
+            $table->string('robots')->nullable();
             //geo
             $table->string('geo_region')->default()->nullable();
             $table->string('geo_position')->default()->nullable();
@@ -45,6 +48,10 @@ class CreateMetadatasTable extends Migration
             $table->string('og_description')->default()->nullable();
             $table->string('og_image')->default()->nullable();
             $table->string('og_site_name')->default()->nullable();
+            $table->string('og_video')->nullable();
+            $table->string('og_audio')->nullable();
+            $table->string('og_determiner')->nullable();
+
             $table->string('fb_app_id')->default()->unique();
             //Twitter
             $table->string('twitter_card')->default()->nullable();
@@ -53,8 +60,10 @@ class CreateMetadatasTable extends Migration
             $table->string('twitter_description')->nullable();
             $table->string('twitter_image')->default()->nullable();
             $table->string('twitter_creator')->default()->nullable();
+            $table->string('twitter_domain')->nullable();
             //Schema.org
-
+            $table->string('changefreq', 10)->nullable();
+            $table->string('priority', 10)->nullable();
 
 
         });

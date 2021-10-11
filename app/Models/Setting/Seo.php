@@ -2,12 +2,13 @@
 
 namespace App\Models\Setting;
 
+use App\Models\Setting\Relationship\SeoRelationship;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Seo extends Model
 {
-    use HasFactory;
+    use HasFactory, SeoRelationship;
     /**
      * The table associated with the model.
      *
@@ -53,7 +54,7 @@ class Seo extends Model
         'twitter_description',
         'twitter_image',
         'twitter_creator',
-        
+
 
     ];
 }
