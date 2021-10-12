@@ -2,6 +2,7 @@
 
 namespace App\Models\Page;
 
+use App\Traits\Seoable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -10,7 +11,7 @@ use Kyslik\ColumnSortable\Sortable;
 
 class Page extends Model
 {
-    use HasFactory, SoftDeletes, NestableTrait, Sortable;
+    use HasFactory, SoftDeletes, NestableTrait, Sortable, Seoable;
     /**
      * The table associated with the model.
      *
