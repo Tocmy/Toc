@@ -1,21 +1,23 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Marketing;
+namespace App\Http\Controllers\Admin\Pages;
 
+use App\DataTables\Page\PageGroupDataTable;
 use App\Http\Controllers\Controller;
-use App\Models\Marketing\Coupon;
+use App\Models\Page\PageGroup;
+use App\Http\Requests\Page\PageGroupRequest;
 use Illuminate\Http\Request;
 
-class CouponController extends Controller
+class PageGroupController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(PageGroupDataTable $pageGroupDataTable)
     {
-        //
+        return $pageGroupDataTable->render('admin.page.group.index');
     }
 
     /**
@@ -42,10 +44,10 @@ class CouponController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Marketing\Coupon  $coupon
+     * @param  \App\Models\Page\PageGroup  $pageGroup
      * @return \Illuminate\Http\Response
      */
-    public function show(Coupon $coupon)
+    public function show(PageGroup $pageGroup)
     {
         //
     }
@@ -53,10 +55,10 @@ class CouponController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Marketing\Coupon  $coupon
+     * @param  \App\Models\Page\PageGroup  $pageGroup
      * @return \Illuminate\Http\Response
      */
-    public function edit(Coupon $coupon)
+    public function edit(PageGroup $pageGroup)
     {
         //
     }
@@ -65,10 +67,10 @@ class CouponController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Marketing\Coupon  $coupon
+     * @param  \App\Models\Page\PageGroup  $pageGroup
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Coupon $coupon)
+    public function update(Request $request, PageGroup $pageGroup)
     {
         //
     }
@@ -76,10 +78,10 @@ class CouponController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Marketing\Coupon  $coupon
+     * @param  \App\Models\Page\PageGroup  $pageGroup
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Coupon $coupon)
+    public function destroy(PageGroup $pageGroup)
     {
         //
     }

@@ -1,11 +1,11 @@
 <?php
-namespace Database\Seeders\Settings;
+namespace Database\Seeders\Pages;
 
 
 
 use Illuminate\Database\Seeder;
 
-class SettingGroupsTableSeeder extends Seeder
+class PageGroupsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

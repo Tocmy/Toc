@@ -8,11 +8,11 @@ use App\Models\Setting\Setting;
 /**
  *client managemnet
  */
-trait CurrencyExchange
+trait CurrencyExchangeRate
 {
     Public function updateExchangeRates() {
         $currencies = Currency::all();
-        
+
 
     }
 }
