@@ -25,28 +25,7 @@ class CreateQuotationsTable extends Migration
 			$table->string('payment_term');
 			$table->string('delivery_term');
 			$table->string('ref', 64)->unique();
-            $table->foreignId('customer_id')->constrained('customers')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('store_id')->constrained('companies')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('tax_id')->constrained('taxes')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('requote_id')->constrained('quotations')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('currency_id')->constrained('currencies')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('history_id')->constrained('histories')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('status_id')->constrained('statuses')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-
+            
         });
 
 
@@ -68,12 +47,7 @@ class CreateQuotationsTable extends Migration
             $table->double('discount')->nullable();
             $table->decimal('shipping_cost')->nullable();
             $table->double('grand_total');
-            $table->foreignId('quote_id')->constrained('quotations')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('product_id')->constrained('products')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+
 
 		});
 
@@ -89,6 +63,6 @@ class CreateQuotationsTable extends Migration
     {
         Schema::dropIfExists('quotations');
         Schema::dropIfExists('quotation_products');
-     
+
     }
 }

@@ -17,19 +17,12 @@ class CreateFeedbacksTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->softDeletes();
-			//$table->bigInteger('store_id')->unsigned();
 			$table->string('name');
 			$table->string('company_name');
 			$table->string('contact', 50);
 			$table->tinyInteger('status');
-			//$table->bigInteger('customer_id')->unsigned();
 			$table->string('description');
-            $table->foreignId('store_id')->constrained('companies')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-           $table->foreignId('customer_id')->constrained('customers')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+
         });
     }
 

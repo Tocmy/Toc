@@ -23,18 +23,6 @@ class CreatePaymentsTable extends Migration
 			$table->text('description')->nullable();
 			$table->string('reference')->nullable();
 			$table->string('attachment')->nullable();
-            $table->foreignId('store_id')->constrained('companies')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('supplier_id')->constrained('suppliers')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('currency_id')->constrained('currencies')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('payment_method_id')->constrained('payment_methods')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
 
         });
 
@@ -45,12 +33,6 @@ class CreatePaymentsTable extends Migration
 			$table->string('name');
 			$table->tinyInteger('position');
 			$table->tinyInteger('status')->default('0');
-            $table->foreignId('module_id')->constrained('modules')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('merchant_id')->constrained('merchants')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
 
 		});
 
@@ -59,21 +41,12 @@ class CreatePaymentsTable extends Migration
 			$table->timestamps();
 			$table->string('name');
 			$table->longText('value');
-            $table->foreignId('setting_id')->constrained('settings')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('payment_method_id')->constrained('payment_methods')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
 
 		});
         //provice service provice details
         Schema::create('merchants', function(Blueprint $table) {
             $table->bigIncrements('id');
 			$table->timestamps();
-			$table->foreignId('supplier_id')->constrained('suppliers')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
 
 
 		});
@@ -88,17 +61,12 @@ class CreatePaymentsTable extends Migration
             $table->integer('status')->unsigned()->default(1);
             $table->unique(['holder_type', 'holder_id', 'slug']);
 
-            $table->BigInteger('user_id')->unsigned()->index()->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
 
-            $table->BigInteger('currency_id')->unsigned()->index()->nullable();
-            $table->foreign('currency_id')->references('id')->on('currencies')->onUpdate('cascade')->onDelete('cascade');
 
 		});
         //emart
         Schema::create('wallet_histories', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('wallet_id')->unsigned();
             $table->string('type');
             $table->string('log')->nullable();
             $table->string('txn_id')->nullable();
@@ -106,9 +74,7 @@ class CreatePaymentsTable extends Migration
             $table->timestamps();
             $table->timestamp('expire_at')->nullable();
             $table->integer('expired')->default(0)->unsigned();
-            $table->foreignId('wallet_id')->constrained('wallets')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+
 
         });
     }

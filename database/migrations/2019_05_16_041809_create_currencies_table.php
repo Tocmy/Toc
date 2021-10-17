@@ -29,12 +29,6 @@ class CreateCurrenciesTable extends Migration
 			$table->tinyInteger('status')->default('1');
             $table->tinyInteger('is_default')->unsigned()->default('0');
             $table->boolean('is_cryptocurrency')->default(false);
-            $table->foreignId('company_id')->constrained('companies')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('setting_id')->constrained('settings')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
 
         });
     }
@@ -47,10 +41,6 @@ class CreateCurrenciesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('currencies');
-        Schema::table('currencies', function(Blueprint $table) {
-            $table->dropForeign(['company_id', 'setting_id']);
-
-
-        });
+        
     }
 }

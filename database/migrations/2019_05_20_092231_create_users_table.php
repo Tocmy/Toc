@@ -48,8 +48,7 @@ class CreateUsersTable extends Migration
 			$table->bigIncrements('id');
 			$table->timestamps();
 			$table->softDeletes();
-			$table->bigInteger('permission_id')->unsigned()->index();
-			$table->bigInteger('role_id')->unsigned()->index();
+
 
 		});
 
@@ -57,8 +56,7 @@ class CreateUsersTable extends Migration
 			$table->bigIncrements('id');
 			$table->timestamps();
 			$table->softDeletes();
-			$table->bigInteger('permission_id')->unsigned()->index();
-			$table->bigInteger('user_id')->unsigned()->index();
+
         });
 
 		Schema::create('roles', function(Blueprint $table) {
@@ -76,8 +74,7 @@ class CreateUsersTable extends Migration
 			$table->bigIncrements('id')->unsigned();
 			$table->timestamps();
 			$table->softDeletes();
-			$table->bigInteger('user_id')->unsigned()->index();
-			$table->bigInteger('role_id')->unsigned()->index();
+
 		});
 		Schema::create('confirmations', function(Blueprint $table) {
 			$table->bigIncrements('id')->unsigned();
@@ -85,7 +82,6 @@ class CreateUsersTable extends Migration
 			$table->string('confirmation_code')->nullable();
 			$table->boolean('confirmed')->default(false);
 			$table->timestamp('confirmed_at')->nullable();
-			$table->bigInteger('user_id')->unsigned()->index();
 			$table->boolean('active')->default(true);
 			$table->string('locale')->default('');
 			$table->string('timezone')->default('');
@@ -96,7 +92,6 @@ class CreateUsersTable extends Migration
 		Schema::create('securities', function(Blueprint $table) {
 			$table->bigIncrements('id')->unsigned();
 			$table->timestamps();
-			$table->bigInteger('user_id')->unsigned()->index();
 			$table->boolean('enable')->default(false);
             $table->string('two_factor_recovery_code')->nullable();
             $table->string('two_factor_secret')->nullable();
@@ -116,7 +111,6 @@ class CreateUsersTable extends Migration
 
         Schema::create('socials', function (Blueprint $table) {
 			$table->bigIncrements('id')->unsigned();
-			$table->bigInteger('user_id')->unsigned();
 			$table->string('provider', 32);
 			$table->string('provider_id');
 			$table->string('token')->nullable();
@@ -124,58 +118,6 @@ class CreateUsersTable extends Migration
 			$table->timestamps();
 		});
 
-        Schema::table('permission_role', function(Blueprint $table) {
-
-            $table->foreign('permission_id')->references('id')->on('permissions')
-                        ->onDelete('cascade')
-                        ->onUpdate('cascade');
-            $table->foreign('role_id')->references('id')->on('roles')
-                        ->onDelete('cascade')
-                        ->onUpdate('cascade');
-
-           });
-           Schema::table('permission_user', function(Blueprint $table) {
-
-            $table->foreign('permission_id')->references('id')->on('permissions')
-                        ->onDelete('cascade')
-                        ->onUpdate('cascade');
-            $table->foreign('user_id')->references('id')->on('users')
-                        ->onDelete('cascade')
-                        ->onUpdate('cascade');
-
-           });
-
-           Schema::table('role_user', function(Blueprint $table) {
-
-            $table->foreign('role_id')->references('id')->on('roles')
-                        ->onDelete('cascade')
-                        ->onUpdate('cascade');
-            $table->foreign('user_id')->references('id')->on('users')
-                        ->onDelete('cascade')
-                        ->onUpdate('cascade');
-
-           });
-
-           Schema::table('confirmations', function(Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users')
-                        ->onDelete('cascade')
-                        ->onUpdate('cascade');
-
-           });
-
-           Schema::table('securities', function(Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users')
-                        ->onDelete('cascade')
-                        ->onUpdate('cascade');
-
-           });
-
-           Schema::table('socials', function(Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users')
-                        ->onDelete('cascade')
-                        ->onUpdate('cascade');
-
-           });
 
 
     }
@@ -196,40 +138,7 @@ class CreateUsersTable extends Migration
         Schema::dropIfExists('confirmations');
         Schema::dropIfExists('securities');
         Schema::dropIfExists('password_resets');
-        Schema::table('permission_role', function(Blueprint $table) {
-            $table->dropForeign(['permission_id','role_id']);
-
-        });
-        Schema::table('permission_user', function(Blueprint $table) {
-
-            $table->dropForeign(['permission_id','user_id']);
-
-
-        });
-
-        Schema::table('role_user', function(Blueprint $table) {
-
-            $table->dropForeign(['role_id','user_id']);
-
-
-        });
-
-        Schema::table('confirmations', function(Blueprint $table) {
-            $table->dropForeign(['user_id']);
-
-        });
-
-        Schema::table('securities', function(Blueprint $table) {
-            $table->dropForeign(['user_id']);
-
-        });
-
-        Schema::table('socials', function(Blueprint $table) {
-            $table->dropForeign(['user_id']);
-
-        });
-
-
+       
 
     }
 

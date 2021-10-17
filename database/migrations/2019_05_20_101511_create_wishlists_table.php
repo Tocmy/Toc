@@ -16,29 +16,16 @@ class CreateWishlistsTable extends Migration
         Schema::create('wishlists', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->foreignId('customer_id')->constrained('customers')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('product_id')->constrained('products')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-
-
+            $table->float('price');
+            $table->integer('quantity')->nullable();
+            $table->decimal('amount');
+           
         });
 
         Schema::create('wishlist_options', function(Blueprint $table) {
             $table->bigIncrements('id');
 			$table->timestamps();
-			
-            $table->foreignId('wishlist_id')->constrained('wishlits')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('option_id')->constrained('options')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('option_value_id')->constrained('option_values')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+
 
 		});
     }

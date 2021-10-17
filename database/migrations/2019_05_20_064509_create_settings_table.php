@@ -23,9 +23,7 @@ class CreateSettingsTable extends Migration
             $table->text('value')->nullable();
             $table->text('field');
             $table->tinyInteger('status')->default('1');
-            $table->foreignId('setting_group_id')->constrained('setting_groups')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+           
         });
 
         Schema::create('setting_groups', function(Blueprint $table) {

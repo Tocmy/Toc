@@ -25,12 +25,7 @@ class CreateReviewsTable extends Migration
 			$table->string('author', 100);
 			$table->string('title');
 			$table->text('text');
-            $table->foreignId('product_id')->constrained('products')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('customer_id')->constrained('customers')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+           
         });
 
         Schema::create('rating_types', function(Blueprint $table) {
@@ -38,9 +33,6 @@ class CreateReviewsTable extends Migration
 			$table->timestamps();
 			$table->string('name');
 			$table->smallInteger('position')->default('0');
-            $table->foreignId('category_id')->constrained('categories')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
 
 		});
 		Schema::create('rating_summaries', function(Blueprint $table) {
@@ -49,12 +41,7 @@ class CreateReviewsTable extends Migration
 			$table->bigInteger('rating_sum');
 			$table->bigInteger('rating_count');
 			$table->float('rating');
-            $table->foreignId('product_id')->constrained('products')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('rating_type_id')->constrained('rating_types')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+
 
 		});
 		Schema::create('ratings', function(Blueprint $table) {
@@ -62,19 +49,6 @@ class CreateReviewsTable extends Migration
 			$table->timestamps();
 			$table->integer('rating');
 			$table->ipAddress('ip');
-            $table->foreignId('product_id')->constrained('products')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('rating_type_id')->constrained('rating_types')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-                  $table->foreignId('customer_id')->constrained('customers')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('review_id')->constrained('reviews')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-
 
 		});
     }

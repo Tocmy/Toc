@@ -24,11 +24,9 @@ class CreateNewsTable extends Migration
             $table->string('title',250);
 			$table->string('slug');
 			$table->text('description');
-			$table->bigInteger('tag_id')->unsigned();
-            $table->foreignId('store_id')->constrained('companies')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-			
+			//$table->bigInteger('tag_id')->unsigned();
+            //$table->bigInteger('seo_id')->unsigned();
+
         });
     }
 

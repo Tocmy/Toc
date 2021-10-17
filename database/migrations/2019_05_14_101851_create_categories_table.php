@@ -17,8 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->softDeletes();
-			$table->bigInteger('parent_id')->unsigned()->nullable();
-            $table->bigInteger('seo_id')->unsigned()->nullable();
+			//$table->bigInteger('seo_id')->unsigned()->nullable();
             $table->bigInteger('_lft')->unsigned()->index();
             $table->bigInteger('_rgt')->unsigned()->index();
 			$table->string('images')->nullable();
@@ -29,14 +28,7 @@ class CreateCategoriesTable extends Migration
 			$table->text('description');
         });
 
-        Schema::table('categories', function(Blueprint $table) {
-            $table->foreign('parent_id')->references('id')->on('categories')
-                        ->onDelete('cascade')
-                        ->onUpdate('cascade');
-            $table->foreign('seo_id')->references('id')->on('seos')
-                        ->onDelete('cascade')
-                        ->onUpdate('cascade');
-        });
+
     }
 
     /**
@@ -47,10 +39,6 @@ class CreateCategoriesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('categories');
-        Schema::table('categories', function(Blueprint $table) {
-            $table->dropForeign(['parent_id','seo_id']);
-            
 
-       });
     }
 }

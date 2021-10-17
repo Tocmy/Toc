@@ -30,8 +30,7 @@ class CreateDownloadsTable extends Migration
 			$table->integer('allow_Download_Count');
 			$table->text('filePath');
 			$table->string('remaining');
-            $table->foreignId('download_group_id')->index()->constrained('download_groups')
-                   ->onDelete('cascade');
+           
         });
 
         Schema::create('download_groups', function(Blueprint $table) {

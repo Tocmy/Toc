@@ -27,9 +27,7 @@ class CreatePromotionsTable extends Migration
 			$table->boolean('is_used')->default(false);
             $table->datetime('date_start')->nullable();
 			$table->datetime('expire_at');
-            $table->foreignId('product_id')->constrained('products')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+           
         });
     }
 

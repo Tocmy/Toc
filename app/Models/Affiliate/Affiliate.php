@@ -3,12 +3,13 @@
 namespace App\Models\Affiliate;
 
 use App\Models\Affiliate\Relationship\AffiliateRelationship;
+use App\Traits\Addressable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Affiliate extends Model
 {
-    use HasFactory, AffiliateRelationship;
+    use HasFactory, AffiliateRelationship, Addressable;
 
     /**
      * The table associated with the model.

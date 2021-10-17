@@ -27,12 +27,7 @@ class CreateNewslettersTable extends Migration
 			$table->smallInteger('position');
 			$table->longText('unsubscribe');
 			$table->string('unsubscribe_link');
-			$table->foreignId('store_id')->constrained('companies')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('product_id')->constrained('products')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+
 
 
         });
@@ -40,7 +35,6 @@ class CreateNewslettersTable extends Migration
         Schema::create('subscribers', function(Blueprint $table) {
             $table->bigIncrements('id');
 			$table->timestamps();
-			$table->bigInteger('customer_id')->unsigned();
 			$table->boolean('approved')->default(true);
 			$table->string('email')->unique()->nullable();
 			$table->string('first_name');
@@ -66,12 +60,7 @@ class CreateNewslettersTable extends Migration
 			$table->datetime('sent_at');
 			$table->integer('sent_count');
 			$table->text('attachments')->nullable();
-            $table->foreignId('subscriber_id')->constrained('subscribers')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-                  $table->foreignId('user_id')->constrained('users')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+
 		});
     }
 

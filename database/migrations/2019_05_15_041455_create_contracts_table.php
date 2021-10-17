@@ -26,10 +26,8 @@ class CreateContractsTable extends Migration
 			$table->string('contract_restrict');
 			$table->dateTime('contract_start');
 			$table->dateTime('contract_end');
-			$table->bigInteger('period_id')->unsigned();
-            $table->bigInteger('customer_id')->unsigned();
-            $table->bigInteger('store_id')->unsigned();
-			$table->tinyInteger('is_Trial');
+			$table->tinyInteger('is_trial');
+            $table->dateTime('trial_period');
 			//remove
 			$table->enum('contract_term', ['day', 'week', 'semi_month', 'month', 'year']);
 			$table->enum('contract_service', ['day', 'week', 'semi_month', 'month', 'year']);
@@ -40,7 +38,6 @@ class CreateContractsTable extends Migration
         Schema::create('contract_plans', function(Blueprint $table) {
 			$table->bigIncrements('id');
 			$table->timestamps();
-			$table->bigInteger('contract_id')->unsigned();
 			$table->string('name');
 			$table->text('description')->nullable();
 			$table->decimal('price', 15,4)->default('0.0000');
@@ -58,24 +55,6 @@ class CreateContractsTable extends Migration
 
 		});
 
-        Schema::table('contracts', function(Blueprint $table) {
-            $table->foreign('period_id')->references('id')->on('periods')
-                        ->onDelete('cascade')
-                        ->onUpdate('cascade');
-            $table->foreign('customer_id')->references('id')->on('customers')
-                        ->onDelete('cascade')
-                        ->onUpdate('cascade');
-            $table->foreign('store_id')->references('id')->on('companies')
-                        ->onDelete('cascade')
-                        ->onUpdate('cascade');
-
-           });
-
-           Schema::table('contract_plans', function(Blueprint $table) {
-            $table->foreign('contract_id')->references('id')->on('contract_plans')
-                        ->onDelete('cascade')
-                        ->onUpdate('cascade');
-           });
 
     }
 
@@ -90,14 +69,6 @@ class CreateContractsTable extends Migration
         Schema::dropIfExists('contract_plans');
         Schema::dropIfExists('periods');
 
-        Schema::table('contracts', function(Blueprint $table) {
-            $table->dropForeign(['period_id', 'customer_id', '']);
-            $table->dropForeign(['customer_id']);
-            $table->dropForeign(['company_id']);
-       });
-
-       Schema::table('contract_plans', function(Blueprint $table) {
-            $table->dropForeign(['contract_id']);
-       });
+        
     }
 }

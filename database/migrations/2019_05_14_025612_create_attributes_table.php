@@ -19,9 +19,6 @@ class CreateAttributesTable extends Migration
             $table->softDeletes();
 			$table->string('name');
 			$table->smallInteger('position');
-            $table->foreignId('attribute_group_id')->constrained('attribute_groups')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
 
         });
 
@@ -44,9 +41,6 @@ class CreateAttributesTable extends Migration
     {
         Schema::dropIfExists('attributes');
         Schema::dropIfExists('attribute_groups');
-        //Schema::table('attributes', function(Blueprint $table) {
-            //$table->dropForeign(['attribute_group_id']);
-
-       //});
+        
     }
 }

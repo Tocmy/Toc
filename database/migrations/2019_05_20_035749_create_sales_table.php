@@ -27,13 +27,7 @@ class CreateSalesTable extends Migration
 			$table->decimal('price_range_to', 15,4)->default('0.0000');
 			$table->datetime('date_start');
 			$table->datetime('date_end');
-            $table->foreignId('product_id')->constrained('products')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('store_id')->constrained('companies')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-
+            
         });
 
 
@@ -48,6 +42,6 @@ class CreateSalesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('sales');
-        
+
     }
 }

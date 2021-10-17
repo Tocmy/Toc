@@ -22,9 +22,7 @@ class CreateTagsTable extends Migration
 			$table->integer('position')->nullable();
 			$table->boolean('suggest')->default(false);
 			$table->integer('count')->unsigned()->default('0');
-            $table->foreignId('tag_group_id')->constrained('tag_groups')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+           
         });
 
         Schema::create('tag_groups', function(Blueprint $table) {

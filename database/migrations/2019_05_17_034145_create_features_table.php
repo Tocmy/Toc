@@ -21,9 +21,7 @@ class CreateFeaturesTable extends Migration
 			$table->datetime('expires_date');
 			$table->tinyInteger('status')->default('1');
 			$table->datetime('available');
-            $table->foreignId('product_id')->constrained('products')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+           
         });
     }
 

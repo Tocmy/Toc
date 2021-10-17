@@ -22,13 +22,7 @@ class CreateSpecialsTable extends Migration
 			$table->datetime('expire_at');
             $table->datetime('begin_at');
 			$table->tinyInteger('status');
-            $table->foreignId('product_id')->constrained('products')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('customer_group_id')->constrained('customer_groups')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-
+        
         });
     }
 

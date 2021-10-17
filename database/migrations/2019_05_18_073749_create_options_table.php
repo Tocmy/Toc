@@ -16,8 +16,7 @@ class CreateOptionsTable extends Migration
         Schema::create('options', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->bigInteger('type_id')->unsigned();
-			$table->smallInteger('position');
+            $table->smallInteger('position');
             $table->string('name');
 			$table->string('comment',64);
 			$table->text('description',64);
@@ -29,11 +28,7 @@ class CreateOptionsTable extends Migration
 			$table->string('image');
 			$table->smallInteger('position');
             $table->string('name');
-            $table->foreignId('option_id')->constrained('options')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-
-
+            
 		});
     }
 

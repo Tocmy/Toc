@@ -24,18 +24,7 @@ class CreateCombosTable extends Migration
             $table->tinyInteger('status')->default('1');
             $table->tinyInteger('override');
             $table->integer('sub_product_qty')->nullable();
-            $table->foreignId('subproduct_id')->nullable()->constrained('products')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('product_id')->nullable()->constrained('products')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('category_id')->nullable()->constrained('categories')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('discount_id')->constrained('discounts')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+            
         });
     }
 
@@ -48,9 +37,6 @@ class CreateCombosTable extends Migration
     {
         Schema::dropIfExists('combos');
 
-        //Schema::table('combos', function(Blueprint $table) {
-            //$table->dropForeign(['discount_id', 'product_id', 'category_id', 'subproduct_id']);
 
-     //});
     }
 }

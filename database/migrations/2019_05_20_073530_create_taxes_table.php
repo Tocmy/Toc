@@ -27,13 +27,7 @@ class CreateTaxesTable extends Migration
 			$table->string('name', 32);
 			$table->decimal('rate', 15,4)->default('0.0000');
 			$table->tinyInteger('type');
-            $table->foreignId('geo_id')->constrained('geos')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('customer_group_id')->constrained('customer_groups')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-
+            
 		});
 
 		Schema::create('tax_rules', function(Blueprint $table) {
@@ -42,13 +36,6 @@ class CreateTaxesTable extends Migration
 			$table->softDeletes();
 			$table->string('based');
 			$table->tinyInteger('position');
-            $table->foreignId('tax_rate_id')->constrained('tax_rates')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('tax_id')->constrained('taxes')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-
 
 		});
     }

@@ -22,12 +22,7 @@ class CreatePagesTable extends Migration
            	$table->string('title',64);
 			$table->string('description');
             $table->string('slug');
-			$table->foreignId('store_id')->constrained('companies')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('page_group_id')->constrained('page_groups')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+			
         });
 
         Schema::create('page_groups', function (Blueprint $table) {
@@ -39,13 +34,7 @@ class CreatePagesTable extends Migration
            	$table->string('title');
 			$table->string('description');
             $table->string('slug');
-			$table->foreignId('parent_id')->nullable()
-                  ->constrained('page_groups')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('customer_group_id')->constrained('customer_groups')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade'); //for select certain targeted customer group not allow to info
+
         });
 
 
@@ -60,6 +49,6 @@ class CreatePagesTable extends Migration
     {
         Schema::dropIfExists('pages');
         Schema::dropIfExists('page_groups');
-       
+
     }
 }

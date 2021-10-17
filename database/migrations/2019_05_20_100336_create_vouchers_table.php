@@ -31,13 +31,7 @@ class CreateVouchersTable extends Migration
 			$table->decimal('amount', 15,4)->default('0.0000');
 			$table->tinyInteger('status')->default('0');
 
-            $table->foreignId('store_id')->constrained('companies')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('theme_id')->constrained('voucher_contents')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-
+            
         });
 
         Schema::create('voucher_contents', function(Blueprint $table) {
@@ -52,14 +46,6 @@ class CreateVouchersTable extends Migration
 			$table->bigIncrements('id');
 			$table->timestamps();
 			$table->decimal('amount', 15,4)->default('0.0000');
-            $table->foreignId('order_id')->constrained('orders')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('voucher_id')->constrained('vouchers')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-
-
 
 		});
 

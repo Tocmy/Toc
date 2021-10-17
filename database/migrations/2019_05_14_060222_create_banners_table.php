@@ -17,7 +17,6 @@ class CreateBannersTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->softDeletes();
-			$table->bigInteger('banner_group_id')->unsigned();
 			$table->string('name', 64);
 			$table->tinyInteger('status')->default('0');
 			$table->integer('main_width');
@@ -38,7 +37,6 @@ class CreateBannersTable extends Migration
 		Schema::create('banner_histories', function(Blueprint $table) {
 			$table->bigIncrements('id');
 			$table->timestamps();
-			$table->bigInteger('banner_id')->unsigned();
 			$table->integer('show');
 			$table->integer('clicked');
 			$table->datetime('date');
@@ -63,32 +61,6 @@ class CreateBannersTable extends Migration
 
 
 		});
-        Schema::table('banners', function(Blueprint $table) {
-            $table->foreign('banner_group_id')->references('id')->on('banner_groups')
-                        ->onDelete('cascade')
-                        ->onUpdate('cascade');
-
-
-           });
-
-           Schema::table('banner_histories', function(Blueprint $table) {
-            $table->foreign('banner_id')->references('id')->on('banners')
-                        ->onDelete('cascade')
-                        ->onUpdate('cascade');
-
-
-           });
-
-           Schema::table('images', function(Blueprint $table) {
-            $table->foreign('banner_id')->references('id')->on('banners')
-                        ->onDelete('cascade')
-                        ->onUpdate('cascade');
-            $table->foreign('product_id')->references('id')->on('products')
-                        ->onDelete('cascade')
-                        ->onUpdate('cascade');
-
-
-           });
 
     }
 
@@ -103,22 +75,6 @@ class CreateBannersTable extends Migration
         Schema::dropIfExists('banner_groups');
         Schema::dropIfExists('banner_histories');
         Schema::dropIfExists('images');
-        Schema::table('banners', function(Blueprint $table) {
-            $table->dropForeign(['banner_group_id']);
 
-
-        });
-
-        Schema::table('banner_histories', function(Blueprint $table) {
-              $table->dropForeign(['banner_id']);
-
-
-        });
-
-        Schema::table('images', function(Blueprint $table) {
-             $table->dropForeign(['banner_id','product_id']);
-
-
-        });
     }
 }

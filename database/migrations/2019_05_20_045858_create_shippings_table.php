@@ -19,24 +19,9 @@ class CreateShippingsTable extends Migration
             $table->string('name');
 			$table->tinyInteger('position')->nullable();
 			$table->tinyInteger('status')->default('0');
-            $table->foreignId('supplier_id')->constrained('suppliers')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('module_id')->constrained('modules')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+
         });
 
-        Schema::create('shipping_settings', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
-			$table->foreignId('shipping_id')->constrained('shippings')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('setting_id')->constrained('settings')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-        });
 
         Schema::create('shipping_markups', function(Blueprint $table) {
 			$table->bigIncrements('id');
@@ -52,12 +37,7 @@ class CreateShippingsTable extends Migration
 			$table->decimal('percentage', 15,4);
 			$table->decimal('per_item', 15,4);
 			$table->decimal('per_weight', 15,4);
-            $table->foreignId('shipping_id')->constrained('shippings')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('state_id')->constrained('states')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+
 		});
 
 		Schema::create('shipping_rates', function(Blueprint $table) {
@@ -83,39 +63,8 @@ class CreateShippingsTable extends Migration
 			$table->decimal('length_Height_Width_Sum_Max', 11,1);
 			$table->decimal('over_size_Limit', 11,1);
 			$table->tinyInteger('allowed_As_Return_Service');
-            $table->foreignId('supplier_id')->constrained('suppliers')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('shipping_id')->constrained('shippings')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('weight_id')->constrained('weights')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('length_id')->constrained('lengths')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('geo_id')->constrained('geos')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('surcharge_id')->constrained('surcharges')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-
-
 
 		});
-
-		Schema::create('shipping_tax', function(Blueprint $table) {
-			$table->timestamps();
-			$table->foreignId('shipping_id')->constrained('shippings')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('tax_rate_id')->constrained('tax_rates')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-		});
-
 
 
 		Schema::create('surcharges', function(Blueprint $table) {
@@ -147,10 +96,6 @@ class CreateShippingsTable extends Migration
 			$table->tinyInteger('on_shipment');
 			$table->datetime('pickup_date');
 			$table->string('tracking_no', 40)->unique()->nullable();
-            $table->foreignId('order_id')->constrained('orders')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-
 
 		});
 
@@ -164,11 +109,9 @@ class CreateShippingsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('shippings');
-        Schema::dropIfExists('shipping_settings');
         Schema::dropIfExists('shipping_markups');
         Schema::dropIfExists('shipping_rates');
         Schema::dropIfExists('surcharges');
-        Schema::dropIfExists('shipping_tax');
         Schema::dropIfExists('packages');
     }
 }

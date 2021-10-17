@@ -21,15 +21,7 @@ class CreateLoyaltiesTable extends Migration
 			$table->decimal('pending_points', 15,4);
 			$table->string('points_comment');
 			$table->tinyInteger('status')->default('1');
-            $table->foreignId('store_id')->constrained('companies')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('order_id')->constrained('orders')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('Customer_id')->constrained('customers')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+            
         });
 
         Schema::create('loyalty_groups', function (Blueprint $table) {
@@ -48,15 +40,7 @@ class CreateLoyaltiesTable extends Migration
             $table->text('description');
             $table->string('name');
             $table->tinyInteger('status')->default('1');
-            $table->foreignId('product_id')->constrained('products')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('setting_id')->constrained('settings')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('customer_group_id')->constrained('customer_group_id')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+
 
         });
 
@@ -65,12 +49,7 @@ class CreateLoyaltiesTable extends Migration
 			$table->timestamps();
 			$table->boolean('is_restrict')->default(false);
 			$table->string('exclude')->nullable();
-            $table->foreignId('loyalty_group_id')->constrained('loyalty_groups')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('restrict_id')->constrained('restricts')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+
 		});
 
         Schema::create('loyalty_redeems', function(Blueprint $table) {
@@ -78,17 +57,6 @@ class CreateLoyaltiesTable extends Migration
 			$table->timestamps();
 			$table->datetime('redeem_date');
 			$table->ipAddress('redeem_ip');
-            $table->foreignId('loyalty_id')->constrained('loyalties')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('customer_id')->constrained('customers')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('order_id')->constrained('orders')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-
-
 
 		});
 
@@ -98,15 +66,6 @@ class CreateLoyaltiesTable extends Migration
 			$table->datetime('date');
 			$table->decimal('points', 15,4);
 			$table->tinyInteger('status')->default('1');
-            $table->foreignId('loyalty_id')->constrained('loyalties')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('customer_id')->constrained('customers')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('order_id')->constrained('orders')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
 
 		});
     }

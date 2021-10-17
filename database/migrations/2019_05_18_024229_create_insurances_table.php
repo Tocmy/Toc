@@ -23,23 +23,7 @@ class CreateInsurancesTable extends Migration
 			$table->tinyInteger('status');
 			$table->decimal('percentage');
 			$table->decimal('min_fee');
-			$table->foreignId('shipping_id')->constrained('shippings')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('order_id')->constrained('orders')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('insurance_rate_id')->constrained('insurance_rates')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('insurance_rule_id')->constrained('insurance_rules')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('tax_id')->constrained('taxes')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-
-
+			
         });
 
         Schema::create('insurance_rates', function(Blueprint $table) {
@@ -47,9 +31,7 @@ class CreateInsurancesTable extends Migration
 			$table->timestamps();
 			$table->decimal('fee', 15,4);
 			$table->tinyInteger('status');
-            $table->foreignId('geo_id')->constrained('geos')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+
 		});
 		Schema::create('insurance_rules', function(Blueprint $table) {
             $table->bigIncrements('id');

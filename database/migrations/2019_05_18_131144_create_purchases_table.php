@@ -18,6 +18,7 @@ class CreatePurchasesTable extends Migration
             $table->timestamps();
             $table->softDeletes();
             $table->string('po_number')->unique();
+            $table->string('po_prefix')->unique();
 			$table->string('name', 255);
 			$table->string('model', 64);
 			$table->string('image', 255);
@@ -37,42 +38,13 @@ class CreatePurchasesTable extends Migration
 			$table->tinyInteger('status')->default('1');
             $table->date('date')->nullable();
             $table->dateTime('due_date')->nullable();
-            $table->foreignId('length_id')->constrained('lengths')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('weight_id')->constrained('weigths')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('brand_id')->constrained('brands')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('supplier_id')->constrained('suppliers')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('tax_id')->constrained('taxes')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('product_id')->constrained('products')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('store_id')->constrained('companies')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('currency_id')->constrained('currencies')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
 
         });
 
         Schema::create('purchase_attributes', function(Blueprint $table) {
 			$table->timestamps();
 			$table->text('text');
-            $table->foreignId('purchase_id')->constrained('purchases')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('attribute_id')->constrained('attributes')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+
         });
 
         Schema::create('purchase_returns', function(Blueprint $table) {
@@ -84,15 +56,7 @@ class CreatePurchasesTable extends Migration
 			$table->datetime('return_date');
 			$table->string('reason', 64);
 			$table->tinyInteger('status')->default('0');
-            $table->foreignId('purchase_id')->constrained('purchases')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('supplier_id')->constrained('suppliers')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('product_id')->constrained('products')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+
 
 		});
         Schema::create('stocks', function (Blueprint $table) {
@@ -115,18 +79,6 @@ class CreatePurchasesTable extends Migration
 			$table->timestamps();
 			$table->softDeletes();
 			$table->integer('quantity');
-			$table->foreignId('purchase_id')->constrained('purchases')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('supplier_id')->constrained('suppliers')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('product_id')->constrained('products')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('stock_id')->constrained('stocks')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
 
 		});
 

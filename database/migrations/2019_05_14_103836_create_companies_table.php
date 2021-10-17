@@ -29,7 +29,7 @@ class CreateCompaniesTable extends Migration
 			$table->string('skype')->nullable();
             $table->string('twitter')->nullable();
             $table->string('facebook')->nullable();
-            $table->string('google_plus')->nullable();
+            $table->string('instagram')->nullable();
             $table->string('facebook_app_id')->nullable();
 		    $table->string('google_maps_key_api')->nullable();
 			$table->string('email')->unique();
@@ -37,19 +37,10 @@ class CreateCompaniesTable extends Migration
             $table->string('support_email');
             $table->integer('position');
             $table->tinyInteger('status')->default('0');
-			$table->bigInteger('address_id')->unsigned();
-			$table->bigInteger('setting_id')->unsigned();
-        });
-        Schema::table('companies', function(Blueprint $table) {
-            $table->foreign('address_id')->references('id')->on('addresses')
-                        ->onDelete('cascade')
-                        ->onUpdate('cascade');
-            $table->foreign('setting_id')->references('id')->on('settings')
-                        ->onDelete('cascade')
-                        ->onUpdate('cascade');
-
+			//$table->bigInteger('address_id')->unsigned();
 
         });
+
     }
 
     /**
@@ -60,10 +51,6 @@ class CreateCompaniesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('companies');
-        Schema::table('companies', function(Blueprint $table) {
-            $table->dropForeign(['address_id']);
-            $table->dropForeign(['setting_id']);
-
-        });
+        
     }
 }

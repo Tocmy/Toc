@@ -3,6 +3,7 @@
 namespace App\Models\Address;
 
 use App\Models\Address\Relationship\LocationRelationship;
+use App\Traits\Addressable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -10,7 +11,7 @@ use Nestable\NestableTrait;
 
 class Location extends Model
 {
-    use HasFactory, SoftDeletes, LocationRelationship, NestableTrait;
+    use HasFactory, SoftDeletes, LocationRelationship, NestableTrait, Addressable;
     /**
     * The table associated with the model.
     *

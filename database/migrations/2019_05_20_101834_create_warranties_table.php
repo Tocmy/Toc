@@ -22,9 +22,7 @@ class CreateWarrantiesTable extends Migration
 			$table->string('cover');
 			$table->string('exclude');
 			$table->text('condition');
-            $table->foreignId('type_id')->constrained('types')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+            
         });
 
         //customer purchase extend warranty .
@@ -38,9 +36,7 @@ class CreateWarrantiesTable extends Migration
 			$table->tinyInteger('check_warranty');
 			$table->tinyInteger('is_ship')->default('0');
 			$table->datetime('ship_date');
-            $table->foreignId('order_id')->constrained('orders')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+
 		});
 
 		Schema::create('warranty_products', function(Blueprint $table) {
@@ -58,15 +54,7 @@ class CreateWarrantiesTable extends Migration
 			$table->string('charge');
             $table->datetime('date_start')->nullable();
 			$table->datetime('expire_at');
-			$table->foreignId('category_id')->constrained('categories')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('warranty_id')->constrained('warranties')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('product_id')->constrained('products')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+
 		});
 
     }

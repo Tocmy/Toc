@@ -30,27 +30,6 @@ class CreateOrdersTable extends Migration
 			$table->ipAddress('ip');
 			$table->string('customer_agent');
 			$table->string('accepted_langauge');
-            $table->foreignId('store_id')->constrained('companies')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('customer_id')->constrained('customers')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('customer_group_id')->constrained('customer_groups')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('status_id')->constrained('statuses')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('affiliate_id')->constrained('affiliates')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('currency_id')->constrained('currencies')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('payment_method_id')->constrained('payment_methods')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
 
         });
 
@@ -58,49 +37,25 @@ class CreateOrdersTable extends Migration
 			$table->bigIncrements('id');
 			$table->timestamps();
 			$table->softDeletes();
-			$table->foreignId('rma_id')->constrained('rmas')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('order_id')->constrained('orders')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('product_exchange_id')->constrained('products')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+
         });
 
         Schema::create('order_downloads', function(Blueprint $table) {
 			$table->bigIncrements('id');
 			$table->timestamps();
-			$table->foreignId('order_id')->constrained('orders')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('download_id')->constrained('downloads')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-
 
 		});
 
 		Schema::create('order_history', function(Blueprint $table) {
 			$table->bigIncrements('id');
 			$table->timestamps();
-			$table->foreignId('order_id')->constrained('orders')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('history_id')->constrained('histories')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+
 
 
 		});
 		Schema::create('order_options', function(Blueprint $table) {
 			$table->bigIncrements('id');
 			$table->timestamps();
-			$table->bigInteger('order_id')->unsigned();
-			$table->bigInteger('order_product_id')->unsigned();
-			$table->bigInteger('product_option_id')->unsigned();
-			$table->bigInteger('product_option_value_id')->unsigned()->default('0');
 			$table->string('name');
 			$table->text('value');
 			$table->string('type', 32);
@@ -120,13 +75,6 @@ class CreateOrdersTable extends Migration
 			$table->integer('reward');
 			$table->string('backordered');
 			$table->tinyInteger('picked');
-            $table->foreignId('order_id')->constrained('orders')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('product_id')->constrained('products')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-
 
 		});
 
@@ -150,16 +98,6 @@ class CreateOrdersTable extends Migration
 			$table->smallInteger('trial_duration');
 			$table->decimal('trial_price', 15,4)->default('0.0000');
 			$table->string('reference');
-            $table->foreignId('order_id')->constrained('orders')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('product_id')->constrained('products')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('profile_id')->constrained('profiles')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-
 
 		});
 		Schema::create('order_recurrence_transactions', function(Blueprint $table) {
@@ -168,9 +106,6 @@ class CreateOrdersTable extends Migration
 			$table->datetime('created');
 			$table->decimal('amount', 15,4);
 			$table->string('type');
-            $table->foreignId('order_recurrence_id')->constrained('order_recurrences')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
 
 		});
 
@@ -186,20 +121,12 @@ class CreateOrdersTable extends Migration
 			$table->tinyInteger('available')->unique();
 			$table->decimal('value', 15,4)->default('0.0000');
 			$table->string('name');
-            $table->foreignId('order_id')->constrained('orders')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+
 		});
 
 
 		Schema::create('order_voucher', function(Blueprint $table) {
 			$table->timestamps();
-			$table->foreignId('order_id')->constrained('orders')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('voucher_id')->constrained('vouchers')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
 
 		});
 
@@ -209,15 +136,7 @@ class CreateOrdersTable extends Migration
 			$table->integer('name');
 			$table->text('value');
 			$table->smallInteger('position');
-            $table->foreignId('order_id')->constrained('orders')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('custom_field_id')->constrained('custom_fields')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('custom_field_value_id')->constrained('custom_field_values')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+
 
 		});
 		Schema::create('order_shippings', function(Blueprint $table) {
@@ -228,16 +147,6 @@ class CreateOrdersTable extends Migration
 			$table->integer('name');
 			$table->text('value');
 			$table->smallInteger('position');
-            $table->foreignId('order_id')->constrained('orders')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('supplier_id')->constrained('suppliers')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('shipping_id')->constrained('shippings')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-
 
 		});
 
@@ -249,9 +158,6 @@ class CreateOrdersTable extends Migration
 			$table->string('method', 35);
 			$table->tinyInteger('status')->default('1');
 			$table->text('comments');
-			$table->foreignId('order_id')->constrained('orders')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
 
 
 		});
@@ -309,31 +215,9 @@ class CreateOrdersTable extends Migration
             $table->integer('queries_remaining');
             $table->string('provider_id');
             $table->text('error');
-            $table->foreignId('order_id')->constrained('orders')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('customer_id')->constrained('customers')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            
+
 		});
 
-        Schema::table('order_options', function(Blueprint $table) {
-            $table->foreign('order_id')->references('id')->on('orders')
-                        ->onDelete('cascade')
-                        ->onUpdate('cascade');
-            $table->foreign('order_product_id')->references('id')->on('order_products')
-                        ->onDelete('cascade')
-                        ->onUpdate('cascade');
-            $table->foreign('product_option_id')->references('id')->on('product_options')
-                        ->onDelete('cascade')
-                        ->onUpdate('cascade');
-            $table->foreign('product_option_value_id')->references('id')->on('product_option_values')
-                        ->onDelete('cascade')
-                        ->onUpdate('cascade');
-
-
-           });
 
 
     }

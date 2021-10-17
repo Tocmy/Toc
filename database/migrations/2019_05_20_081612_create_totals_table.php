@@ -23,7 +23,7 @@ class CreateTotalsTable extends Migration
 			$table->string('title');
 			$table->string('text');
 			$table->string('name');
-            $table->morphs('totalable');
+            $table->nullableMorphs('totalable');
 			$table->decimal('value', 15,4)->default('0.0000');
 			$table->integer('position')->nullable();
 			$table->tinyInteger('include');
@@ -42,6 +42,6 @@ class CreateTotalsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('totals');
-     
+
     }
 }

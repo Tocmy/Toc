@@ -26,24 +26,7 @@ class CreateInvoicesTable extends Migration
 			$table->string('currency_code');
 			$table->text('notes');
 			$table->string('attachment')->nullable();
-            $table->foreignId('currency_id')->constrained('currencies')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('customer_id')->constrained('customers')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('order_id')->constrained('orders')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('store_id')->constrained('companies')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('history_id')->constrained('histories')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('statu_id')->constrained('statuses')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+            
         });
 
 
@@ -58,18 +41,7 @@ class CreateInvoicesTable extends Migration
             $table->text('description')->nullable();
             $table->string('reference')->nullable();
             $table->string('attachment')->nullable();
-            $table->foreignId('store_id')->constrained('companies')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('invoice_id')->constrained('invoices')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('payment_method_id')->constrained('Payment_methods')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('currency_id')->constrained('currencies')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+
 		});
 
 

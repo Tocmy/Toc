@@ -41,36 +41,7 @@ class CreateServicesTable extends Migration
 			$table->datetime('date_order');
 			$table->datetime('date_finish');
 			$table->string('contact_person',64);
-            //$table->bigInteger('product_id')->unsigned();
-			//$table->bigInteger('customer_id')->unsigned();
-			$table->bigInteger('address_id')->unsigned();
-			//$table->bigInteger('brand_id')->unsigned();
-			//$table->bigInteger('tax_rate_id')->unsigned();
-			//$table->bigInteger('status_id')->unsigned();
-            $table->foreignId('product_id')->constrained('products')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('customer_id')->constrained('customers')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('brand_id')->constrained('brands')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('tax_rate_id')->constrained('tax_rates')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('status_id')->constrained('statuses')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('category_id')->constrained('categories')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('history_id')->constrained('histories')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-
-
-
+            
         });
 
         Schema::create('service_actions', function(Blueprint $table) {
@@ -81,16 +52,6 @@ class CreateServicesTable extends Migration
 			$table->datetime('repair_received');
 			$table->datetime('repair_completed');
 			$table->boolean('completed')->default(0);
-            $table->foreignId('user_id')->constrained('users')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('priority_id')->constrained('priorities')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('service_id')->constrained('services')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-
 
 		});
 
@@ -102,10 +63,6 @@ class CreateServicesTable extends Migration
 			$table->string('name');
 			$table->string('type');
 			$table->smallInteger('position');
-			$table->foreignId('service_id')->constrained('services')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-
 
 		});
 		//consider related purchase order, status to reflect the availability of the part
@@ -124,12 +81,7 @@ class CreateServicesTable extends Migration
 			$table->tinyInteger('availability')->default('1');
 			$table->tinyInteger('service_returned')->default('0');
 			$table->tinyInteger('replacement_serviced')->default('0');
-            $table->foreignId('service_id')->constrained('services')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('supplier_id')->constrained('suppliers')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+
 		});
 		Schema::create('priorities', function(Blueprint $table) {
 			$table->bigIncrements('id');
@@ -145,12 +97,6 @@ class CreateServicesTable extends Migration
 			$table->timestamps();
 			$table->softDeletes();
 			$table->string('name');
-            $table->foreignId('service_id')->constrained('services')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('package_id')->constrained('packages')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
 
 		});
 
@@ -161,37 +107,18 @@ class CreateServicesTable extends Migration
 			$table->string('name');
 			$table->string('image');
 			$table->tinyInteger('status');
-			$table->foreignId('service_id')->constrained('services')
-               ->onUpdate('cascade')
-               ->onDelete('cascade');
-            $table->foreignId('contract_id')->constrained('contracts')
-               ->onUpdate('cascade')
-               ->onDelete('cascade');
-
 
 		});
 
 		Schema::create('service_warranty', function(Blueprint $table) {
 			$table->timestamps();
             $table->string('name');
-            $table->foreignId('service_id')->constrained('services')
-               ->onUpdate('cascade')
-               ->onDelete('cascade');
-            $table->foreignId('warranty_id')->constrained('warranties')
-               ->onUpdate('cascade')
-               ->onDelete('cascade');
 
 
 		});
 
 		Schema::create('order_service', function(Blueprint $table) {
 			$table->timestamps();
-			$table->foreignId('service_id')->constrained('services')
-               ->onUpdate('cascade')
-               ->onDelete('cascade');
-            $table->foreignId('order_id')->constrained('orders')
-               ->onUpdate('cascade')
-               ->onDelete('cascade');
 
 		});
     }

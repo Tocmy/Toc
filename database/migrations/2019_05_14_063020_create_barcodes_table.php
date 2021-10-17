@@ -29,9 +29,7 @@ class CreateBarcodesTable extends Migration
             $table->boolean('is_default')->default(0);
             $table->boolean('is_continuous')->default(0);
             $table->integer('stickers_in_one_sheet')->nullable();
-            $table->foreignId('store_id')->constrained('companies')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+
 
         });
 
@@ -45,9 +43,7 @@ class CreateBarcodesTable extends Migration
             $table->string('port')->nullable();
             $table->string('path')->nullable();
             $table->timestamps();
-            $table->foreignId('store_id')->constrained('companies')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+            
         });
     }
 

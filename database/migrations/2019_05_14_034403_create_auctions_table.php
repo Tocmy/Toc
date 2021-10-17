@@ -17,7 +17,6 @@ class CreateAuctionsTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->softDeletes();
-			$table->bigInteger('product_id')->unsigned();
 			$table->decimal('bid_min_increase', 15,4)->default('0.0000');
 			$table->datetime('expires_date');
 			$table->tinyInteger('status');
@@ -37,29 +36,10 @@ class CreateAuctionsTable extends Migration
 			$table->bigIncrements('id');
 			$table->timestamps();
 			$table->softDeletes();
-			$table->bigInteger('auction_id')->unsigned();
-			$table->bigInteger('customer_id')->unsigned();
 			$table->decimal('bid_price', 15,4)->default('0.0000');
 			$table->string('bid_status');
 		});
 
-        Schema::table('auctions', function(Blueprint $table) {
-            $table->foreign('product_id')->references('id')->on('products')
-                        ->onDelete('cascade')
-                        ->onUpdate('cascade');
-
-
-           });
-           Schema::table('bids', function(Blueprint $table) {
-            $table->foreign('auction_id')->references('id')->on('auctions')
-                        ->onDelete('cascade')
-                        ->onUpdate('cascade');
-            $table->foreign('customer_id')->references('id')->on('customers')
-                        ->onDelete('cascade')
-                        ->onUpdate('cascade');
-
-
-           });
 
     }
 
@@ -72,16 +52,7 @@ class CreateAuctionsTable extends Migration
     {
         Schema::dropIfExists('auctions');
         Schema::dropIfExists('bids');
-        Schema::table('auctions', function(Blueprint $table) {
-            $table->dropForeign(['product_id']);
 
-
-       });
-       Schema::table('bids', function(Blueprint $table) {
-            $table->dropForeign(['auction_id','customer_id']);
-
-
-       });
 
 
     }
