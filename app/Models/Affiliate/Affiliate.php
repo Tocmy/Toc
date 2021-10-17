@@ -23,9 +23,25 @@ class Affiliate extends Model
      * @var array
      */
     protected $fillable = [
-        'id','user_id', 'address_id', 'newsletter_id', 'payment_method_id',
-        'lifetime', 'commission_id', 'web', 'code', 'payment', 'tax', 'ip', 'status', 'approved'
+        'lifetime', 'web', 'code', 'payment', 'tax', 'ip', 'status', 'approved', 'user_id',
+         'newsletter_id', 'payment_method_id', 'commission_id',
     ];
+
+    protected $attributes = [
+        'lifetime' => 0,
+        'web' => '',
+        'code' => '',
+        'payment' => '',
+        'tax' => '',
+        'ip' => '',
+        'status' => false,
+        'approved' => false,
+        'user_id' => 0,
+        'newsletter_id' => 0,
+        'payment_method_id' => 0,
+        'commission_id' => 0,
+    ];
+
 
     /**
      * The attributes that should be cast to native types.

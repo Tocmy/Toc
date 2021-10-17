@@ -22,7 +22,7 @@ class CreateHistoriesTable extends Migration
 
 
         });
-        //seo/laravel-boilaplate
+        //seo/laravel-boilaplate or bromcrm
         Schema::create('audits', function(Blueprint $table) {
 		    	$table->bigIncrements('id');
 		    	$table->string('user_name', 255)->nullable();
@@ -46,7 +46,7 @@ class CreateHistoriesTable extends Migration
             $table->string('name');
             $table->morphs('typeable');
             $table->tinyInteger('status')->default('1');
-            
+
 		});
 
     }

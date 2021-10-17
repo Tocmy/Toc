@@ -11,13 +11,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
-use OwenIt\Auditing\Auditable;
+
 
 
 class User extends Authenticatable
 {
     use HasFactory, softDeletes, UserRelationship,
-        Auditable, Notifiable,HasRoleAndPermissionable;
+        Notifiable,HasRoleAndPermissionable;
     /**
      * The table associated with the model.
      *

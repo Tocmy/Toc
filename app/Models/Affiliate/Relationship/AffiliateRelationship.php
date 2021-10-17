@@ -8,9 +8,11 @@ use App\Models\Affiliate\AffiliateClick;
 use App\Models\Affiliate\AffiliatePayment;
 use App\Models\Affiliate\AffiliateSale;
 use App\Models\Affiliate\Commission;
+use App\Models\Marketing\Newsletter;
 use App\Models\User\User;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Omnipay\Common\PaymentMethod;
 
 /**
  *
@@ -50,15 +52,20 @@ trait AffiliateRelationship
     *
     * @return \
     */
-   public function address(): BelongsTo
-   {
-       return $this->belongsTo(Address::class, 'address_id', 'id');
-   }
+
 
    public function commission(): BelongsTo
    {
        return $this->belongsTo(Commission::class, 'commission_id', 'id');
    }
+
+   public function newsletter(): BelongsTo
+    {
+        return $this->belongsTo(Newsletter::class, 'newsletter_id', 'id');
+    }
+
+    
+
    public function user(): BelongsTo
    {
        return $this->belongsTo(User::class, 'user_id', 'id');
