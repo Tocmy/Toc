@@ -17,7 +17,6 @@ class CreateRmasTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->softDeletes();
-			//$table->bigInteger('address_id')->unsigned();
 			$table->integer('quantity');
 			$table->tinyInteger('opened');
 			$table->text('comment');
