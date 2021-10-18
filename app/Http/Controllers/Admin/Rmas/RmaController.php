@@ -1,12 +1,13 @@
 <?php
+namespace App\Http\Controllers\Admin\Rmas;
 
-namespace App\Http\Controllers\Rmas;
+
 
 use App\Http\Controllers\Controller;
-use App\Models\Rma\RmaReason;
+use App\Models\Rma\Rma;
 use Illuminate\Http\Request;
 
-class RmaReasonController extends Controller
+class RmaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,10 +43,10 @@ class RmaReasonController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Rma\RmaReason  $rmaReason
+     * @param  \App\Models\Rma\Rma  $rma
      * @return \Illuminate\Http\Response
      */
-    public function show(RmaReason $rmaReason)
+    public function show(Rma $rma)
     {
         //
     }
@@ -53,10 +54,10 @@ class RmaReasonController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Rma\RmaReason  $rmaReason
+     * @param  \App\Models\Rma\Rma  $rma
      * @return \Illuminate\Http\Response
      */
-    public function edit(RmaReason $rmaReason)
+    public function edit(Rma $rma)
     {
         //
     }
@@ -65,10 +66,10 @@ class RmaReasonController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Rma\RmaReason  $rmaReason
+     * @param  \App\Models\Rma\Rma  $rma
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, RmaReason $rmaReason)
+    public function update(Request $request, Rma $rma)
     {
         //
     }
@@ -76,10 +77,10 @@ class RmaReasonController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Rma\RmaReason  $rmaReason
+     * @param  \App\Models\Rma\Rma  $rma
      * @return \Illuminate\Http\Response
      */
-    public function destroy(RmaReason $rmaReason)
+    public function destroy(Rma $rma)
     {
         //
     }

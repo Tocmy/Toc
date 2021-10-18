@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Rmas;
+namespace App\Http\Controllers\Admin\Products;
 
 use App\Http\Controllers\Controller;
-use App\Models\Rma\Refund;
+use App\Models\Product\Special;
 use Illuminate\Http\Request;
 
-class RefundController extends Controller
+class SpecialController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,10 +42,10 @@ class RefundController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Rma\Refund  $refund
+     * @param  \App\Models\Product\Special  $special
      * @return \Illuminate\Http\Response
      */
-    public function show(Refund $refund)
+    public function show(Special $special)
     {
         //
     }
@@ -53,10 +53,10 @@ class RefundController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Rma\Refund  $refund
+     * @param  \App\Models\Product\Special  $special
      * @return \Illuminate\Http\Response
      */
-    public function edit(Refund $refund)
+    public function edit(Special $special)
     {
         //
     }
@@ -65,10 +65,10 @@ class RefundController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Rma\Refund  $refund
+     * @param  \App\Models\Product\Special  $special
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Refund $refund)
+    public function update(Request $request, Special $special)
     {
         //
     }
@@ -76,10 +76,10 @@ class RefundController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Rma\Refund  $refund
+     * @param  \App\Models\Product\Special  $special
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Refund $refund)
+    public function destroy(Special $special)
     {
         //
     }

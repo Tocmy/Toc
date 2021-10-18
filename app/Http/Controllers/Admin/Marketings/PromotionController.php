@@ -1,12 +1,13 @@
 <?php
+namespace App\Http\Controllers\Admin\Marketings;
 
-namespace App\Http\Controllers\Rmas;
+
 
 use App\Http\Controllers\Controller;
-use App\Models\Rma\RmaAction;
+use App\Models\Marketing\Promotion;
 use Illuminate\Http\Request;
 
-class RmaActionController extends Controller
+class PromotionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,10 +43,10 @@ class RmaActionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Rma\RmaAction  $rmaAction
+     * @param  \App\Models\Marketing\Promotion  $promotion
      * @return \Illuminate\Http\Response
      */
-    public function show(RmaAction $rmaAction)
+    public function show(Promotion $promotion)
     {
         //
     }
@@ -53,10 +54,10 @@ class RmaActionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Rma\RmaAction  $rmaAction
+     * @param  \App\Models\Marketing\Promotion  $promotion
      * @return \Illuminate\Http\Response
      */
-    public function edit(RmaAction $rmaAction)
+    public function edit(Promotion $promotion)
     {
         //
     }
@@ -65,10 +66,10 @@ class RmaActionController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Rma\RmaAction  $rmaAction
+     * @param  \App\Models\Marketing\Promotion  $promotion
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, RmaAction $rmaAction)
+    public function update(Request $request, Promotion $promotion)
     {
         //
     }
@@ -76,10 +77,10 @@ class RmaActionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Rma\RmaAction  $rmaAction
+     * @param  \App\Models\Marketing\Promotion  $promotion
      * @return \Illuminate\Http\Response
      */
-    public function destroy(RmaAction $rmaAction)
+    public function destroy(Promotion $promotion)
     {
         //
     }

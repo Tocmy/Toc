@@ -1,12 +1,13 @@
 <?php
+namespace App\Http\Controllers\Admin\Rmas;
 
-namespace App\Http\Controllers\Rmas;
+
 
 use App\Http\Controllers\Controller;
-use App\Models\Rma\Rma;
+use App\Models\Rma\Refund;
 use Illuminate\Http\Request;
 
-class RmaController extends Controller
+class RefundController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,10 +43,10 @@ class RmaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Rma\Rma  $rma
+     * @param  \App\Models\Rma\Refund  $refund
      * @return \Illuminate\Http\Response
      */
-    public function show(Rma $rma)
+    public function show(Refund $refund)
     {
         //
     }
@@ -53,10 +54,10 @@ class RmaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Rma\Rma  $rma
+     * @param  \App\Models\Rma\Refund  $refund
      * @return \Illuminate\Http\Response
      */
-    public function edit(Rma $rma)
+    public function edit(Refund $refund)
     {
         //
     }
@@ -65,10 +66,10 @@ class RmaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Rma\Rma  $rma
+     * @param  \App\Models\Rma\Refund  $refund
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Rma $rma)
+    public function update(Request $request, Refund $refund)
     {
         //
     }
@@ -76,10 +77,10 @@ class RmaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Rma\Rma  $rma
+     * @param  \App\Models\Rma\Refund  $refund
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Rma $rma)
+    public function destroy(Refund $refund)
     {
         //
     }
