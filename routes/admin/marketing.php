@@ -15,11 +15,11 @@ Route::group([
 
 
 
-    Route::resource('loyalty', LoyaltyController::class);
-    Route::resource('loyaltygroup', LoyaltyGroupController::class);
+    Route::resource('/loyalties', LoyaltyController::class);
+    Route::resource('/loyaltygroups', LoyaltyGroupController::class);
 
 
-
+    Route::resource('promotions', PromotionController::class);
 
 });
 
