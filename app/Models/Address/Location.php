@@ -26,7 +26,7 @@ class Location extends Model
      * @var  array
      */
     protected $fillable = [
-        'parent_id', 'name', 'address_id', 'open', 'comment', 'image',
+        'name', 'open', 'comment', 'image', 'parent_id',
     ];
 
     /**
@@ -35,15 +35,11 @@ class Location extends Model
     * @var  array
     */
     protected $attributes = [
-        'parent_id' => NULL,
-        'lft' => NULL,
-        'rgt' => NULL,
-        'depth' => NULL,
         'name' => '',
-        'address_id' => 0,
         'open' => '',
         'comment' => '',
         'image' => NULL,
+        'parent_id' => NULL,
     ];
 
 }

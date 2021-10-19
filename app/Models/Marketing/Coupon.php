@@ -24,21 +24,19 @@ class Coupon extends Model
      */
     protected $fillable = [
         'id',
-        'code', 'type_id', 'setting_id', 'coupon_discount', 'logged', 'shipping',
-        'total', 'date_start', 'expire', 'uses_total', 'uses_customer', 'status', 'min_order',
-        'uses_per_coupon', 'name', 'descriptions','quantity','image',
+        'code', 'coupon_discount', 'logged', 'shipping', 'total', 'date_start',
+        'expire_at', 'uses_total', 'uses_customer', 'status', 'min_order', 'uses_per_coupon', 'name',
+        'descriptions', 'quantity', 'image', 'store_id', 'type_id', 'setting_id',
     ];
 
     protected $attributes = [
         'code' => '',
-        'type_id' => 0,
-        'setting_id' => 0,
         'coupon_discount' => '0.0000',
         'logged' => false,
         'shipping' => false,
         'total' => '0.0000',
         'date_start' => NULL,
-        'expire' => NULL,
+        'expire_at' => NULL,
         'uses_total' => 0,
         'uses_customer' => '',
         'status' => NULL,
@@ -46,6 +44,11 @@ class Coupon extends Model
         'uses_per_coupon' => 0,
         'name' => '',
         'descriptions' => '',
+        'quantity' => 0,
+        'image' => '',
+        'store_id' => 0,
+        'type_id' => 0,
+        'setting_id' => 0,
     ];
 
     /**
@@ -101,6 +104,6 @@ class Coupon extends Model
         return $customer;
     }
 
-  
+
 
 }
