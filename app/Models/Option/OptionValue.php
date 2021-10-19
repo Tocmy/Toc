@@ -24,7 +24,7 @@ class OptionValue extends Model
      * @var  array
      */
     protected $fillable = [
-        'option_id', 'image', 'position', 'name',
+        'image', 'position', 'name', 'option_id',
     ];
 
     /**
@@ -40,5 +40,20 @@ class OptionValue extends Model
     ];
 
     public $softable =['position'];
+
+    public static function checkIfRequired($class, $field)
+    {
+        $rules = $class::rules();
+        foreach ($rules as $rule_name => $rule) {
+            if ($rule_name == $field) {
+                if (strpos($rule, 'required') === false) {
+                    return false;
+                } else {
+                    return true;
+                }
+
+            }
+        }
+    }
 
 }

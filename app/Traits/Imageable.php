@@ -4,7 +4,7 @@ namespace App\Traits;
 use App\Models\Banner\Image;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
-use phpDocumentor\Reflection\Types\Null_;
+
 
 /**
  *

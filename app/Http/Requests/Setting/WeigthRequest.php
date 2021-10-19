@@ -4,9 +4,9 @@ namespace App\Http\Requests\Setting;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SettingGroupRequest extends FormRequest
+class WeigthRequest extends FormRequest
 {
-    protected $errorBag = 'settinggroupErrorBag';
+    protected $errorBag = 'weigthErrorBag';
     /**
      * Determine if the user is authorized to make this request.
      *

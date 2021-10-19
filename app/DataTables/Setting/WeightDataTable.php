@@ -2,12 +2,12 @@
 
 namespace App\DataTables\Setting;
 
-use App\Models\Setting\Length;
+use App\Models\Setting\Weight;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
 
-class LengthDataTable extends DataTable
+class WeightDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -19,31 +19,31 @@ class LengthDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('checkbox', function($length){
+            ->addColumn('checkbox', function($weigth){
                 return'<div class="dt-checkbox">
-                <input type="checkbox" class="" data-id="'.$length->length_id.'" name="id[]" value="'.$length->length_id.'">
+                <input type="checkbox" class="" data-id="'.$weigth->weigth_id.'" name="id[]" value="'.$weigth->weigth_id.'">
                 <span class="dt-checkbox-label"></span>
                 </div>';
             })
-            ->editColumn('is_default',function($length){
-                if ($length->is_default == 1) {
+            ->editColumn('is_default',function($weigth){
+                if ($weigth->is_default == 1) {
                     return'<span class="badge badge-success">'.__('default'). '</span> ';
                 }else {
                     return;
                 }
             })
 
-            ->addColumn('action', function($length){
+            ->addColumn('action', function($weigth){
                 $action = '<div class="btn-group dropdown">
                   <button aria-expanded ="false" data-toggle="dropdown" class="btn dropdown" type="button">
                   <i class="las la-ellipsis-v"></i>
                   </button>
                   <div class="dropdown-menu">
-                  <a href="'.route('admin.lengths.edit', [$length->id]).'" class="dropdown-item">
+                  <a href="'.route('admin.lengths.edit', [$weigth->id]).'" class="dropdown-item">
                   <i class="las la-pen-nib" aria-hidden="true"></i>
                   '.__('Edit').'
                   </a>
-                  <a href="'.route('admin.lengths.destroy', [$length->id]).'" class="dropdown-item">
+                  <a href="'.route('admin.lengths.destroy', [$weigth->id]).'" class="dropdown-item">
                   <i class="las la-trash aria-hidden="true"></i>
                   '.__('Delete').'
                   </a>';
@@ -54,16 +54,16 @@ class LengthDataTable extends DataTable
                 return $action;
 
             })
-            ->rawColumns(['check','is_default', 'action']);
+            ->rawColumns(['check','is_default', 'action']);;
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Setting\Length $model
+     * @param \App\Models\Setting\Weight $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Length $model)
+    public function query(Weight $model)
     {
         return $model->newQuery();
     }
@@ -76,7 +76,7 @@ class LengthDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('setting\lengthdatatable-table')
+                    ->setTableId('setting\weightdatatable-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
@@ -117,6 +117,6 @@ class LengthDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'lengths_' . date('YmdHis');
+        return 'Setting\Weight_' . date('YmdHis');
     }
 }

@@ -23,13 +23,25 @@ class Weight extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'deleted_at', 'value', 'title', 'unit', 'is_default'
+        'id', 'value', 'title', 'unit', 'is_default',
+    ];
+
+    protected $attributes = [
+        'value' => '0.00000000',
+        'title' => '',
+        'unit' => '',
+        'is_default' => false,
     ];
 
     /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array
-     */
-    protected $dates = ['created_at', 'updated_at', 'deleted_at'];
+    * The attributes that should be cast to native types.
+    *
+    * @var  array
+    */
+    protected $casts = [
+        'is_default' => 'boolean',
+    ];
+
+
+
 }

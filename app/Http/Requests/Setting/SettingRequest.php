@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class SettingRequest extends FormRequest
 {
+    protected $errorBag = 'settingErrorBag';
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -13,7 +14,7 @@ class SettingRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -63,6 +64,6 @@ class SettingRequest extends FormRequest
         }
 
         return $this->rules;
-    
+
     }
 }
