@@ -24,7 +24,7 @@ class Setting extends Model
      * @var  array
      */
     protected $fillable = [
-        'setting_group_id', 'key', 'name', 'description', 'value', 'field', 'status',
+        'key', 'name', 'description', 'value', 'field', 'status', 'setting_group_id',
     ];
 
     /**
@@ -33,13 +33,13 @@ class Setting extends Model
     * @var  array
     */
     protected $attributes = [
-        'setting_group_id' => 0,
         'key' => '',
         'name' => '',
         'description' => NULL,
         'value' => NULL,
         'field' => '',
         'status' => NULL,
+        'setting_group_id' => 0,
     ];
 
     /**

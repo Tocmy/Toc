@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin\Settings;
 
+use App\DataTables\Setting\SettingDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Setting\Setting;
 use Illuminate\Http\Request;
+use App\Http\Requests\Setting\SettingRequest;
 
 class SettingController extends Controller
 {
@@ -13,9 +15,9 @@ class SettingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(SettingDataTable $settingDataTable)
     {
-        //
+        return $settingDataTable->render('admin.setting.index');
     }
 
     /**
@@ -34,7 +36,7 @@ class SettingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SettingRequest $request)
     {
         //
     }

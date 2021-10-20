@@ -1,14 +1,26 @@
 <?php
 namespace App\Models\Setting\Relationship;
 
+use App\Models\Invoice\Invoice;
+use App\Models\Order\Order;
+use App\Models\Product\Product;
+use App\Models\Quotation\Quotation;
+use App\Models\Rma\Rma;
+use App\Models\Service\Service;
+
 /**
  *
  */
 trait StatusRelationship
 {
+    public function invoices()
+    {
+        return $this->hasMany(Invoice::class, 'status_id', 'id');
+    }
+
     public function orders()
     {
-        return $this->hasMany(App\Models\Order\Order::class, 'status_id', 'id');
+        return $this->hasMany(Order::class, 'status_id', 'id');
     }
 
     /**
@@ -16,15 +28,15 @@ trait StatusRelationship
     */
     public function products()
     {
-        return $this->hasMany(App\Models\Product\Product::class, 'status_id', 'id');
+        return $this->hasMany(Product::class, 'status_id', 'id');
     }
 
     /**
     * Get the multiple records associated with this model.
     */
-    public function quotationStatus()
+    public function quotations()
     {
-        return $this->hasMany(App\Models\Quotation\QuotationStatus::class, 'status_id', 'id');
+        return $this->hasMany(Quotation::class, 'status_id', 'id');
     }
 
     /**
@@ -32,7 +44,7 @@ trait StatusRelationship
     */
     public function rmas()
     {
-        return $this->hasMany(App\Models\Stock\Rma::class, 'status_id', 'id');
+        return $this->hasMany(Rma::class, 'status_id', 'id');
     }
 
     /**
@@ -40,7 +52,7 @@ trait StatusRelationship
     */
     public function services()
     {
-        return $this->hasMany(App\Models\Service\Service::class, 'status_id', 'id');
+        return $this->hasMany(Service::class, 'status_id', 'id');
     }
 }
 

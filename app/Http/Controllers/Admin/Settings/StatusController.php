@@ -2,22 +2,22 @@
 
 namespace App\Http\Controllers\Admin\Settings;
 
-use App\DataTables\Setting\WeightDataTable;
+use App\DataTables\Setting\StatusDataTable;
 use App\Http\Controllers\Controller;
-use App\Models\Setting\Weight;
+use App\Models\Setting\Status;
 use Illuminate\Http\Request;
-use App\Http\Requests\Setting\WeigthRequest;
+use App\Http\Requests\Setting\StatusRequest;
 
-class WeightController extends Controller
+class StatusController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(WeightDataTable $weightDataTable)
+    public function index(StatusDataTable $statusDataTable)
     {
-        return $weightDataTable->render('admin.weigth.index');
+        return $statusDataTable->render('admin.status.index');
     }
 
     /**
@@ -36,7 +36,7 @@ class WeightController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(WeigthRequest $request)
+    public function store(StatusRequest $request)
     {
         //
     }
@@ -44,10 +44,10 @@ class WeightController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Setting\Weight  $weight
+     * @param  \App\Models\Setting\Status  $status
      * @return \Illuminate\Http\Response
      */
-    public function show(Weight $weight)
+    public function show(Status $status)
     {
         //
     }
@@ -55,10 +55,10 @@ class WeightController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Setting\Weight  $weight
+     * @param  \App\Models\Setting\Status  $status
      * @return \Illuminate\Http\Response
      */
-    public function edit(Weight $weight)
+    public function edit(Status $status)
     {
         //
     }
@@ -67,10 +67,10 @@ class WeightController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Setting\Weight  $weight
+     * @param  \App\Models\Setting\Status  $status
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Weight $weight)
+    public function update(Request $request, Status $status)
     {
         //
     }
@@ -78,10 +78,10 @@ class WeightController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Setting\Weight  $weight
+     * @param  \App\Models\Setting\Status  $status
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Weight $weight)
+    public function destroy(Status $status)
     {
         //
     }

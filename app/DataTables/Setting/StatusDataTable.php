@@ -5,8 +5,6 @@ namespace App\DataTables\Setting;
 use App\Models\Setting\Status;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
 class StatusDataTable extends DataTable
@@ -21,7 +19,36 @@ class StatusDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'setting\statusdatatable.action');
+            ->addColumn('checkbox', function($status){
+                return'<div class="dt-checkbox">
+                <input type="checkbox" class="" data-id="'.$status->status_id.'" name="id[]" value="'.$status->status_id.'">
+                <span class="dt-checkbox-label"></span>
+                </div>';
+            })
+
+
+            ->addColumn('action', function($status){
+                $action = '<div class="btn-group dropdown">
+                  <button aria-expanded ="false" data-toggle="dropdown" class="btn dropdown" type="button">
+                  <i class="las la-ellipsis-v"></i>
+                  </button>
+                  <div class="dropdown-menu">
+                  <a href="'.route('admin.lengths.edit', [$status->id]).'" class="dropdown-item">
+                  <i class="las la-pen-nib" aria-hidden="true"></i>
+                  '.__('Edit').'
+                  </a>
+                  <a href="'.route('admin.lengths.destroy', [$status->id]).'" class="dropdown-item">
+                  <i class="las la-trash aria-hidden="true"></i>
+                  '.__('Delete').'
+                  </a>';
+
+
+
+                $action .='</div></div>';
+                return $action;
+
+            })
+            ->rawColumns(['check','is_default', 'action']);
     }
 
     /**
@@ -37,7 +64,7 @@ class StatusDataTable extends DataTable
 
     /**
      * Optional method if you want to use html builder.
-     *
+     * datatable-hr erp
      * @return \Yajra\DataTables\Html\Builder
      */
     public function html()
@@ -48,6 +75,14 @@ class StatusDataTable extends DataTable
                     ->minifiedAjax()
                     ->dom('Bfrtip')
                     ->orderBy(1)
+                    ->parameters([
+                        'language' =>[
+                            "paginate" =>[
+                                'first' => '<i class="mdi mdi-chevron-double-right"></i>',
+                                'last'  => '<i class="mdi mdi-chevron-double-left"></i>',
+                            ]
+                        ]
+                    ])
                     ->buttons(
                         Button::make('create'),
                         Button::make('export'),
@@ -59,21 +94,40 @@ class StatusDataTable extends DataTable
 
     /**
      * Get columns.
-     *
+     * 'defaultContent' => '<div class="dt-checkbox"><input type="checkbox" name="id[]" value="' + $('<div/>').text(data).html() + '"><span class="dt-checkbox-label"></span></div>',
+    *'title'          => $this->form->checkbox('', '', false, ['id' => 'dataTablesCheckbox']),
+    *'data'           => 'checkbox',
+    *'name'           => 'checkbox',
+    *'orderable'      => false,
+    *'searchable'     => false,
+    *'exportable'     => false,
+    *'printable'      => true,
+    *'width'          => '10px',
      * @return array
      */
     protected function getColumns()
     {
         return [
+            [
+                'name'  => 'checkbox',
+                'data'  => 'checkbox',
+                'title' => '<input type="checkbox" class="check_all" onclick="check_all()">',
+                'exportable'=>false,
+                'printable'=>false,
+                'orderable'=>false,
+                'searchable'=>false,
+            ],
+
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
                   ->width(60)
                   ->addClass('text-center'),
-            Column::make('id'),
-            Column::make('add your columns'),
-            Column::make('created_at'),
-            Column::make('updated_at'),
+            Column::make('name')
+                    ->title(__('name')),
+            Column::make('comment')
+                   ->title(__('comment')),
+
         ];
     }
 

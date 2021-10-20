@@ -70,6 +70,8 @@ class LengthDataTable extends DataTable
 
     /**
      * Optional method if you want to use html builder.
+
+     *
      *
      * @return \Yajra\DataTables\Html\Builder
      */
@@ -81,6 +83,16 @@ class LengthDataTable extends DataTable
                     ->minifiedAjax()
                     ->dom('Bfrtip')
                     ->orderBy(1)
+                    ->parameters([
+                        'language' =>[
+                            "paginate" =>[
+                                'first' => '<i class="mdi mdi-chevron-double-right"></i>',
+                                'last'  => '<i class="mdi mdi-chevron-double-left"></i>',
+                            ]
+
+
+                        ]
+                    ])
                     ->buttons(
                         Button::make('create'),
                         Button::make('export'),
@@ -92,21 +104,46 @@ class LengthDataTable extends DataTable
 
     /**
      * Get columns.
+     *    $column = [
+    * 'name' => 'id',
+    *'data' => 'id',
+    *'title' => 'Id',
+    *'searchable' => true,
+    *'orderable' => true,
+    *'render' => 'function(){}',
+    *'footer' => 'Id',
+    *'exportable' => true,
+    *'printable' => true,
+    *];   to
+     * $column = Column::make('id')
+     *   ->title('Id')
+     *   ->searchable(true)
+     *   ->orderable(true)
+     *   ->render('function(){}')
+     *   ->footer('Id')
+     *   ->exportable(true)
+     *   ->printable(true);
      *
      * @return array
      */
     protected function getColumns()
     {
         return [
+
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
                   ->width(60)
                   ->addClass('text-center'),
-            Column::make('id'),
-            Column::make('add your columns'),
-            Column::make('created_at'),
-            Column::make('updated_at'),
+            Column::make('id')
+                    ->title('id'),
+            Column::make('title')
+                    ->title(__('title')) ,
+            Column::make('unit')
+                    ->title(__('unit')),
+            Column::make('value')
+                    ->title(__('value')),
+
         ];
     }
 

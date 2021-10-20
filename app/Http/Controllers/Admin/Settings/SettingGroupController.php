@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Settings;
 
+use App\DataTables\Setting\SettingGroupDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Setting\SettingGroup;
 use Illuminate\Http\Request;
@@ -13,9 +14,9 @@ class SettingGroupController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(SettingGroupDataTable $settingGroupDataTable)
     {
-        //
+        return $settingGroupDataTable->render('admin.setting.group.index');
     }
 
     /**

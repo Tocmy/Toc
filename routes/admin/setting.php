@@ -10,6 +10,8 @@ Route::group(['namespace' => 'Settings'],function () {
 
     Route::resource('/setting-groups', SettingGroupController::class);
 
+    Route::resource('/statuses', StatusGroupController::class);
+
     Route::resource('/weigths', WeigthController::class);
 
 });

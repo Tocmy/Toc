@@ -76,6 +76,16 @@ class SettingGroupDataTable extends DataTable
                     ->minifiedAjax()
                     ->dom('Bfrtip')
                     ->orderBy(1)
+                    ->parameters([
+                        'language' =>[
+                            "paginate" =>[
+                                'first' => '<i class="mdi mdi-chevron-double-right"></i>',
+                                'last'  => '<i class="mdi mdi-chevron-double-left"></i>',
+                            ]
+
+
+                        ]
+                    ])
                     ->buttons(
                         Button::make('create'),
                         Button::make('export'),
