@@ -12,6 +12,8 @@ Route::group(['namespace' => 'Settings'],function () {
 
     Route::resource('/statuses', StatusGroupController::class);
 
+    Route::resource('/taxes', TaxGroupController::class);
+
     Route::resource('/weigths', WeigthController::class);
 
 });

@@ -57,4 +57,13 @@ class Download extends Model
         'is_public' => 'boolean',
         'is_embedded' => 'boolean',
     ];
+
+    public function getVideoEmbedAttribute()
+    {
+        return isset($this->video) ? preg_replace(
+            "/\s*[a-zA-Z\/\/:\.]*youtu(be.com\/watch\?v=|.be\/)([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i",
+            '<iframe src="" allowfullscreen></iframe>',
+            $this->video
+        ) : null;
+    }
 }

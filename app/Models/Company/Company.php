@@ -6,25 +6,28 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Company\Relationship\CompanyRelationship as CompanyRelationship;
+use App\Traits\Addressable;
+use Kyslik\ColumnSortable\Sortable;
 
 class Company extends Model
 {
-    use HasFactory, softDeletes, CompanyRelationship;
+    use HasFactory, softDeletes, CompanyRelationship, Addressable,Sortable;
     /**
      * The table associated with the model.
      *
      * @var string
      */
     protected $table = 'companies';
+    protected $softable = ['position'];
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'id', 'deleted_at', 'name', 'owner', 'website_name','url', 'ssl', 'slogan', 'logo', 'icon', 'theme', 'twitter', 'twitter', 'facebook', 'google_plus', 'facebook_app_id',
-        'google_maps_key_api',
-        'email', 'sales_email', 'support_email', 'position', 'address_id', 'setting_id',
+        'name', 'owner', 'website_name', 'url', 'ssl', 'slogan', 'logo', 'icon',
+        'theme', 'skype', 'twitter', 'facebook', 'instagram', 'facebook_app_id', 'google_maps_key_api',
+        'email', 'sales_email', 'support_email', 'position', 'status', 'setting_id',
     ];
 
     /**
@@ -32,7 +35,30 @@ class Company extends Model
      *
      * @var array
      */
-    protected $dates = ['created_at', 'updated_at', 'deleted_at'];
+    protected $attributes = [
+        'name' => '',
+        'owner' => '',
+        'website_name' => '',
+        'url' => '',
+        'ssl' => '',
+        'slogan' => NULL,
+        'logo' => NULL,
+        'icon' => NULL,
+        'theme' => NULL,
+        'skype' => NULL,
+        'twitter' => NULL,
+        'facebook' => NULL,
+        'instagram' => NULL,
+        'facebook_app_id' => NULL,
+        'google_maps_key_api' => NULL,
+        'email' => '',
+        'sales_email' => '',
+        'support_email' => '',
+        'position' => 0,
+        'status' => false,
+        'setting_id' => 0,
+    ];
+
 
     /**
      * The attributes that should be cast to native types.

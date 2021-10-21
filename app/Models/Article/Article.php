@@ -3,14 +3,15 @@ namespace App\Models\Article;
 
 
 use App\Models\Article\Relationship\ArticleRelationship;
+use App\Traits\Seoable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Kyslik\ColumnSortable\Sortable;
 
 class Article extends Model
 {
-    use HasFactory, SoftDeletes,  ArticleRelationship;
+    use HasFactory, SoftDeletes,  ArticleRelationship, Seoable,Sortable;
 
     /**
     * The table associated with the model.
@@ -18,15 +19,16 @@ class Article extends Model
     * @var  string
     */
     protected $table = 'articles';
+    protected $sortable =['position'];
 
     /**
      * The attributes that are mass assignable.
-     *
+     *tagging
      * @var  array
      */
     protected $fillable = [
-        'author_id', 'is_blog', 'allow_comment', 'image', 'article_related_method', 'article_related_option',
-        'position', 'status', 'published_date', 'title', 'slug', 'description', 'tag_id', 'meta_id',
+        'is_blog', 'allow_comment', 'image', 'article_related_method', 'article_related_option',
+         'position', 'status', 'published_date', 'title', 'slug', 'description', 'author_id', 'product_id', 'store_id', 'extra_id',
     ];
 
     /**
@@ -35,7 +37,6 @@ class Article extends Model
     * @var  array
     */
     protected $attributes = [
-        'author_id' => 0,
         'is_blog' => false,
         'allow_comment' => false,
         'image' => '',
@@ -47,8 +48,10 @@ class Article extends Model
         'title' => '',
         'slug' => '',
         'description' => '',
-        'tag_id' => 0,
-        'meta_id' => 0,
+        'author_id' => 0,
+        'product_id' => 0,
+        'store_id' => 0,
+        'extra_id' => 0,
     ];
 
     /**

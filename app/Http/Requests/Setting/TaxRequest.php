@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Purchase;
+namespace App\Http\Requests\Setting;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PurchaseRequest extends FormRequest
+class TaxRequest extends FormRequest
 {
-
-    protected $errorBag = 'purchaseErrorBag';
+    protected $errorBag = 'taxErrorBag';
     /**
      * Determine if the user is authorized to make this request.
      *
