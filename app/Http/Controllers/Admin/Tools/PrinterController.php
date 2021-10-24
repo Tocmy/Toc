@@ -1,23 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Companies;
+namespace App\Http\Controllers\Admin\Tools;
 
-use App\DataTables\Company\CompanyDataTable;
 use App\Http\Controllers\Controller;
-use App\Models\Company\Company;
+use App\Models\Tool\Printer;
 use Illuminate\Http\Request;
-use App\Http\Requests\Company\CompanyRequest;
 
-class CompanyController extends Controller
+class PrinterController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(CompanyDataTable $companyDataTable)
+    public function index()
     {
-        return $companyDataTable->render('admin.company.index');
+        //
     }
 
     /**
@@ -36,7 +34,7 @@ class CompanyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CompanyRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -44,10 +42,10 @@ class CompanyController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Company\Company  $company
+     * @param  \App\Models\Tool\Printer  $printer
      * @return \Illuminate\Http\Response
      */
-    public function show(Company $company)
+    public function show(Printer $printer)
     {
         //
     }
@@ -55,10 +53,10 @@ class CompanyController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Company\Company  $company
+     * @param  \App\Models\Tool\Printer  $printer
      * @return \Illuminate\Http\Response
      */
-    public function edit(Company $company)
+    public function edit(Printer $printer)
     {
         //
     }
@@ -67,10 +65,10 @@ class CompanyController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Company\Company  $company
+     * @param  \App\Models\Tool\Printer  $printer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Company $company)
+    public function update(Request $request, Printer $printer)
     {
         //
     }
@@ -78,10 +76,10 @@ class CompanyController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Company\Company  $company
+     * @param  \App\Models\Tool\Printer  $printer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Company $company)
+    public function destroy(Printer $printer)
     {
         //
     }

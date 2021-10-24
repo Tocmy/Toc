@@ -2,12 +2,14 @@
 
 namespace App\Models\Voucher;
 
+use Altek\Accountant\Recordable;
+use App\Models\Voucher\Relationship\VoucherRelationship;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Voucher extends Model
 {
-    use HasFactory;
+    use HasFactory, VoucherRelationship, Recordable;
 
     /**
     * The table associated with the model.
@@ -22,7 +24,8 @@ class Voucher extends Model
      * @var  array
      */
     protected $fillable = [
-        'code', 'description', 'name', 'slug', 'series_no', 'quantity', 'sender', 'from_email', 'recipient', 'to_email', 'expiry_period', 'message', 'amount', 'status', 'theme_id', 'store_id',
+        'code', 'description', 'name', 'slug', 'series_no', 'quantity', 'sender', 'from_email',
+         'recipient', 'to_email', 'expiry_period', 'message', 'amount', 'status', 'theme_id', 'store_id',
     ];
 
     /**

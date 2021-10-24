@@ -1,17 +1,19 @@
 <?php
 
-namespace App\DataTables\Setting;
+namespace App\DataTables\Tool;
 
-use App\Models\Setting\Setting;
+use App\Models\Tool\Barcode;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
+use Yajra\DataTables\Html\Editor\Editor;
+use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class SettingDataTable extends DataTable
+class BarcodeDataTable extends DataTable
 {
     /**
      * Build DataTable class.
-     * datatable/homeservice
+     *
      * @param mixed $query Results from query() method.
      * @return \Yajra\DataTables\DataTableAbstract
      */
@@ -19,31 +21,31 @@ class SettingDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('checkbox', function($setting){
+            ->addColumn('checkbox', function($barcode){
                 return'<div class="dt-checkbox">
-                <input type="checkbox" class="" data-id="'.$setting->setting_id.'" name="id[]" value="'.$setting->setting_id.'">
+                <input type="checkbox" class="" data-id="'.$barcode->barcode_id.'" name="id[]" value="'.$barcode->barcode_id.'">
                 <span class="dt-checkbox-label"></span>
                 </div>';
             })
-            ->editColumn('is_default',function($setting){
-                if ($setting->status == 1) {
-                    return '<input class="switch swith-pink" type="checkbox" id="pink" checked /> ';
+            ->editColumn('name',function($barcode){
+                if ($barcode->is_default == 1) {
+                    return $barcode->name. '&nbsp; <span class="badge badge-success">'.__('barcode.default') .'</span>';
                 }else {
-                    return '<input class="switch swith-pink" type="checkbox" id="pink" />';
+                    return $barcode->name;
                 }
             })
 
-            ->addColumn('action', function($setting){
+            ->addColumn('action', function($barcode){
                 $action = '<div class="btn-group dropdown">
                   <button aria-expanded ="false" data-toggle="dropdown" class="btn dropdown" type="button">
                   <i class="las la-ellipsis-v"></i>
                   </button>
                   <div class="dropdown-menu">
-                  <a href="'.route('admin.lengths.edit', [$setting->id]).'" class="dropdown-item">
+                  <a href="'.route('admin.lengths.edit', [$barcode->id]).'" class="dropdown-item">
                   <i class="las la-pen-nib" aria-hidden="true"></i>
                   '.__('Edit').'
                   </a>
-                  <a href="'.route('admin.lengths.destroy', [$setting->id]).'" class="dropdown-item">
+                  <a href="'.route('admin.lengths.destroy', [$barcode->id]).'" class="dropdown-item">
                   <i class="las la-trash aria-hidden="true"></i>
                   '.__('Delete').'
                   </a>';
@@ -54,20 +56,19 @@ class SettingDataTable extends DataTable
                 return $action;
 
             })
-            ->rawColumns(['checkbox','status', 'action']);
+            ->removeColumn('is_default')
+            ->rawColumns(['checkbox','name', 'action']);
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Setting\Setting $model
+     * @param \App\Models\Tool\Barcode $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Setting $model)
+    public function query(Barcode $model)
     {
-        return $model->newQuery()
-                     ->with('settinggroup')
-                     ->select('setting.*');
+        return $model->newQuery();
     }
 
     /**
@@ -78,21 +79,11 @@ class SettingDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('setting\settingdatatable-table')
+                    ->setTableId('tool\barcodedatatable-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
                     ->orderBy(1)
-                    ->parameters([
-                        'language' =>[
-                            "paginate" =>[
-                                'first' => '<i class="mdi mdi-chevron-double-right"></i>',
-                                'last'  => '<i class="mdi mdi-chevron-double-left"></i>',
-                            ]
-
-
-                        ]
-                    ])
                     ->buttons(
                         Button::make('create'),
                         Button::make('export'),
@@ -129,6 +120,6 @@ class SettingDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Setting\Setting_' . date('YmdHis');
+        return 'Tool\Barcode_' . date('YmdHis');
     }
 }

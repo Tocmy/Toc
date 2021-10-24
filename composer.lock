@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a15caa5311043346ae43a50d8828da85",
+    "content-hash": "c38fca8b7d5468fcf3df600ca73e784d",
     "packages": [
         {
             "name": "akaunting/laravel-firewall",
@@ -335,6 +335,66 @@
                 "source": "https://github.com/asm89/stack-cors/tree/v2.0.3"
             },
             "time": "2021-03-11T06:42:03+00:00"
+        },
+        {
+            "name": "awobaz/compoships",
+            "version": "2.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/topclaudy/compoships.git",
+                "reference": "df6a9eb558d03c2c8be2ebb07e277568eb3302c0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/topclaudy/compoships/zipball/df6a9eb558d03c2c8be2ebb07e277568eb3302c0",
+                "reference": "df6a9eb558d03c2c8be2ebb07e277568eb3302c0",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": ">=5.6 <9.0"
+            },
+            "require-dev": {
+                "ext-sqlite3": "*"
+            },
+            "suggest": {
+                "awobaz/blade-active": "Blade directives for the Laravel 'Active' package",
+                "awobaz/eloquent-auto-append": "Automatically append accessors to model serialization",
+                "awobaz/eloquent-mutators": "Reusable mutators (getters/setters) for Laravel 5's Eloquent",
+                "awobaz/syntactic": "Syntactic sugar for named and indexed parameters call."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Awobaz\\Compoships\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Claudin J. Daniel",
+                    "email": "cdaniel@awobaz.com"
+                }
+            ],
+            "description": "Laravel relationships with support for composite/multiple keys",
+            "keywords": [
+                "laravel",
+                "laravel composite keys",
+                "laravel relationships"
+            ],
+            "support": {
+                "issues": "https://github.com/topclaudy/compoships/issues",
+                "source": "https://github.com/topclaudy/compoships/tree/2.1.2"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.me/awobaz",
+                    "type": "custom"
+                }
+            ],
+            "time": "2021-09-04T16:00:10+00:00"
         },
         {
             "name": "babenkoivan/elastic-adapter",
@@ -3815,6 +3875,72 @@
                 "source": "https://github.com/kirschbaum-development/eloquent-power-joins/tree/2.4.1"
             },
             "time": "2021-08-30T10:17:57+00:00"
+        },
+        {
+            "name": "kitloong/eloquent-power-joins-with-compoships",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kitloong/eloquent-power-joins-with-compoships.git",
+                "reference": "0bb86d6433337c5d7964a34d38f476c0408329dc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kitloong/eloquent-power-joins-with-compoships/zipball/0bb86d6433337c5d7964a34d38f476c0408329dc",
+                "reference": "0bb86d6433337c5d7964a34d38f476c0408329dc",
+                "shasum": ""
+            },
+            "require": {
+                "awobaz/compoships": "^2.1",
+                "kirschbaum-development/eloquent-power-joins": "^2.4"
+            },
+            "require-dev": {
+                "laravel/legacy-factories": "^1.1",
+                "orchestra/testbench": "4.*|5.*|6.*",
+                "phpunit/phpunit": "^8.0",
+                "squizlabs/php_codesniffer": "^3.6"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "KitLoong\\PowerJoins\\PowerJoinsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "KitLoong\\PowerJoins\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kit Loong",
+                    "email": "kitloong1008@gmail.com"
+                }
+            ],
+            "description": "The Laravel magic applied to joins, with compoships support",
+            "keywords": [
+                "eloquent",
+                "join",
+                "laravel",
+                "mysql"
+            ],
+            "support": {
+                "issues": "https://github.com/kitloong/eloquent-power-joins-with-compoships/issues",
+                "source": "https://github.com/kitloong/eloquent-power-joins-with-compoships/tree/v1.0.0"
+            },
+            "funding": [
+                {
+                    "url": "https://www.buymeacoffee.com/kitloong",
+                    "type": "custom"
+                }
+            ],
+            "time": "2021-09-03T16:26:44+00:00"
         },
         {
             "name": "kwn/number-to-words",

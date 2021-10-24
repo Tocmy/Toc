@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Companies;
 
+use App\DataTables\Company\FeedbackDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Company\Feedback;
 use Illuminate\Http\Request;
@@ -13,9 +14,9 @@ class FeedbackController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(FeedbackDataTable $feedbackDataTable)
     {
-        //
+        return $feedbackDataTable->render('admin.company.feedback.index');
     }
 
     /**

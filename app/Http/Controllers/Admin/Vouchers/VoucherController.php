@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin\Vouchers;
 
+use App\DataTables\Voucher\VoucherDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Voucher\Voucher;
 use Illuminate\Http\Request;
+use App\Http\Requests\Voucher\VoucherRequest;
 
 class VoucherController extends Controller
 {
@@ -13,9 +15,9 @@ class VoucherController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(VoucherDataTable $voucherDataTable)
     {
-        //
+        return $voucherDataTable->render('admin.voucher.index');
     }
 
     /**
@@ -34,7 +36,7 @@ class VoucherController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(VoucherRequest $request)
     {
         //
     }
