@@ -1,15 +1,15 @@
 <?php
 
-namespace App\DataTables\Faq;
+namespace App\DataTables\Marketing;
 
-use App\Models\Marketing\FaqGroup;
+use App\Models\Marketing\Subscriber;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class FaqGroupDataTable extends DataTable
+class SubscriberDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -21,16 +21,16 @@ class FaqGroupDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'faq\faqgroupdatatable.action');
+            ->addColumn('action', 'marketing\subscriberdatatable.action');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Marketing\FaqGroup $model
+     * @param \App\Models\Marketing\Subscriber $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(FaqGroup $model)
+    public function query(Subscriber $model)
     {
         return $model->newQuery();
     }
@@ -43,7 +43,7 @@ class FaqGroupDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('faq\faqgroupdatatable-table')
+                    ->setTableId('marketing\subscriberdatatable-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
@@ -84,6 +84,6 @@ class FaqGroupDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Faq\FaqGroup_' . date('YmdHis');
+        return 'Marketing\Subscriber_' . date('YmdHis');
     }
 }

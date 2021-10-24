@@ -1,15 +1,15 @@
 <?php
 
-namespace App\DataTables\News;
+namespace App\DataTables\Marketing;
 
-use App\Models\News\Article;
+use App\Models\Marketing\Campaign;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class ArticleDataTable extends DataTable
+class CampaignDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -21,16 +21,16 @@ class ArticleDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'news\articledatatable.action');
+            ->addColumn('action', 'marketing\campaigndatatable.action');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\News\Article $model
+     * @param \App\Models\Marketing\Campaign $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Article $model)
+    public function query(Campaign $model)
     {
         return $model->newQuery();
     }
@@ -43,7 +43,7 @@ class ArticleDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('news\articledatatable-table')
+                    ->setTableId('marketing\campaigndatatable-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
@@ -84,6 +84,6 @@ class ArticleDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'News\Article_' . date('YmdHis');
+        return 'Marketing\Campaign_' . date('YmdHis');
     }
 }

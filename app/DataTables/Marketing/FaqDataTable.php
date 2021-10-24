@@ -1,10 +1,12 @@
 <?php
 
-namespace App\DataTables\Faq;
+namespace App\DataTables\Marketing;
 
 use App\Models\Marketing\Faq;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
+use Yajra\DataTables\Html\Editor\Editor;
+use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
 class FaqDataTable extends DataTable
@@ -17,11 +19,45 @@ class FaqDataTable extends DataTable
      */
     public function dataTable($query)
     {
-        $faqs = Faq::whereHas('FaqGroup')->orderBy('created_by', 'desc')->get();
-
+        $faqs = Faq::whereHas('FaqGroup')->latest()->get();
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'faq\faqdatatable.action');
+            ->addColumn('checkbox', function($faq){
+                return'<div class="dt-checkbox">
+                <input type="checkbox" class="" data-id="'.$faq->faq_id.'" name="id[]" value="'.$faq->faq_id.'">
+                <span class="dt-checkbox-label"></span>
+                </div>';
+            })
+            ->editColumn('status',function($faq){
+                if ($faq->status == 1) {
+                    return '<input class="switch swith-pink" type="checkbox" id="pink" checked /> ';
+                }else {
+                    return '<input class="switch swith-pink" type="checkbox" id="pink" />';
+                }
+            })
+
+            ->addColumn('action', function($faq){
+                $action = '<div class="btn-group dropdown">
+                  <button aria-expanded ="false" data-toggle="dropdown" class="btn dropdown" type="button">
+                  <i class="las la-ellipsis-v"></i>
+                  </button>
+                  <div class="dropdown-menu">
+                  <a href="'.route('admin.lengths.edit', [$faq->id]).'" class="dropdown-item">
+                  <i class="las la-pen-nib" aria-hidden="true"></i>
+                  '.__('Edit').'
+                  </a>
+                  <a href="'.route('admin.lengths.destroy', [$faq->id]).'" class="dropdown-item">
+                  <i class="las la-trash aria-hidden="true"></i>
+                  '.__('Delete').'
+                  </a>';
+
+
+
+                $action .='</div></div>';
+                return $action;
+
+            })
+            ->rawColumns(['check','status', 'action']);
     }
 
     /**
@@ -43,7 +79,7 @@ class FaqDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('faq\faqdatatable-table')
+                    ->setTableId('marketing\faqdatatable-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
@@ -84,6 +120,6 @@ class FaqDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Faq\Faq_' . date('YmdHis');
+        return 'Marketing\Faq_' . date('YmdHis');
     }
 }

@@ -3,12 +3,13 @@
 namespace App\Models\Marketing;
 
 use App\Models\Marketing\Relationship\FaqRelationship;
+use App\Traits\Seoable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Faq extends Model
 {
-    use HasFactory, FaqRelationship;
+    use HasFactory, FaqRelationship,Seoable;
     /**
     * The table associated with the model.
     *
@@ -18,11 +19,11 @@ class Faq extends Model
 
     /**
      * The attributes that are mass assignable.
-     *
+     *tag
      * @var  array
      */
     protected $fillable = [
-        'faq_group_id', 'tag_id', 'seo_id', 'position', 'status', 'question', 'answer',
+        'position', 'status', 'question', 'answer', 'faq_group_id', 'store_id',
     ];
 
     /**
@@ -31,13 +32,12 @@ class Faq extends Model
     * @var  array
     */
     protected $attributes = [
-        'faq_group_id' => 0,
-        'tag_id' => 0,
-        'seo_id' => 0,
         'position' => 0,
         'status' => NULL,
         'question' => '',
         'answer' => '',
+        'faq_group_id' => 0,
+        'store_id' => 0,
     ];
 
     /**
@@ -48,4 +48,5 @@ class Faq extends Model
     protected $casts = [
         'status' => 'boolean',
     ];
+
 }

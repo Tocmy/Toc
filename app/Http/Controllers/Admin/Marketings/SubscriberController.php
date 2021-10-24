@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers\Admin\Marketings;
 
-use App\DataTables\Marketing\NewsletterDataTable;
+use App\DataTables\Marketing\SubscriberDataTable;
 use App\Http\Controllers\Controller;
-use App\Models\Marketing\Newsletter;
+use App\Models\Marketing\Subscriber;
 use Illuminate\Http\Request;
 
-class NewsletterController extends Controller
+class SubscriberController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(NewsletterDataTable $newsletterDataTable)
+    public function index(SubscriberDataTable $subscriberDataTable)
     {
-        return $newsletterDataTable->render('admin.newsletter.index');
+        return $subscriberDataTable->render('admin.newsletter.subscriber.index');
     }
 
     /**
@@ -43,10 +43,10 @@ class NewsletterController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Marketing\Newsletter  $newsletter
+     * @param  \App\Models\Marketing\Subscriber  $subscriber
      * @return \Illuminate\Http\Response
      */
-    public function show(Newsletter $newsletter)
+    public function show(Subscriber $subscriber)
     {
         //
     }
@@ -54,10 +54,10 @@ class NewsletterController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Marketing\Newsletter  $newsletter
+     * @param  \App\Models\Marketing\Subscriber  $subscriber
      * @return \Illuminate\Http\Response
      */
-    public function edit(Newsletter $newsletter)
+    public function edit(Subscriber $subscriber)
     {
         //
     }
@@ -66,10 +66,10 @@ class NewsletterController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Marketing\Newsletter  $newsletter
+     * @param  \App\Models\Marketing\Subscriber  $subscriber
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Newsletter $newsletter)
+    public function update(Request $request, Subscriber $subscriber)
     {
         //
     }
@@ -77,10 +77,10 @@ class NewsletterController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Marketing\Newsletter  $newsletter
+     * @param  \App\Models\Marketing\Subscriber  $subscriber
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Newsletter $newsletter)
+    public function destroy(Subscriber $subscriber)
     {
         //
     }

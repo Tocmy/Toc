@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers\Admin\Marketings;
 
-use App\DataTables\Marketing\NewsletterDataTable;
+use App\DataTables\Marketing\CampaignDataTable;
 use App\Http\Controllers\Controller;
-use App\Models\Marketing\Newsletter;
+use App\Models\Marketing\Campaign;
 use Illuminate\Http\Request;
 
-class NewsletterController extends Controller
+class CampaignController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(NewsletterDataTable $newsletterDataTable)
+    public function index(CampaignDataTable $campaignDataTable)
     {
-        return $newsletterDataTable->render('admin.newsletter.index');
+        return $campaignDataTable->render('admin.newsletter.campaign.index');
     }
 
     /**
@@ -43,10 +43,10 @@ class NewsletterController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Marketing\Newsletter  $newsletter
+     * @param  \App\Models\Marketing\Campaign  $campaign
      * @return \Illuminate\Http\Response
      */
-    public function show(Newsletter $newsletter)
+    public function show(Campaign $campaign)
     {
         //
     }
@@ -54,10 +54,10 @@ class NewsletterController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Marketing\Newsletter  $newsletter
+     * @param  \App\Models\Marketing\Campaign  $campaign
      * @return \Illuminate\Http\Response
      */
-    public function edit(Newsletter $newsletter)
+    public function edit(Campaign $campaign)
     {
         //
     }
@@ -66,10 +66,10 @@ class NewsletterController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Marketing\Newsletter  $newsletter
+     * @param  \App\Models\Marketing\Campaign  $campaign
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Newsletter $newsletter)
+    public function update(Request $request, Campaign $campaign)
     {
         //
     }
@@ -77,10 +77,10 @@ class NewsletterController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Marketing\Newsletter  $newsletter
+     * @param  \App\Models\Marketing\Campaign  $campaign
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Newsletter $newsletter)
+    public function destroy(Campaign $campaign)
     {
         //
     }

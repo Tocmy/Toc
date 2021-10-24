@@ -1,7 +1,8 @@
 <?php
 namespace App\Models;
 
-use Altek\Accountant\Recordable;
+use Altek\Accountant\Contracts\Recordable;
+use Altek\Accountant\Recordable as RecordableTrait;
 use Altek\Eventually\Eventually;
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 
 abstract class BaseModel extends Model implements Recordable
 {
-    use Recordable, Eventually;
+    use RecordableTrait, Eventually;
 }
 
 

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Marketings;
 
-use App\DataTables\Faq\FaqGroupDataTable;
+use App\DataTables\Marketing\FaqGroupDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Marketing\FaqGroup;
 use App\Http\Requests\Faq\FaqGroupRequest;
@@ -43,7 +43,7 @@ class FaqGroupController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FaqgroupRequest $request)
     {
         //
     }

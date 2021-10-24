@@ -5,10 +5,11 @@ namespace App\Models\News;
 use App\Models\News\Relationship\NewsRelationship;
 use App\Traits\Seoable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+//use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\BaseModel;
 
-class News extends Model
+class News extends BaseModel
 {
     use HasFactory, NewsRelationship, SoftDeletes, Seoable;
     /**
@@ -20,12 +21,11 @@ class News extends Model
 
     /**
      * The attributes that are mass assignable.
-     *
+     * tag
      * @var  array
      */
     protected $fillable = [
-        'image', 'published_at', 'viewed', 'status',
-         'title', 'slug', 'description', 'tag_id', 'meta_id', 'store_id',
+        'image', 'published_at', 'viewed', 'status', 'title', 'slug', 'description', 'store_id',
     ];
 
     /**
@@ -41,8 +41,6 @@ class News extends Model
         'title' => '',
         'slug' => '',
         'description' => '',
-        'tag_id' => 0,
-        'meta_id' => 0,
         'store_id' => 0,
     ];
 
@@ -55,6 +53,7 @@ class News extends Model
         'viewed' => 'boolean',
         'status' => 'boolean',
     ];
+
 
     /**
     * The attributes that should be mutated to dates.

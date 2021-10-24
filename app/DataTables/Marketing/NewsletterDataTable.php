@@ -1,15 +1,15 @@
 <?php
 
-namespace App\DataTables\Newsletter;
+namespace App\DataTables\Marketing;
 
-use App\Models\Marketing\Campaign;
+use App\Models\Marketing\Newsletter;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class CampaignDataTable extends DataTable
+class NewsletterDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -21,16 +21,16 @@ class CampaignDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'newsletter\campaigndatatable.action');
+            ->addColumn('action', 'marketing\newsletterdatatable.action');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Marketing\Campaign $model
+     * @param \App\Models\Marketing\Newsletter $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Campaign $model)
+    public function query(Newsletter $model)
     {
         return $model->newQuery();
     }
@@ -43,7 +43,7 @@ class CampaignDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('newsletter\campaigndatatable-table')
+                    ->setTableId('marketing\newsletterdatatable-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
@@ -84,6 +84,6 @@ class CampaignDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Newsletter\Campaign_' . date('YmdHis');
+        return 'Marketing\Newsletter_' . date('YmdHis');
     }
 }

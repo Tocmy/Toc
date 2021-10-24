@@ -19,7 +19,42 @@ class ModuleDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'module\moduledatatable.action');
+            ->addColumn('checkbox', function($module){
+                return'<div class="dt-checkbox">
+                <input type="checkbox" class="" data-id="'.$module->module_id.'" name="id[]" value="'.$module->module_id.'">
+                <span class="dt-checkbox-label"></span>
+                </div>';
+            })
+            ->editColumn('is_default',function($module){
+                if ($module->is_default == 1) {
+                    return'<span class="badge badge-success">'.__('default'). '</span> ';
+                }else {
+                    return;
+                }
+            })
+
+            ->addColumn('action', function($module){
+                $action = '<div class="btn-group dropdown">
+                  <button aria-expanded ="false" data-toggle="dropdown" class="btn dropdown" type="button">
+                  <i class="las la-ellipsis-v"></i>
+                  </button>
+                  <div class="dropdown-menu">
+                  <a href="'.route('admin.lengths.edit', [$module->id]).'" class="dropdown-item">
+                  <i class="las la-pen-nib" aria-hidden="true"></i>
+                  '.__('Edit').'
+                  </a>
+                  <a href="'.route('admin.lengths.destroy', [$module->id]).'" class="dropdown-item">
+                  <i class="las la-trash aria-hidden="true"></i>
+                  '.__('Delete').'
+                  </a>';
+
+
+
+                $action .='</div></div>';
+                return $action;
+
+            })
+            ->rawColumns(['check','is_default', 'action']);
     }
 
     /**

@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Admin\Marketings;
 
+use App\DataTables\Marketing\FaqDataTable;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Faq\FaqRequest;
 use App\Models\Marketing\Faq;
 use App\Models\Marketing\FaqGroup;
 use Illuminate\Http\Request;
-use App\DataTables\Faq\FaqDatatable;
+
 
 
 class FaqController extends Controller
@@ -23,9 +24,9 @@ class FaqController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(FaqDatatable $faqDatatable)
+    public function index(FaqDataTable $faqDataTable)
     {
-        return $faqDatatable->render('admin.faq.index');
+       return $faqDataTable->render('admin.faq.index');
     }
 
     /**

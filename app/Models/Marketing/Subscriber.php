@@ -4,9 +4,10 @@ namespace App\Models\Marketing;
 
 use App\Models\Marketing\Relationship\SubscriberRelationship;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+//use Illuminate\Database\Eloquent\Model;
+use App\Models\BaseModel;
 
-class Subscriber extends Model
+class Subscriber extends BaseModel
 {
     use HasFactory, SubscriberRelationship;
 
@@ -23,7 +24,7 @@ class Subscriber extends Model
      * @var  array
      */
     protected $fillable = [
-        'customer_id', 'approved', 'email', 'firstname', 'lastname', 'confirmation_code', 'blacklist',
+        'approved', 'email', 'first_name', 'last_name', 'confirmation_code', 'blacklist', 'customer_id',
     ];
 
     /**
@@ -32,13 +33,13 @@ class Subscriber extends Model
     * @var  array
     */
     protected $attributes = [
-        'customer_id' => 0,
         'approved' => NULL,
         'email' => NULL,
-        'firstname' => '',
-        'lastname' => '',
+        'first_name' => '',
+        'last_name' => '',
         'confirmation_code' => '',
         'blacklist' => false,
+        'customer_id' => 0,
     ];
 
     /**

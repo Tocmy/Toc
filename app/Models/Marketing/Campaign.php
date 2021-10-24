@@ -2,14 +2,16 @@
 
 namespace App\Models\Marketing;
 
-use App\Models\Company\Relationship\CompanyRelationship;
+
+use App\Models\Marketing\Relationship\CampaignRelationship;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+
 class Campaign extends Model
 {
-    use HasFactory, SoftDeletes, CompanyRelationship;
+    use HasFactory, SoftDeletes, CampaignRelationship;
 
     /**
     * The table associated with the model.
@@ -24,8 +26,8 @@ class Campaign extends Model
      * @var  array
      */
     protected $fillable = [
-        'subject', 'user_id', 'api_campaign_id', 'status', 'send_at',
-        'subscriber_id', 'name', 'description', 'is_scheduled', 'scheduled_for', 'is_sent', 'sent_at', 'sent_count', 'attachments',
+        'subject', 'api_campaign_id', 'status', 'send_at', 'name', 'description', 'is_scheduled',
+         'scheduled_for', 'is_sent', 'sent_at', 'sent_count', 'attachments', 'user_id', 'subscriber_id',
     ];
 
     /**
@@ -33,13 +35,16 @@ class Campaign extends Model
     *
     * @var  array
     */
+    /**
+    * The model's attributes.
+    *
+    * @var  array
+    */
     protected $attributes = [
         'subject' => '',
-        'user_id' => 0,
         'api_campaign_id' => 0,
         'status' => false,
         'send_at' => NULL,
-        'subscriber_id' => 0,
         'name' => '',
         'description' => NULL,
         'is_scheduled' => false,
@@ -48,6 +53,8 @@ class Campaign extends Model
         'sent_at' => NULL,
         'sent_count' => 0,
         'attachments' => NULL,
+        'user_id' => 0,
+        'subscriber_id' => 0,
     ];
 
     /**
@@ -69,4 +76,5 @@ class Campaign extends Model
     protected $dates = [
         'send_at', 'scheduled_for', 'sent_at',
     ];
+
 }

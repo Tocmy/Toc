@@ -1,13 +1,15 @@
 <?php
 
-namespace App\DataTables\News;
+namespace App\DataTables\Marketing;
 
-use App\Models\News\News;
+use App\Models\Marketing\Faqgroup;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
+use Yajra\DataTables\Html\Editor\Editor;
+use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class NewsDataTable extends DataTable
+class FaqGroupDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -19,31 +21,31 @@ class NewsDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('checkbox', function($news){
+            ->addColumn('checkbox', function($faqgroup){
                 return'<div class="dt-checkbox">
-                <input type="checkbox" class="" data-id="'.$news->faq_id.'" name="id[]" value="'.$news->faq_id.'">
+                <input type="checkbox" class="" data-id="'.$faqgroup->faqgroup_id.'" name="id[]" value="'.$faqgroup->faqgroup_id.'">
                 <span class="dt-checkbox-label"></span>
                 </div>';
             })
-            ->editColumn('status',function($news){
-                if ($news->status == 1) {
+            ->editColumn('status',function($faqgroup){
+                if ($faqgroup->status == 1) {
                     return '<input class="switch swith-pink" type="checkbox" id="pink" checked /> ';
                 }else {
                     return '<input class="switch swith-pink" type="checkbox" id="pink" />';
                 }
             })
 
-            ->addColumn('action', function($news){
+            ->addColumn('action', function($faqgroup){
                 $action = '<div class="btn-group dropdown">
                   <button aria-expanded ="false" data-toggle="dropdown" class="btn dropdown" type="button">
                   <i class="las la-ellipsis-v"></i>
                   </button>
                   <div class="dropdown-menu">
-                  <a href="'.route('admin.lengths.edit', [$news->id]).'" class="dropdown-item">
+                  <a href="'.route('admin.lengths.edit', [$faqgroup->id]).'" class="dropdown-item">
                   <i class="las la-pen-nib" aria-hidden="true"></i>
                   '.__('Edit').'
                   </a>
-                  <a href="'.route('admin.lengths.destroy', [$news->id]).'" class="dropdown-item">
+                  <a href="'.route('admin.lengths.destroy', [$faqgroup->id]).'" class="dropdown-item">
                   <i class="las la-trash aria-hidden="true"></i>
                   '.__('Delete').'
                   </a>';
@@ -54,16 +56,16 @@ class NewsDataTable extends DataTable
                 return $action;
 
             })
-            ->rawColumns(['check','is_default', 'action']);
+            ->rawColumns(['check','status', 'action']);
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\News\News $model
+     * @param \App\Models\Marketing\Faqgroup $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(News $model)
+    public function query(Faqgroup $model)
     {
         return $model->newQuery();
     }
@@ -76,7 +78,7 @@ class NewsDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('news\newsdatatable-table')
+                    ->setTableId('marketing\faqgroupdatatable-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
@@ -117,6 +119,6 @@ class NewsDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'News\News_' . date('YmdHis');
+        return 'Marketing\FaqGroup_' . date('YmdHis');
     }
 }

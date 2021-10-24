@@ -2,14 +2,14 @@
 
 namespace App\Models\Voucher;
 
-use Altek\Accountant\Recordable;
+use App\Models\BaseModel;
 use App\Models\Voucher\Relationship\VoucherRelationship;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+//use Illuminate\Database\Eloquent\Model;
 
-class Voucher extends Model
+class Voucher extends BaseModel
 {
-    use HasFactory, VoucherRelationship, Recordable;
+    use HasFactory, VoucherRelationship;
 
     /**
     * The table associated with the model.
