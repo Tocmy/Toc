@@ -21,7 +21,7 @@ class NewsDataTable extends DataTable
             ->eloquent($query)
             ->addColumn('checkbox', function($news){
                 return'<div class="dt-checkbox">
-                <input type="checkbox" class="" data-id="'.$news->faq_id.'" name="id[]" value="'.$news->faq_id.'">
+                <input type="checkbox" class="" data-id="'.$news->news_id.'" name="id[]" value="'.$news->news_id.'">
                 <span class="dt-checkbox-label"></span>
                 </div>';
             })

@@ -3,21 +3,21 @@
 namespace App\Models\Page;
 
 use App\Traits\Seoable;
+use App\Traits\Taggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Nestable\NestableTrait;
 use Kyslik\ColumnSortable\Sortable;
 
 class Page extends Model
 {
-    use HasFactory, SoftDeletes, NestableTrait, Sortable, Seoable;
+    use HasFactory, SoftDeletes, Sortable, Seoable, Taggable;
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $parent ='parent_id';
+
     protected $table = 'pages';
 
     /**
@@ -26,32 +26,28 @@ class Page extends Model
      * @var array
      */
     protected $fillable = [
-        'id',
-        'deleted_at',
-        'position',
-        'status',
-        'title',
-        'description',
-        'slug',
-        'seo_id',
-        'page_group_id',
-        'customer_group_id',
-        'store_id',
-        'parent_id',
-        'visible',
+        'position', 'status', 'title', 'description', 'slug', 'page_group_id', 'store_id',
+    ];
+
+    protected $attributes = [
+        'position' => 0,
+        'status' => NULL,
+        'title' => '',
+        'description' => '',
+        'slug' => '',
+        'page_group_id' => 0,
+        'store_id' => 0,
     ];
 
     /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array
-     */
-    protected $dates = ['created_at', 'updated_at', 'deleted_at'];
-     /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array
-     */
+    * The attributes that should be cast to native types.
+    *
+    * @var  array
+    */
+    protected $casts = [
+        'status' => 'boolean',
+    ];
+
     public $sortable = ['position'];
 
 

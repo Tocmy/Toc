@@ -5,8 +5,6 @@ namespace App\DataTables\Marketing;
 use App\Models\Marketing\Newsletter;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
 class NewsletterDataTable extends DataTable
@@ -21,7 +19,42 @@ class NewsletterDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'marketing\newsletterdatatable.action');
+            ->addColumn('checkbox', function($newsletter){
+                return'<div class="dt-checkbox">
+                <input type="checkbox" class="" data-id="'.$newsletter->newsletter_id.'" name="id[]" value="'.$newsletter->newsletter_id.'">
+                <span class="dt-checkbox-label"></span>
+                </div>';
+            })
+            ->editColumn('status',function($newsletter){
+                if ($newsletter->status == 1) {
+                    return '<input class="switch swith-pink" type="checkbox" id="pink" checked /> ';
+                }else {
+                    return '<input class="switch swith-pink" type="checkbox" id="pink" />';
+                }
+            })
+
+            ->addColumn('action', function($newsletter){
+                $action = '<div class="btn-group dropdown">
+                  <button aria-expanded ="false" data-toggle="dropdown" class="btn dropdown" type="button">
+                  <i class="las la-ellipsis-v"></i>
+                  </button>
+                  <div class="dropdown-menu">
+                  <a href="'.route('admin.lengths.edit', [$newsletter->id]).'" class="dropdown-item">
+                  <i class="las la-pen-nib" aria-hidden="true"></i>
+                  '.__('Edit').'
+                  </a>
+                  <a href="'.route('admin.lengths.destroy', [$newsletter->id]).'" class="dropdown-item">
+                  <i class="las la-trash aria-hidden="true"></i>
+                  '.__('Delete').'
+                  </a>';
+
+
+
+                $action .='</div></div>';
+                return $action;
+
+            })
+            ->rawColumns(['checkbox','status', 'action']);
     }
 
     /**

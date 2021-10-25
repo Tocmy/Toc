@@ -26,6 +26,17 @@ class PageGroup extends Model
         'position', 'status', 'title', 'description', 'slug', 'parent_id', 'customer_group_id',
     ];
 
+    protected $attributes = [
+        'position' => 0,
+        'status' => NULL,
+        'title' => '',
+        'description' => '',
+        'slug' => '',
+        'parent_id' => NULL,
+        'customer_group_id' => 0,
+    ];
+
+
     protected $casts = [
         'status' => 'boolean',
     ];

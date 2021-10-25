@@ -4,13 +4,14 @@ namespace App\Models\Product;
 
 use App\Traits\Imageable;
 use App\Traits\Seoable;
+use App\Traits\Taggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
-    use HasFactory, softDeletes, Imageable, Seoable;
+    use HasFactory, softDeletes, Imageable, Seoable, Taggable;
 
     /**
      * The table associated with the model.

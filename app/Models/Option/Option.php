@@ -24,7 +24,7 @@ class Option extends Model
      * @var  array
      */
     protected $fillable = [
-        'type_id', 'position', 'name', 'comment', 'description',
+        'position', 'name', 'comment', 'description', 'type_id',
     ];
 
     /**
@@ -33,11 +33,11 @@ class Option extends Model
     * @var  array
     */
     protected $attributes = [
-        'type_id' => 0,
         'position' => 0,
         'name' => '',
         'comment' => '',
         'description' => '',
+        'type_id' => 0,
     ];
 
     public $softable =['position'];

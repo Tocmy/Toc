@@ -1826,7 +1826,6 @@ class CreateForeignKeysTable extends Migration
             $table->bigInteger('weight_id')->unsigned();
             $table->bigInteger('brand_id')->unsigned();
             $table->bigInteger('tax_id')->unsigned();
-            $table->bigInteger('tag_id')->unsigned();
             $table->bigInteger('status_id')->unsigned();
             $table->bigInteger('category_id')->unsigned();
             $table->bigInteger('store_id')->unsigned();
@@ -1836,12 +1835,7 @@ class CreateForeignKeysTable extends Migration
                 ->on('categories')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table
-                ->foreign('tag_id')
-                ->references('id')
-                ->on('tags')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
+
             $table
                 ->foreign('length_id')
                 ->references('id')
@@ -3781,7 +3775,7 @@ class CreateForeignKeysTable extends Migration
                 'tax_id',
                 'status_id',
                 'store_id',
-                'tag_id',
+                
             ]);
         });
         Schema::table('product_groups', function (Blueprint $table) {
