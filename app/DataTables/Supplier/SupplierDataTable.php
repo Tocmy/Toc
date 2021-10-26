@@ -21,7 +21,42 @@ class SupplierDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'supplier\supplierdatatable.action');
+            ->addColumn('checkbox', function($supplier){
+                return'<div class="dt-checkbox">
+                <input type="checkbox" class="" data-id="'.$supplier->supplier_id.'" name="id[]" value="'.$supplier->supplier_id.'">
+                <span class="dt-checkbox-label"></span>
+                </div>';
+            })
+            ->editColumn('status',function($supplier){
+                if ($supplier->status == 1) {
+                    return '<input class="switch swith-pink" type="checkbox" id="pink" checked /> ';
+                }else {
+                    return '<input class="switch swith-pink" type="checkbox" id="pink" />';
+                }
+            })
+
+            ->addColumn('action', function($supplier){
+                $action = '<div class="btn-group dropdown">
+                  <button aria-expanded ="false" data-toggle="dropdown" class="btn dropdown" type="button">
+                  <i class="las la-ellipsis-v"></i>
+                  </button>
+                  <div class="dropdown-menu">
+                  <a href="'.route('admin.suppliers.edit', [$supplier->id]).'" class="dropdown-item">
+                  <i class="las la-pen-nib" aria-hidden="true"></i>
+                  '.__('Edit').'
+                  </a>
+                  <a href="'.route('admin.suppliers.destroy', [$supplier->id]).'" class="dropdown-item">
+                  <i class="las la-trash aria-hidden="true"></i>
+                  '.__('Delete').'
+                  </a>';
+
+
+
+                $action .='</div></div>';
+                return $action;
+
+            })
+            ->rawColumns(['check','status', 'action']);
     }
 
     /**

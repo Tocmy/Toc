@@ -1,13 +1,13 @@
 <?php
 
-namespace App\DataTables\Page;
+namespace App\DataTables\Supplier;
 
-use App\Models\Page\Page;
+use App\Models\Supplier\SupplierGroup;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
 
-class PageDataTable extends DataTable
+class SupplierGroupDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -19,31 +19,31 @@ class PageDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('checkbox', function($page){
+            ->addColumn('checkbox', function($suppliergroup){
                 return'<div class="dt-checkbox">
-                <input type="checkbox" class="" data-id="'.$page->page_id.'" name="id[]" value="'.$page->page_id.'">
+                <input type="checkbox" class="" data-id="'.$suppliergroup->supplier_group_id.'" name="id[]" value="'.$suppliergroup->supplier_group_id.'">
                 <span class="dt-checkbox-label"></span>
                 </div>';
             })
-            ->editColumn('status',function($page){
-                if ($page->status == 1) {
+            ->editColumn('status',function($suppliergroup){
+                if ($suppliergroup->status == 1) {
                     return '<input class="switch swith-pink" type="checkbox" id="pink" checked /> ';
                 }else {
                     return '<input class="switch swith-pink" type="checkbox" id="pink" />';
                 }
             })
 
-            ->addColumn('action', function($page){
+            ->addColumn('action', function($suppliergroup){
                 $action = '<div class="btn-group dropdown">
                   <button aria-expanded ="false" data-toggle="dropdown" class="btn dropdown" type="button">
                   <i class="las la-ellipsis-v"></i>
                   </button>
                   <div class="dropdown-menu">
-                  <a href="'.route('admin.pages.edit', [$page->id]).'" class="dropdown-item">
+                  <a href="'.route('admin.suppliergroups.edit', [$suppliergroup->id]).'" class="dropdown-item">
                   <i class="las la-pen-nib" aria-hidden="true"></i>
                   '.__('Edit').'
                   </a>
-                  <a href="'.route('admin.pages.destroy', [$page->id]).'" class="dropdown-item">
+                  <a href="'.route('admin.suppliergroups.destroy', [$suppliergroup->id]).'" class="dropdown-item">
                   <i class="las la-trash aria-hidden="true"></i>
                   '.__('Delete').'
                   </a>';
@@ -60,10 +60,10 @@ class PageDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Page\Page $model
+     * @param \App\Models\Supplier\SupplierGroup $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Page $model)
+    public function query(SupplierGroup $model)
     {
         return $model->newQuery();
     }
@@ -76,7 +76,7 @@ class PageDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('page\pagedatatable-table')
+                    ->setTableId('supplier\suppliergroupdatatable-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
@@ -117,6 +117,6 @@ class PageDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Page\Page_' . date('YmdHis');
+        return 'Supplier\SupplierGroup_' . date('YmdHis');
     }
 }

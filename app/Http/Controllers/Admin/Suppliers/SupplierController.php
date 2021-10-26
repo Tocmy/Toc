@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Suppliers;
 
+use App\DataTables\Supplier\SupplierDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Supplier\Supplier;
 use App\Models\Supplier\SupplierGroup;
@@ -16,9 +17,9 @@ class SupplierController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(SupplierDataTable $supplierDataTable)
     {
-        //
+        return $supplierDataTable->render('admin.supplier.index');
     }
 
     /**
@@ -39,7 +40,7 @@ class SupplierController extends Controller
      */
     public function store(Request $request)
     {
-        
+
     }
 
     /**
