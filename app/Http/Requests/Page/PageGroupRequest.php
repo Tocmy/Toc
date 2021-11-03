@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class PageGroupRequest extends FormRequest
 {
-    protected $errorBag = 'pagegroupthErrorBag';
+    protected $errorBag = 'pagegroupErrorBag';
     /**
      * Determine if the user is authorized to make this request.
      *

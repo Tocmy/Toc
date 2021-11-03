@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin\Currencies;
 
+use App\DataTables\Currency\CurrencyDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Currency\Currency;
 use Illuminate\Http\Request;
+use App\Http\Requests\Currency\CurrencyRequest;
 
 class CurrencyController extends Controller
 {
@@ -13,9 +15,9 @@ class CurrencyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(CurrencyDataTable $currencyDataTable)
     {
-        //
+        return $currencyDataTable->render('admin.currency.index');
     }
 
     /**
@@ -34,7 +36,7 @@ class CurrencyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CurrencyRequest $request)
     {
         //
     }

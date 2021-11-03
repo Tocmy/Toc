@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class PageRequest extends FormRequest
 {
+    protected $errorBag = 'pageErrorBag';
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -13,7 +14,7 @@ class PageRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,49 +25,41 @@ class PageRequest extends FormRequest
     public function rules()
     {
         $method = $this->method();
-       if (null !== $this->get('_method', null)) {
-        $method = $this->get('_method');
-       }
-       $this->offsetUnset('_method');
-    switch ($method) {
-        case 'DELETE':
-            $this->rules = [ ];
-        break;
-    case 'GET':
-            $this->rules = [ ];
-        break;
+        if (null !== $this->get('_method', null)) {
+            $method = $this->get('_method');
+        }
+        $this->offsetUnset('_method');
+        switch ($method) {
+            case 'DELETE':
+                $this->rules = [];
+                break;
+            case 'GET':
+                $this->rules = [];
+                break;
 
-    case 'POST':
-           $this->rules = [];
-        break;
-    case 'PUT':
-           $this->rules = [];
-        break;
+            case 'POST':
+                $this->rules = [];
+                break;
+            case 'PUT':
+                $this->rules = [];
+                break;
 
-    case 'PATCH':
-           $this->rules = [];
-        break;
+            case 'PATCH':
+                $this->rules = [];
+                break;
 
-        default:
-        // invalid request
-        break;
+            default:
+                // invalid request
+                break;
+        }
 
-
-    }
-
-    return $this->rules;
+        return $this->rules;
     }
 
     public function messages()
     {
-        return[
-
-               'name.required'                  => __('CompanyNameRequired '),
-              
-
-
-
-               ];
+        return [
+            'name.required' => __('CompanyNameRequired '),
+        ];
     }
-
 }

@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin\Generals;
 
 use App\DataTables\General\EmailDataTable;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\General\EmailRequest;
 use App\Models\General\Email;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EmailController extends Controller
 {
@@ -45,9 +47,28 @@ class EmailController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function sendEmail()
+    public function sendEmail(EmailRequest $request)
     {
-        //
+        $recipient = $request->recipient;
+        $subject   = $request->subject;
+        $message   = $request->message;
+
+        rescue(function(){
+            Email::compose()
+                  ->label(Auth::user()->id)
+                  ->from(Auth::user()->email)
+                  ->recipient($recipient)
+                  ->subject($subject)
+                  ->view('')
+                  ->variables([
+                      'message' =>$message,
+                  ])
+                 ->send();
+        },  function(){
+            return redirect()->back()->with('error', __('Email delivery failure'))->withInput();
+        },
+
+        true);
     }
 
     /**

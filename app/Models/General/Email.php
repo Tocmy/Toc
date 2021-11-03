@@ -2,13 +2,14 @@
 
 namespace App\Models\General;
 
+use App\Traits\Encryptable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Email extends Model
 {
-    use HasFactory, softDeletes;
+    use HasFactory, softDeletes, Encryptable;
 
     /**
     * The table associated with the model.
@@ -83,4 +84,16 @@ class Email extends Model
     protected $dates = [
         'scheduled_at', 'sent_at', 'delivered_at',
     ];
+
+    protected $encryptable = [
+        'recipient',
+        'from',
+        'cc',
+        'bcc',
+        'subject',
+        'variables',
+        'body',
+    ];
+
+
 }

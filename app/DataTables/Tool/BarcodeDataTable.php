@@ -41,11 +41,11 @@ class BarcodeDataTable extends DataTable
                   <i class="las la-ellipsis-v"></i>
                   </button>
                   <div class="dropdown-menu">
-                  <a href="'.route('admin.lengths.edit', [$barcode->id]).'" class="dropdown-item">
+                  <a href="'.route('admin.barcodes.edit', [$barcode->id]).'" class="dropdown-item">
                   <i class="las la-pen-nib" aria-hidden="true"></i>
                   '.__('Edit').'
                   </a>
-                  <a href="'.route('admin.lengths.destroy', [$barcode->id]).'" class="dropdown-item">
+                  <a href="'.route('admin.barcodes.destroy', [$barcode->id]).'" class="dropdown-item">
                   <i class="las la-trash aria-hidden="true"></i>
                   '.__('Delete').'
                   </a>';
@@ -56,7 +56,7 @@ class BarcodeDataTable extends DataTable
                 return $action;
 
             })
-            ->removeColumn('is_default')
+            ->removeColumn('name')
             ->rawColumns(['checkbox','name', 'action']);
     }
 

@@ -19,7 +19,51 @@ class CurrencyDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'currency\currencydatatable.action');
+            ->addColumn('checkbox', function($currency){
+                return'<div class="dt-checkbox">
+                <input type="checkbox" class="" data-id="'.$currency->currency_id.'" name="id[]" value="'.$currency->currency_id.'">
+                <span class="dt-checkbox-label"></span>
+                </div>';
+            })
+            ->editColumn('name',function($currency){
+                if ($currency->is_default == 1) {
+                    return $currency->title. '&nbsp; <span class="badge badge-success">'.__('currency.default') .'</span>';
+                }else {
+                    return $currency->title;
+                }
+            })
+
+            ->editColumn('status',function($currency){
+                if ($currency->status == 1) {
+                    return '<input class="switch swith-pink" type="checkbox" id="pink" checked /> ';
+                }else {
+                    return '<input class="switch swith-pink" type="checkbox" id="pink" />';
+                }
+            })
+
+            ->addColumn('action', function($currency){
+                $action = '<div class="btn-group dropdown">
+                  <button aria-expanded ="false" data-toggle="dropdown" class="btn dropdown" type="button">
+                  <i class="las la-ellipsis-v"></i>
+                  </button>
+                  <div class="dropdown-menu">
+                  <a href="'.route('admin.currencies.edit', [$currency->id]).'" class="dropdown-item">
+                  <i class="las la-pen-nib" aria-hidden="true"></i>
+                  '.__('Edit').'
+                  </a>
+                  <a href="'.route('admin.currencies.destroy', [$currency->id]).'" class="dropdown-item">
+                  <i class="las la-trash aria-hidden="true"></i>
+                  '.__('Delete').'
+                  </a>';
+
+
+
+                $action .='</div></div>';
+                return $action;
+
+            })
+            ->removeColumn('name')
+            ->rawColumns(['checkbox','name','status', 'action']);
     }
 
     /**

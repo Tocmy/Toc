@@ -25,11 +25,12 @@ class LengthDataTable extends DataTable
                 <span class="dt-checkbox-label"></span>
                 </div>';
             })
-            ->editColumn('is_default',function($length){
+
+            ->editColumn('name',function($length){
                 if ($length->is_default == 1) {
-                    return'<span class="badge badge-success">'.__('default'). '</span> ';
+                    return $length->title. '&nbsp; <span class="badge badge-success">'.__('currency.default') .'</span>';
                 }else {
-                    return;
+                    return $length->title;
                 }
             })
 
@@ -54,7 +55,8 @@ class LengthDataTable extends DataTable
                 return $action;
 
             })
-            ->rawColumns(['check','is_default', 'action']);
+            ->removeColumn('name')
+            ->rawColumns(['checkbox','name', 'action']);
     }
 
     /**

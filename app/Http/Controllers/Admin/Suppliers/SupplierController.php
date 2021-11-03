@@ -6,8 +6,6 @@ use App\DataTables\Supplier\SupplierDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Supplier\Supplier;
 use App\Models\Supplier\SupplierGroup;
-use App\Models\Address\City;
-use App\Models\Address\Address;
 use Illuminate\Http\Request;
 
 class SupplierController extends Controller

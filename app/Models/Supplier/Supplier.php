@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 //use Illuminate\Database\Eloquent\Model;
 use App\Models\BaseModel;
+use App\Traits\Addressable;
 
 class Supplier extends BaseModel
 {
-    use HasFactory, SoftDeletes, SupplierRelationship;
+    use HasFactory, SoftDeletes, SupplierRelationship, Addressable;
     protected $table ='suppliers';
     protected $fillable =[
         'name', 'account', 'public_id', 'private_id', 'contact', 'email', 'url', 'remark',

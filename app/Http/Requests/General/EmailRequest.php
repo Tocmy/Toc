@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Customer;
+namespace App\Http\Requests\General;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CustomerRequest extends FormRequest
+class EmailRequest extends FormRequest
 {
-    protected $errorBag = 'customerErrorBag';
+    protected $errorBag = 'emailErrorBag';
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -38,7 +38,11 @@ class CustomerRequest extends FormRequest
                 break;
 
             case 'POST':
-                $this->rules = [];
+                $this->rules = [
+                    'recipient' => 'required|email',
+                    'subject' => 'required|max:250',
+                    'message' => 'required|string'
+                ];
                 break;
             case 'PUT':
                 $this->rules = [];
@@ -58,12 +62,14 @@ class CustomerRequest extends FormRequest
 
     public function messages()
     {
-        return [
-            'name.required' => __('CompanyNameRequired '),
-            'logo.required' => __('Company Logo required image Jgeg,Jgp,Png,Gif Only'),
-            'website_name.required' => __('Company Website Name Required'),
-            'email.required' => __('Company Email Required'),
-            'email.email' => __('emailInvalid'),
-        ];
+        return[
+
+               'recipient.required'              => __('Recipient email address required '),
+               'subject.required'                => __('subject of email cannot blank'),
+               
+
+
+
+               ];
     }
 }
