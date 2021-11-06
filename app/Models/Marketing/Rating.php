@@ -11,7 +11,7 @@ class Rating extends Model
     use HasFactory, RatingRelationship;
     /**
     * The table associated with the model.
-    *
+    *elast/immersive 2.0
     * @var  string
     */
     protected $table = 'ratings';

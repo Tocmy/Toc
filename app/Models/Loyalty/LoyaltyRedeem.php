@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models\Order;
+namespace App\Models\Loyalty;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class OrderCustomField extends Model
+class LoyaltyRedeem extends Model
 {
     use HasFactory;
 
@@ -14,7 +14,7 @@ class OrderCustomField extends Model
     *
     * @var  string
     */
-    protected $table = 'order_custom_fields';
+    protected $table = 'loyalty_redeems';
 
     /**
      * The attributes that are mass assignable.
@@ -22,7 +22,7 @@ class OrderCustomField extends Model
      * @var  array
      */
     protected $fillable = [
-        'name', 'value', 'position', 'order_id', 'custom_field_id', 'custom_field_value_id',
+        'redeem_date', 'redeem_ip', 'loyalty_id', 'customer_id', 'order_id',
     ];
 
     /**
@@ -31,11 +31,19 @@ class OrderCustomField extends Model
     * @var  array
     */
     protected $attributes = [
-        'name' => 0,
-        'value' => '',
-        'position' => 0,
+        'redeem_date' => NULL,
+        'redeem_ip' => '',
+        'loyalty_id' => 0,
+        'customer_id' => 0,
         'order_id' => 0,
-        'custom_field_id' => 0,
-        'custom_field_value_id' => 0,
+    ];
+
+    /**
+    * The attributes that should be mutated to dates.
+    *
+    * @var  array
+    */
+    protected $dates = [
+        'redeem_date',
     ];
 }

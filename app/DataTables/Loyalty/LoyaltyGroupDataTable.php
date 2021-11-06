@@ -2,14 +2,14 @@
 
 namespace App\DataTables\Loyalty;
 
-use App\Models\Loyalty\Loyalty;
+use App\Models\Loyalty\LoyaltyGroup;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class LoyaltyDataTable extends DataTable
+class LoyaltyGroupDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -71,10 +71,10 @@ class LoyaltyDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Loyalty\Loyalty $model
+     * @param \App\Models\Loyalty\LoyaltyGroup $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Loyalty $model)
+    public function query(LoyaltyGroup $model)
     {
         return $model->newQuery();
     }
@@ -87,7 +87,7 @@ class LoyaltyDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('loyalty\loyaltydatatable-table')
+                    ->setTableId('loyalty\loyaltygroupdatatable-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
@@ -128,6 +128,6 @@ class LoyaltyDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Loyalty\Loyalty_' . date('YmdHis');
+        return 'Loyalty\LoyaltyGroup_' . date('YmdHis');
     }
 }

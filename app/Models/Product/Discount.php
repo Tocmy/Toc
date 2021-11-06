@@ -19,9 +19,29 @@ class Discount extends Model
      *
      * @var array
      */
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var  array
+     */
     protected $fillable = [
-        'id',
-        'name', 'type_id', 'setting_id', 'amount', 'min_range', 'max_range', 'percentage', 'status',
+        'name', 'amount', 'min_range', 'max_range', 'percentage', 'status', 'type_id', 'setting_id',
+    ];
+
+    /**
+    * The model's attributes.
+    *
+    * @var  array
+    */
+    protected $attributes = [
+        'name' => '',
+        'amount' => 0,
+        'min_range' => 0,
+        'max_range' => 0,
+        'percentage' => 0,
+        'status' => NULL,
+        'type_id' => 0,
+        'setting_id' => 0,
     ];
 
     protected $casts = [

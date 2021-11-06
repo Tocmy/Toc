@@ -23,7 +23,6 @@ class Coupon extends Model
      * @var array
      */
     protected $fillable = [
-        'id',
         'code', 'coupon_discount', 'logged', 'shipping', 'total', 'date_start',
         'expire_at', 'uses_total', 'uses_customer', 'status', 'min_order', 'uses_per_coupon', 'name',
         'descriptions', 'quantity', 'image', 'store_id', 'type_id', 'setting_id',

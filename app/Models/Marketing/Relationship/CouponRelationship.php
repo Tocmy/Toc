@@ -2,6 +2,7 @@
 namespace App\Models\Marketing\Relationship;
 
 use App\Models\Company\Company;
+use App\Models\General\Type;
 use App\Models\Marketing\CouponHistory;
 use App\Models\Marketing\CouponRedeem;
 use App\Models\Marketing\CouponTrack;
@@ -64,6 +65,10 @@ trait CouponRelationship
        return $this->belongsTo(Company::class, 'store_id', 'id');
    }
 
+   public function type(): BelongsTo
+   {
+       return $this->belongsTo(Type::class, 'type_id', 'id');
+   }
 
 
 }

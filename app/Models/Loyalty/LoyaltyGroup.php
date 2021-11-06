@@ -1,15 +1,14 @@
 <?php
 namespace App\Models\Loyalty;
 
-
-
+use App\Models\Loyalty\Relationship\LoyaltyGroupRelationship;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class LoyaltyGroup extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, LoyaltyGroupRelationship;
     /**
     * The table associated with the model.
     *referral point, signup point
@@ -23,10 +22,9 @@ class LoyaltyGroup extends Model
      * @var  array
      */
     protected $fillable = [
-        'product_id', 'setting_id', 'scope', 'scope_id', 'point_ratio', 'bonus_points', 'redeem_ratio', 'redeem_points',
-        'points_type', 'points_expires', 'status',
-        'name',
-        'description',
+        'scope', 'scope_id', 'point_ratio', 'bonus_points', 'redeem_ratio',
+         'redeem_points', 'points_type', 'points_expires', 'exclude_offer_item',
+         'description', 'name', 'status', 'product_id', 'setting_id', 'customer_group_id',
     ];
 
     /**
@@ -35,8 +33,6 @@ class LoyaltyGroup extends Model
     * @var  array
     */
     protected $attributes = [
-        'product_id' => 0,
-        'setting_id' => 0,
         'scope' => false,
         'scope_id' => NULL,
         'point_ratio' => 0,
@@ -45,6 +41,13 @@ class LoyaltyGroup extends Model
         'redeem_points' => 0,
         'points_type' => '',
         'points_expires' => NULL,
+        'exclude_offer_item' => NULL,
+        'description' => '',
+        'name' => '',
+        'status' => NULL,
+        'product_id' => 0,
+        'setting_id' => 0,
+        'customer_group_id' => 0,
     ];
 
     /**
@@ -54,6 +57,8 @@ class LoyaltyGroup extends Model
     */
     protected $casts = [
         'scope' => 'boolean',
+        'exclude_offer_item' => 'boolean',
+        'status' => 'boolean',
     ];
 
     /**

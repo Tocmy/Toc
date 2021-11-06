@@ -78,7 +78,7 @@ class Email extends Model
 
     /**
     * The attributes that should be mutated to dates.
-    *
+    *email ->crubemail
     * @var  array
     */
     protected $dates = [
