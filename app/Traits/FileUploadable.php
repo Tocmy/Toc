@@ -4,6 +4,7 @@ namespace App\Traits;
 use App\Models\Banner\Image as ImageModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 /**
@@ -63,6 +64,12 @@ trait FileUploadable
 
    public function saveAllFiles(Request $request, $downloadable_file_input = null, $imageable_type = null, $imageable = null)
     {
+
+        //if (Storage::disk('public')->exists('upload')) {
+        //    Storage::disk('public')->makeDirectory('upload');
+        //    Storage::disk('public')->makeDirectory('upload/thumb');
+        //}
+
         if (!file_exists(public_path('storage/uploads'))) {
             mkdir(public_path('storage/uploads'), 0777);
             mkdir(public_path('storage/upload/thumb'), 0777);

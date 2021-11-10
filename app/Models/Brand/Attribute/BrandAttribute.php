@@ -6,6 +6,8 @@ namespace App\Models\Brand\Attribute;
 /**   set statuslabelattribute
  *   <input class="switch switch-pink" type="checkbox" id="pink" checked/>
  *   <label for="pink">Grid</label>
+ *
+ * livewire /neon 
  */
 trait BrandAttribute
 {

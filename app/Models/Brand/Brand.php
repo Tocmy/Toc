@@ -24,8 +24,33 @@ class Brand extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'deleted_at', 'image', 'position', 'status', 'name', 'url', 'description'
+        'image', 'position', 'status', 'name', 'url', 'description', 'store_id',
     ];
+
+    /**
+    * The model's attributes.
+    *
+    * @var  array
+    */
+    protected $attributes = [
+        'image' => '',
+        'position' => 0,
+        'status' => NULL,
+        'name' => '',
+        'url' => '',
+        'description' => '',
+        'store_id' => 0,
+    ];
+
+    /**
+    * The attributes that should be cast to native types.
+    *
+    * @var  array
+    */
+    protected $casts = [
+        'status' => 'boolean',
+    ];
+
 
     /**
      * The attributes that should be mutated to dates.

@@ -5,11 +5,9 @@ namespace App\DataTables\Warranty;
 use App\Models\Warranty\WarrantyProduct;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class ProductWarrantyDataTable extends DataTable
+class WarrantyProductDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -21,7 +19,42 @@ class ProductWarrantyDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'warranty\productwarrantydatatable.action');
+            ->addColumn('checkbox', function($voucher){
+                return'<div class="dt-checkbox">
+                <input type="checkbox" class="" data-id="'.$voucher->voucher_id.'" name="id[]" value="'.$voucher->voucher_id.'">
+                <span class="dt-checkbox-label"></span>
+                </div>';
+            })
+            ->editColumn('is_default',function($voucher){
+                if ($voucher->is_default == 1) {
+                    return'<span class="badge badge-success">'.__('default'). '</span> ';
+                }else {
+                    return;
+                }
+            })
+
+            ->addColumn('action', function($voucher){
+                $action = '<div class="btn-group dropdown">
+                  <button aria-expanded ="false" data-toggle="dropdown" class="btn dropdown" type="button">
+                  <i class="las la-ellipsis-v"></i>
+                  </button>
+                  <div class="dropdown-menu">
+                  <a href="'.route('admin.lengths.edit', [$voucher->id]).'" class="dropdown-item">
+                  <i class="las la-pen-nib" aria-hidden="true"></i>
+                  '.__('Edit').'
+                  </a>
+                  <a href="'.route('admin.lengths.destroy', [$voucher->id]).'" class="dropdown-item">
+                  <i class="las la-trash aria-hidden="true"></i>
+                  '.__('Delete').'
+                  </a>';
+
+
+
+                $action .='</div></div>';
+                return $action;
+
+            })
+            ->rawColumns(['checkbox','is_default', 'action']);
     }
 
     /**
@@ -43,7 +76,7 @@ class ProductWarrantyDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('warranty\productwarrantydatatable-table')
+                    ->setTableId('warranty\warrantyproductdatatable-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
@@ -84,6 +117,6 @@ class ProductWarrantyDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Warranty\ProductWarranty_' . date('YmdHis');
+        return 'Warranty\WarrantyProduct_' . date('YmdHis');
     }
 }

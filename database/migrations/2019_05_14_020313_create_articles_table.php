@@ -49,6 +49,7 @@ class CreateArticlesTable extends Migration
         });
 
         Schema::create('article_topic', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->timestamps();
         });
 

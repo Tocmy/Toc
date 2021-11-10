@@ -124,5 +124,10 @@ class WarrantyController extends Controller
 
     //}
 
+    public function restore()
+    {
+        
+    }
+
 
 }

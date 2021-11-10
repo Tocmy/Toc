@@ -5,8 +5,6 @@ namespace App\DataTables\Voucher;
 use App\Models\Voucher\Voucher;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
 class VoucherDataTable extends DataTable
@@ -56,7 +54,7 @@ class VoucherDataTable extends DataTable
                 return $action;
 
             })
-            ->rawColumns(['check','is_default', 'action']);
+            ->rawColumns(['checkbox','is_default', 'action']);
     }
 
     /**

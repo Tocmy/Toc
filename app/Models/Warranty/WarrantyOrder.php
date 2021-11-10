@@ -4,10 +4,11 @@ namespace App\Models\Warranty;
 
 use App\Models\Warranty\Relationship\WarrantyOrderRelationship;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+//use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\BaseModel;
 
-class WarrantyOrder extends Model
+class WarrantyOrder extends BaseModel
 {
     use HasFactory, SoftDeletes, WarrantyOrderRelationship;
     /**
@@ -23,7 +24,7 @@ class WarrantyOrder extends Model
      * @var  array
      */
     protected $fillable = [
-        'order_id', 'upc', 'warranty_serial', 'status', 'check_warranty', 'is_ship', 'ship_date',
+        'upc', 'warranty_serial', 'status', 'check_warranty', 'is_ship', 'ship_date', 'order_id',
     ];
 
     /**

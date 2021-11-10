@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class BrandRequest extends FormRequest
 {
+    protected $errorBag = 'brandErrorBag';
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -13,7 +14,7 @@ class BrandRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -34,14 +35,16 @@ class BrandRequest extends FormRequest
                 break;
             case 'GET':
                 $this->rules = [
-                    'name'     => 'required|string|max:191',
-                    'position' => 'required|numeric|integer',
-                    'image'    =>  'required|image|mimes:jpeg,png,jpg,gif',
+
                 ];
                 break;
 
             case 'POST':
-                $this->rules = [];
+                $this->rules = [
+                    'name'     => 'required|string|max:191',
+                    'position' => 'required|numeric|integer',
+                    'image'    =>  'required|image|mimes:jpeg,png,jpg,gif,svg',
+                ];
                 break;
             case 'PUT':
                 $this->rules = [];
@@ -61,8 +64,9 @@ class BrandRequest extends FormRequest
     public function messages()
     {
         return [
-            "name.unique" => "This brand is already used",
-            "image.image" => "Image file only required",
+            'name.unique' => __('This brand is already used'),
+            'image.required' => __('Image is required'),
+            'image.image' => __('Image file only required'),
         ];
     }
 }

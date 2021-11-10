@@ -2,54 +2,72 @@
 
 namespace App\Models\Category\Relationship;
 
+use App\Models\Category\Category;
+use App\Models\Marketing\RatingType;
+use App\Models\Marketing\Restrict;
+use App\Models\Product\Combo;
+use App\Models\Product\Product;
+use App\Models\Service\Service;
+use App\Models\Warranty\WarrantyProduct;
+use Illuminate\Database\Eloquent\Relations\{BelongsTo,HasMany};
+
 /**
  *
  */
 trait CategoryRelationship
 {
-    public function meta() {
-        return $this->belongsTo(\App\Models\Setting\Meta::class, 'meta_id', 'id');
+    /**
+     * Get all of the comments for the CategoryRelationship
+     *
+     * @return \
+     */
+    public function topics(): HasMany
+    {
+        return $this->hasMany(ArticleTopic::class, 'topic_id', 'id');
     }
 
-    public function category() {
-        return $this->belongsTo(\App\Models\Category\Category::class, 'parent_id', 'id');
+    public function childrens(): HasMany
+    {
+        return $this->hasMany(Category::class, 'parent_id', 'id');
     }
 
-    public function tag() {
-        return $this->belongsTo(\App\Models\Setting\Tag::class, 'tag_id', 'id');
+    public function combos(): HasMany
+    {
+        return $this->hasMany(Combo::class, 'category_id', 'id');
     }
 
-    public function articles() {
-        return $this->belongsToMany(\App\Models\Article\Article::class, 'article_topic', 'topic_id', 'article_id');
+    public function products(): HasMany
+    {
+        return $this->hasMany(Product::class, 'category_id', 'id');
     }
 
-    public function combos() {
-        return $this->belongsToMany(\App\Models\Product\Combo::class, 'combo_category', 'category_id', 'combo_id');
+    public function ratingTypes(): HasMany
+    {
+        return $this->hasMany(RatingType::class, 'category_id', 'id');
     }
 
-    public function products() {
-        return $this->belongsToMany(\App\Models\product\Product::class, 'product_category', 'category_id', 'product_id');
+    public function restricts(): HasMany
+    {
+        return $this->hasMany(Restrict::class, 'category_id', 'id');
     }
 
-    public function services() {
-        return $this->belongsToMany(\App\Models\Service\Service::class, 'service_category', 'category_id', 'service_id');
+    public function services(): HasMany
+    {
+        return $this->hasMany(Service::class, 'category_id', 'id');
     }
 
-    public function categories() {
-        return $this->hasMany(\App\Models\Category\Category::class, 'parent_id', 'id');
+    public function warrantyProducts(): HasMany
+    {
+        return $this->hasMany(WarrantyProduct::class, 'category_id', 'id');
     }
 
-    public function ratingTypes() {
-        return $this->hasMany(\App\Models\Product\RatingType::class, 'category_id', 'id');
-    }
-
-    public function restricts() {
-        return $this->hasMany(\App\Models\Coupon\Restrict::class, 'category_id', 'id');
-
-    }
-
-    public function warrantyProducts() {
-        return $this->hasMany(\App\Models\Warranty\WarrantyProduct::class, 'category_id', 'id');
+    /**
+     * Get the user that owns the CategoryRelationship
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function parent(): BelongsTo
+    {
+        return $this->belongsTo(Category::class, 'parent_id', 'id');
     }
 }
-

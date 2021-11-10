@@ -2,12 +2,14 @@
 
 namespace App\Models\Warranty;
 
+use App\Models\Warranty\Relationship\WarrantyProductRelationship;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+//use Illuminate\Database\Eloquent\Model;
+use App\Models\BaseModel;
 
-class WarrantyProduct extends Model
+class WarrantyProduct extends BaseModel
 {
-    use HasFactory;
+    use HasFactory, WarrantyProductRelationship;
 
     /**
     * The table associated with the model.
@@ -22,11 +24,8 @@ class WarrantyProduct extends Model
      * @var  array
      */
     protected $fillable = [
-        'product_name', 'product_model', 'product_price',
-        'product_cost', 'products_image', 'product_status',
-        'product_series_no', 'cost', 'year', 'charge', 'category_id',
-        'warranty_id', 'product_id',
-        'date_start', 'expire_at',
+        'product_name', 'product_model', 'product_price', 'product_cost', 'products_image', 'product_status', 'product_series_no', 'cost', 'year',
+         'charge', 'date_start', 'expire_at', 'category_id', 'warranty_id', 'product_id',
     ];
 
     /**
@@ -58,6 +57,10 @@ class WarrantyProduct extends Model
     */
     protected $casts = [
         'product_status' => 'boolean',
+    ];
+
+    protected $dates = [
+        'date_start', 'expire_at',
     ];
 
 }

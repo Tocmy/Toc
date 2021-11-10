@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class CategoryRequest extends FormRequest
 {
+    protected $errorBag = 'categoryErrorBag';
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -13,7 +14,7 @@ class CategoryRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +24,46 @@ class CategoryRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
-        ];
+        $method = $this->method();
+        if (null !== $this->get('_method', null)) {
+            $method = $this->get('_method');
+        }
+        $this->offsetUnset('_method');
+        switch ($method) {
+            case 'DELETE':
+                $this->rules = [];
+                break;
+            //index, create,edit, show
+            case 'GET':
+                $this->rules = [
+
+                ];
+                break;
+            //store
+            case 'POST':
+                $this->rules = [
+                   'parent_id' => 'nullable|exists:categories,id',
+                   'name'      => 'required',
+
+
+                ];
+                break;
+            //update
+            case 'PUT':
+                $this->rules = [
+
+                ];
+                break;
+            //update
+            case 'PATCH':
+                $this->rules = [];
+                break;
+
+            default:
+                // invalid request
+                break;
+        }
+
+        return $this->rules;
     }
 }

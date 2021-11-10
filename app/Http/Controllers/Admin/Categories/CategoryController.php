@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers\Admin\Categories;
 
-use App\DataTables\CategoryDataTable;
+use App\DataTables\Category\CategoryDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Category\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\Category\CategoryRequest;
+use App\Models\Category as ModelsCategory;
+use App\Traits\Seoable;
 
 class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     *inv prefic 0ecom
      * @return \Illuminate\Http\Response
      */
     public function index(CategoryDataTable $categoryDataTable)
@@ -27,7 +29,10 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::getTree();
+        $category = new Category();
+
+        return view('admin.category.create', compact('categories','category'));
     }
 
     /**
@@ -38,7 +43,17 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //$category->seos()::create([
+              //'keyword'  => $request->keyword,
+
+              //'meta_description' =>$request->meta_description,
+
+        //]);
+        $category = new Category(
+              $request->all()
+        );
+        $category->seos()->create($request->only(['keyword', 'description', 'title']));
+
     }
 
     /**
@@ -84,5 +99,30 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         //
+    }
+
+    public function massDestroy(Request $request)
+    {
+        if ($request->input('ids')) {
+             $entries = Category::whereIn('id', $request->input('ids'))->get();
+             foreach ($entries as $entry){
+                 $entry->delete();
+             }
+        }
+    }
+
+    public function restore($id)
+    {
+        $category = Category::onlyTrashed()->firstOrFail($id);
+        $category->restore();
+        return redirect()->route('admin.catagory.index')->with('success', __('category successed restore'));
+    }
+
+    public function forceDelete($id)
+    {
+           $catagory = Category::onlyTrashed()->firstOrFail($id);
+           $catagory->forceDelete();
+
+           return redirect()->route('admin.category.index')->with('success', __('catagory.successfully deleted'));
     }
 }

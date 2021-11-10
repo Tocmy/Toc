@@ -1,13 +1,13 @@
 <?php
 
-namespace App\DataTables\Brand;
+namespace App\DataTables\Warranty;
 
-use App\Models\Brand\Brand;
+use App\Models\Warranty\WarrantyOrder;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
 
-class BrandDataTable extends DataTable
+class WarrantyOrderDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -19,36 +19,31 @@ class BrandDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('checkbox', function($brand){
+            ->addColumn('checkbox', function($voucher){
                 return'<div class="dt-checkbox">
-                <input type="checkbox" class="" data-id="'.$brand->brand_id.'" name="id[]" value="'.$brand->brand_id.'">
+                <input type="checkbox" class="" data-id="'.$voucher->voucher_id.'" name="id[]" value="'.$voucher->voucher_id.'">
                 <span class="dt-checkbox-label"></span>
                 </div>';
             })
-
-            ->editColumn('status',function($brand){
-                if ($brand->status == 1) {
-                    return '<input class="switch swith-pink" type="checkbox" id="pink" checked /> ';
+            ->editColumn('is_default',function($voucher){
+                if ($voucher->is_default == 1) {
+                    return'<span class="badge badge-success">'.__('default'). '</span> ';
                 }else {
-                    return '<input class="switch swith-pink" type="checkbox" id="pink" />';
+                    return;
                 }
             })
-            ->editColumn('image', function($brand){
-                return ($brand->image != null)?
-                '<img height="50px" src="'.asset('storage/uploads/'. $brand->image). ' ">' : 'N/a';
-            })
 
-            ->addColumn('action', function($brand){
+            ->addColumn('action', function($voucher){
                 $action = '<div class="btn-group dropdown">
                   <button aria-expanded ="false" data-toggle="dropdown" class="btn dropdown" type="button">
                   <i class="las la-ellipsis-v"></i>
                   </button>
                   <div class="dropdown-menu">
-                  <a href="'.route('admin.currencies.edit', [$brand->id]).'" class="dropdown-item">
+                  <a href="'.route('admin.lengths.edit', [$voucher->id]).'" class="dropdown-item">
                   <i class="las la-pen-nib" aria-hidden="true"></i>
                   '.__('Edit').'
                   </a>
-                  <a href="'.route('admin.currencies.destroy', [$brand->id]).'" class="dropdown-item">
+                  <a href="'.route('admin.lengths.destroy', [$voucher->id]).'" class="dropdown-item">
                   <i class="las la-trash aria-hidden="true"></i>
                   '.__('Delete').'
                   </a>';
@@ -59,17 +54,16 @@ class BrandDataTable extends DataTable
                 return $action;
 
             })
-            ->removeColumn('name')
-            ->rawColumns(['checkbox','image','status', 'action']);
+            ->rawColumns(['checkbox','is_default', 'action']);
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Brand\Brand $model
+     * @param \App\Models\Warranty\WarrantyOrder $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Brand $model)
+    public function query(WarrantyOrder $model)
     {
         return $model->newQuery();
     }
@@ -82,7 +76,7 @@ class BrandDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('brand\branddatatable-table')
+                    ->setTableId('warranty\warrantyorderdatatable-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
@@ -123,6 +117,6 @@ class BrandDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Brand\Brand_' . date('YmdHis');
+        return 'Warranty\WarrantyOrder_' . date('YmdHis');
     }
 }
