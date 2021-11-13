@@ -38,7 +38,8 @@ class StateController extends Controller
      */
     public function store(StateRequest $request)
     {
-        //
+        $states = new State();
+        $states->save();
     }
 
     /**
