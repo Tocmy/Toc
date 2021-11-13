@@ -12,6 +12,8 @@ abstract class BaseModel extends Model implements Recordable
 {
     use RecordableTrait, Eventually;
 }
-
+/**
+ * erp/law-helper
+ */
 
 ?>

@@ -14,8 +14,8 @@ class Supplier extends BaseModel
     use HasFactory, SoftDeletes, SupplierRelationship, Addressable;
     protected $table ='suppliers';
     protected $fillable =[
-        'name', 'account', 'public_id', 'private_id', 'contact', 'email', 'url', 'remark',
-        'image', 'position', 'status', 'history_id', 'store_id', 'supplier_group_id',
+        'name', 'account', 'public_id', 'private_id', 'contact', 'email', 'url', 'remark', 'image', 'position',
+         'status', 'history_id', 'store_id', 'supplier_group_id',
     ];
 
     /**
