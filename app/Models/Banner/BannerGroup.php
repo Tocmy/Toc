@@ -4,10 +4,11 @@ namespace App\Models\Banner;
 
 use App\Models\Banner\Relationship\BannerGroupRelationship;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+//use Illuminate\Database\Eloquent\Model;
 use Kyslik\ColumnSortable\Sortable;
+use App\Models\BaseModel;
 
-class BannerGroup extends Model
+class BannerGroup extends BaseModel
 {
     use HasFactory, BannerGroupRelationship, Sortable;
     /**

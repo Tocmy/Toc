@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin\Banners;
 
+use App\DataTables\Banner\BannerGroupDatatable;
 use App\Http\Controllers\Controller;
 use App\Models\Banner\BannerGroup;
 use Illuminate\Http\Request;
+use App\Http\Requests\Banner\BannerGroupRequest;
 
 class BannerGroupController extends Controller
 {
@@ -13,9 +15,9 @@ class BannerGroupController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(BannerGroupDatatable $bannerGroupDatatable)
     {
-        //
+        return $bannerGroupDatatable->render('admin.banner.group.index');
     }
 
     /**
@@ -25,7 +27,7 @@ class BannerGroupController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.banner.group.create');
     }
 
     /**
@@ -34,7 +36,7 @@ class BannerGroupController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BannerGroupRequest $request)
     {
         //
     }
@@ -68,7 +70,7 @@ class BannerGroupController extends Controller
      * @param  \App\Models\Banner\BannerGroup  $bannerGroup
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BannerGroup $bannerGroup)
+    public function update(BannerGroupRequest $request, BannerGroup $bannerGroup)
     {
         //
     }

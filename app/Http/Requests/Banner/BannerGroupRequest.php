@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class BannerGroupRequest extends FormRequest
 {
+    protected $errorBag = 'bannergroupErrorBag';
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -13,7 +14,7 @@ class BannerGroupRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -35,17 +36,22 @@ class BannerGroupRequest extends FormRequest
             //index, create,edit, show
             case 'GET':
                 $this->rules = [
-                    'name' => 'required|string|max:191',
-                    'position' => 'required|numeric|integer',
+
                 ];
                 break;
             //store
             case 'POST':
-                $this->rules = [];
+                $this->rules = [
+                    'name' => 'required|string|max:191',
+                    'position' => 'required|numeric|integer',
+                ];
                 break;
             //update
             case 'PUT':
-                $this->rules = [];
+                $this->rules = [
+                    'name' => 'required|string|max:191',
+                    'position' => 'required|numeric|integer',
+                ];
                 break;
             //update
             case 'PATCH':

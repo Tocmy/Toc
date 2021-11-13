@@ -48,4 +48,17 @@ class Product extends Model
      */
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
+    public function barcodeTypes()
+    {
+        $types = [
+            'C128' => 'Code 128 (C128)', 'C39' => 'Code 39 (C39)', 'EAN13' => 'EAN-13', 'EAN8' => 'EAN-8', 'UPCA' => 'UPC-A', 'UPCE' => 'UPC-E'
+        ];
+        return $types;
+    }
+
+    public function barcodeDefault()
+    {
+        return 'C128';
+    }
+
 }

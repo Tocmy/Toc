@@ -2,20 +2,24 @@
 
 namespace App\Http\Controllers\Admin\Banners;
 
+use App\DataTables\Banner\BannerDatatable;
 use App\Http\Controllers\Controller;
 use App\Models\Banner\Banner;
 use Illuminate\Http\Request;
+use App\Http\Requests\Banner\BannerRequest;
 
 class BannerController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(BannerDatatable $bannerDatatable)
     {
-        //
+        return $bannerDatatable->render('admin.banner.index');
     }
 
     /**
@@ -25,7 +29,7 @@ class BannerController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.banner.create');
     }
 
     /**
@@ -34,9 +38,11 @@ class BannerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BannerRequest $request)
     {
-        //
+        $banner = new Banner();
+        $banner->name = $request->name;
+        $banner->save();
     }
 
     /**
@@ -68,9 +74,10 @@ class BannerController extends Controller
      * @param  \App\Models\Banner\Banner  $banner
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Banner $banner)
+    public function update(BannerRequest $request, Banner $banner)
     {
-        //
+        $banner = Banner::findOrFail($request->id);
+        $banner->save();
     }
 
     /**
@@ -79,8 +86,37 @@ class BannerController extends Controller
      * @param  \App\Models\Banner\Banner  $banner
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Banner $banner)
+    public function destroy($id)
     {
-        //
+         $banner = Banner::findOrFail($id);
+         $banner->delete();
+         return redirect()->route('admin.banner.index')->with('success', __('banner successfully deleted'));
+
+    }
+
+
+    public function massDestroy(Request $request)
+    {
+        if ($request->input('ids')) {
+             $entries = Banner::whereIn('id', $request->input('ids'))->get();
+             foreach ($entries as $entry){
+                 $entry->delete();
+             }
+        }
+    }
+
+    public function restore($id)
+    {
+        $banner = Banner::onlyTrashed()->firstOrFail($id);
+        $banner->restore();
+        return redirect()->route('admin.banner.index')->with('success', __('banner successed restore'));
+    }
+
+    public function forceDelete($id)
+    {
+           $banner = Banner::onlyTrashed()->firstOrFail($id);
+           $banner->forceDelete();
+
+           return redirect()->route('admin.category.index')->with('success', __('banner.successfully deleted'));
     }
 }

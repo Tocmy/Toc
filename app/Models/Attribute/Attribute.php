@@ -3,13 +3,14 @@
 namespace App\Models\Attribute;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+//use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Kyslik\ColumnSortable\Sortable;
 use App\Models\Attribute\Relationship\AttributeRelationship;
 use Cviebrock\EloquentSluggable\Sluggable;
+use App\Models\BaseModel;
 
-class Attribute extends Model
+class Attribute extends BaseModel
 {
     use HasFactory, softDeletes, Sortable,Sluggable, AttributeRelationship;
 

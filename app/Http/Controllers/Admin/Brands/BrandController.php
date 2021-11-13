@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Brands;
 
+use App\DataTables\Brand\BrandDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Brand\Brand;
 use App\Http\Requests\Brand\BrandRequest;
@@ -16,9 +17,9 @@ class BrandController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(BrandDataTable $brandDataTable)
     {
-        //
+        return $brandDataTable->render('admin.brand.index');
     }
 
     /**

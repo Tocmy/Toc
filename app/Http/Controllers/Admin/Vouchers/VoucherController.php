@@ -85,4 +85,28 @@ class VoucherController extends Controller
     {
         //
     }
+    /**
+     * Undocumented function
+     *l8/multilang route
+     * @param Voucher $voucher
+     * @return void
+     */
+    public function changeStatus(Voucher $voucher)
+    {
+          if ($voucher->status =='Enable') {
+                $voucher->update([
+                    'status' => 'Disable'
+                ]);
+
+          } else {
+              $voucher->update([
+                  'status' => 'Enable'
+              ]);
+          }
+
+          return redirect()->back()->with('Success', __('The status of :name was :atrribute successfully!',
+                  ['attribute' => __($voucher->status == 'Enable' ? 'enabled' : 'disable'), 'name'=>__('voucher')]
+         ));
+    }
+
 }

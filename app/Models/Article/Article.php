@@ -74,14 +74,7 @@ class Article extends Model
         'published_date',
     ];
 
-    public function getSummaryAttribute()
-    {
-        if($this->attributes['summary']) {
-            return $this->attributes['summary'];
-        }
-
-        return substr(strip_tags($this->attributes['description']), 0, 120);
-    }
+    
 
 
 }

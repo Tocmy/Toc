@@ -3,13 +3,14 @@
 namespace App\Models\Banner;
 
 use App\Models\Banner\Relationship\BannerRelationship;
+use App\Traits\Imageable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Banner extends Model
 {
-    use HasFactory, SoftDeletes, BannerRelationship;
+    use HasFactory, SoftDeletes, BannerRelationship,Imageable;
 
     protected $table = 'banners';
 
@@ -19,7 +20,7 @@ class Banner extends Model
      * @var  array
      */
     protected $fillable = [
-        'banner_group_id', 'name', 'status', 'main_width', 'main_hight', 'scheduled', 'expired',
+        'name', 'status', 'main_width', 'main_hight', 'scheduled', 'expired', 'banner_group_id',
     ];
 
     /**
@@ -28,13 +29,13 @@ class Banner extends Model
     * @var  array
     */
     protected $attributes = [
-        'banner_group_id' => 0,
         'name' => '',
         'status' => false,
         'main_width' => 0,
         'main_hight' => 0,
         'scheduled' => NULL,
         'expired' => NULL,
+        'banner_group_id' => 0,
     ];
 
     /**
@@ -54,5 +55,6 @@ class Banner extends Model
     protected $dates = [
         'scheduled', 'expired',
     ];
+
 
 }

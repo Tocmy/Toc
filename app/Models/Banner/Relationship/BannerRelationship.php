@@ -1,11 +1,12 @@
 <?php
 namespace App\Models\Banner\Relationship;
 
+use App\Models\Affiliate\AffiliateBanner;
+use App\Models\Affiliate\AffiliateClick;
 use App\Models\Banner\BannerGroup;
 use App\Models\Banner\BannerHistory;
-use App\Models\Banner\Image;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\{HasMany,BelongsTo};
+
 
 /**
  *
@@ -17,15 +18,22 @@ trait BannerRelationship
    *
    * @return \
    */
+  public function affiliateBanners(): HasMany
+  {
+      return $this->hasMany(AffiliateBanner::class, 'banner_id', 'id');
+  }
+
+  public function affiliateClicks(): HasMany
+  {
+      return $this->hasMany(AffiliateClick::class, 'banner_id', 'id');
+  }
+
   public function bannerHistories(): HasMany
   {
       return $this->hasMany(BannerHistory::class, 'banner_id', 'id');
   }
 
-  public function images(): HasMany
-  {
-      return $this->hasMany(Image::class, 'banner_id', 'id');
-  }
+
 
   /**
    * Get the user that owns the BannerRelationship
