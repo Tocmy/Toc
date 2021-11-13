@@ -23,7 +23,7 @@ class Zone extends Model
      * @var  array
      */
     protected $fillable = [
-        'country_id', 'state_id', 'geo_id',
+        'name', 'state_id', 'country_id', 'geo_id',
     ];
 
     /**

@@ -4,12 +4,13 @@ namespace App\Models\Address;
 
 use App\Models\Address\Relationship\StateRelationship;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use phpDocumentor\Reflection\Types\Null_;
+//use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\BaseModel;
 
-class State extends Model
+class State extends BaseModel
 {
-    use HasFactory, StateRelationship;
+    use HasFactory, StateRelationship, SoftDeletes;
 
     /**
     * The table associated with the model.

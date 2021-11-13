@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Admin\Address;
 
+use App\DataTables\Address\StateDataTable;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Address\StateRequest;
 use App\Models\Address\State;
 use Illuminate\Http\Request;
 
@@ -13,9 +15,9 @@ class StateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(StateDataTable $stateDataTable)
     {
-        //
+        return $stateDataTable->render('admin.states.index');
     }
 
     /**
@@ -25,7 +27,7 @@ class StateController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.states.create');
     }
 
     /**
@@ -34,7 +36,7 @@ class StateController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StateRequest $request)
     {
         //
     }
