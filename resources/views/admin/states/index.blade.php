@@ -1,6 +1,6 @@
 @extends()
 @section('title')
-app_name(). '|' . {{ __('Faq Management') }}
+app_name(). '|' . {{ __('State Management') }}
 @endsection
 @section('page-header')
 
