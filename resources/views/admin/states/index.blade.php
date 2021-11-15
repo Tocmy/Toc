@@ -1,6 +1,6 @@
 @extends()
 @section('title')
-app_name(). '|' . {{ __('State Management') }}
+app_name(). '|' . {{ __('States Management') }}
 @endsection
 @section('page-header')
 
@@ -10,7 +10,7 @@ app_name(). '|' . {{ __('State Management') }}
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">{{ __('Faq Management') }}</h3>
+                <h3 class="card-title">{{ __('States Management') }}</h3>
                 <div class="card-tools">
                    <a href="{!! url()  !!}" type="button" class="btn btn-circle btn-info" data-toggle="tooltip" title="{{ __('Add') }}" data-placement="top">
                     <i class="mdi mdi-folder-multiple-plus-outline"></i>
@@ -25,10 +25,9 @@ app_name(). '|' . {{ __('State Management') }}
                     <thead>
                        <tr>
 				        <th class="text-left"><input type="checkbox" onclick="$('input[name*=\'selected\']').attr('checked',this.checked);" /></th>
-                         <th >{{__('Faq Group Name ')}}</th>
-                         <th >{{__('Question')}}</th>
-                         <th >{{__('Answer')}}</th>
-                          <th >{{__('Position')}}</th>
+                         <th >{{__('Country Name ')}}</th>
+                         <th >{{__('Name')}}</th>
+                         <th >{{__('Iso Code')}}</th>
                          <th >{{__('Status')}}</th>
                          <th ></th>
                        </tr>

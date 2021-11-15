@@ -2913,6 +2913,28 @@ class CreateForeignKeysTable extends Migration
                 ->onDelete('cascade');
         });
 
+
+        Schema::table('carriers', function (Blueprint $table) {
+
+            $table
+                ->bigInteger('supplier_id')
+                ->unique()
+                ->unsigned();
+
+            $table
+                ->foreign('supplier_id')
+                ->references('id')
+                ->on('suppliers')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
+        });
+
+
+
+
+
+
         Schema::table('shipping_markups', function (Blueprint $table) {
             $table->bigInteger('shipping_id')->unsigned();
             $table->bigInteger('state_id')->unsigned();
@@ -3775,7 +3797,7 @@ class CreateForeignKeysTable extends Migration
                 'tax_id',
                 'status_id',
                 'store_id',
-                
+
             ]);
         });
         Schema::table('product_groups', function (Blueprint $table) {
@@ -4029,6 +4051,10 @@ class CreateForeignKeysTable extends Migration
         });
         Schema::table('shippings', function (Blueprint $table) {
             $table->dropForeign(['supplier_id', 'module_id', 'setting_id']);
+        });
+
+        Schema::table('carriers', function (Blueprint $table) {
+            $table->dropForeign(['supplier_id']);
         });
 
         Schema::table('shipping_markups', function (Blueprint $table) {

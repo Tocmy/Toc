@@ -25,7 +25,7 @@ class CreateSuppliersTable extends Migration
 			$table->string('email')->unique();
 			$table->string('url');
 			$table->string('remark');
-			$table->string('image');
+			$table->string('image')->nullable();
 			$table->tinyInteger('position')->nullable();
             $table->tinyInteger('status')->default('1');
 

@@ -1,6 +1,7 @@
 <?php
 namespace App\Models\Address\Relationship;
 
+use App\Models\Address\City;
 use App\Models\Address\Country;
 use App\Models\Address\State;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -31,9 +32,9 @@ trait AddressRelationship
          return $this->belongsTo(State::class, 'state_id', 'id');
      }
 
-     public function cities(): HasManyThrough
+     public function city(): BelongsTo
      {
-         return $this->hasManyThrough(State::class, City::class);
+         return $this->belongsTo(City::class, 'city_id','id');
      }
 }
 

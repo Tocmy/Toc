@@ -19,9 +19,40 @@ class Address extends Model
     protected $table = 'addresses';
 
     protected $fillable = [
-        'country_id', 'addressable_type', 'addressable_id',  'address_type','company', 'company_id', 'state_id',
-        'tax_id', 'address_1', 'address_2', 'postcode_required', 'postcode', 'telephone', 'fax', 'latitude', 'longitude',
+        'addressable_type', 'addressable_id', 'address_type', 'company', 'company_id', 'tax_id',
+        'address_1', 'address_2', 'postcode_required', 'postcode', 'telephone', 'fax', 'mobile', 'latitude',
+        'longitude', 'country_id', 'state_id', 'city_id',
     ];
+
+    protected $attributes = [
+        'addressable_type' => '',
+        'addressable_id' => 0,
+        'address_type' => 'Primary',
+        'company' => '',
+        'company_id' => '',
+        'tax_id' => '',
+        'address_1' => '',
+        'address_2' => '',
+        'postcode_required' => false,
+        'postcode' => '',
+        'telephone' => '',
+        'fax' => '',
+        'mobile' => '',
+        'latitude' => '',
+        'longitude' => '',
+        'country_id' => 0,
+        'state_id' => 0,
+        'city_id' => 0,
+    ];
+    /**
+    * The attributes that should be cast to native types.
+    *
+    * @var  array
+    */
+    protected $casts = [
+        'postcode_required' => 'boolean',
+    ];
+
 
     /**
      * The attributes that should be mutated to dates.

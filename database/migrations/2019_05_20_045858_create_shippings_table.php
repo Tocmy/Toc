@@ -13,6 +13,7 @@ class CreateShippingsTable extends Migration
      */
     public function up()
     {
+
         Schema::create('shippings', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
@@ -21,6 +22,19 @@ class CreateShippingsTable extends Migration
 			$table->tinyInteger('status')->default('0');
 
         });
+
+        Schema::create('carriers', function(Blueprint $table) {
+			$table->bigIncrements('id');
+			$table->timestamps();
+			$table->softDeletes();
+			$table->string('code', 32);
+			$table->string('name');
+			$table->smallInteger('default');
+			$table->string('tracking_link');
+			$table->string('description');
+			$table->text('label_config');
+		});
+
 
 
         Schema::create('shipping_markups', function(Blueprint $table) {
@@ -109,6 +123,7 @@ class CreateShippingsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('shippings');
+        Schema::dropIfExists('carriers');
         Schema::dropIfExists('shipping_markups');
         Schema::dropIfExists('shipping_rates');
         Schema::dropIfExists('surcharges');
