@@ -10,6 +10,12 @@ trait CommissionAttribute
     {
         return __($value);
     }
+
+    //public function scopeEnable($query , $value=1)
+    //{
+       // return $query->where('enabled', $value);
+    //}
+
 }
 
 ?>

@@ -80,6 +80,31 @@ class CreateShippingsTable extends Migration
 
 		});
 
+        Schema::create('shipping_services', function(Blueprint $table) {
+			$table->bigIncrements('id');
+			$table->timestamps();
+			$table->softDeletes();
+			$table->boolean('final');
+			$table->string('name');
+			$table->integer('position')->unsigned();
+			$table->tinyInteger('range_type');
+			$table->text('description');
+			$table->integer('delivery_time_min_day');
+			$table->integer('delivery_time_max_day');
+		});
+
+		Schema::create('shipping_service_options', function(Blueprint $table) {
+			$table->bigIncrements('id');
+			$table->timestamps();
+			$table->softDeletes();
+			$table->string('code');
+			$table->string('name');
+			$table->tinyInteger('mandatory');
+			$table->tinyInteger('qualifier_Required');
+			$table->decimal('qualifier_Max', 15,4);
+		});
+
+
 
 		Schema::create('surcharges', function(Blueprint $table) {
 			$table->bigIncrements('id');
@@ -126,6 +151,8 @@ class CreateShippingsTable extends Migration
         Schema::dropIfExists('carriers');
         Schema::dropIfExists('shipping_markups');
         Schema::dropIfExists('shipping_rates');
+        Schema::dropIfExists('shipping_services');
+        Schema::dropIfExists('shipping_service_options');
         Schema::dropIfExists('surcharges');
         Schema::dropIfExists('packages');
     }

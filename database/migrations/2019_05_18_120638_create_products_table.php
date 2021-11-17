@@ -165,10 +165,12 @@ class CreateProductsTable extends Migration
 			$table->bigIncrements('id');
 			$table->timestamps();
 			$table->string('name');
+            $table->text('description')->nullable();
 			$table->decimal('percentage', 15,4);
             $table->decimal('min_quantity', 15,4);
             $table->decimal('max_quantity', 15,4);
             $table->decimal('price', 15,4);
+            $table->tinyInteger('status')->default('1');
 
 		});
 

@@ -26,6 +26,8 @@ class DatabaseSeeder extends Seeder
         $this->call(Banners\BannerGroupsTableSeeder::class);
         //Currencies
         $this->call(Currencies\CurrenciesTableSeeder::class);
+        //Shipping
+        $this->call(Shippings\ShippingsTableSeeder::class);
         //Users
         $this->call(Users\PermissionsTableSeeder::class);
         $this->call(Users\RolesTableSeeder::class);

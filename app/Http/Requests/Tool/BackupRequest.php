@@ -7,6 +7,7 @@ use phpDocumentor\Reflection\PseudoTypes\True_;
 
 class BackupRequest extends FormRequest
 {
+    protected $errorBag = 'backupErrorBag';
     /**
      * Determine if the user is authorized to make this request.
      *

@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class AffiliateRequest extends FormRequest
 {
+    protected $errorBag = 'affiliateErrorBag';
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -13,7 +14,7 @@ class AffiliateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**

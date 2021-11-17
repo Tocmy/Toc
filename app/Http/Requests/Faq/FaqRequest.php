@@ -7,6 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class FaqRequest extends FormRequest
 {
+    protected $errorBag = 'faqErrorBag';
     /**
      * Determine if the user is authorized to make this request.
      *

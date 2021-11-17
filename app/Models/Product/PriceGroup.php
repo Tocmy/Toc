@@ -2,8 +2,10 @@
 
 namespace App\Models\Product;
 
+use App\Models\User\Role;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class PriceGroup extends Model
 {
@@ -22,7 +24,7 @@ class PriceGroup extends Model
      * @var  array
      */
     protected $fillable = [
-        'name', 'percentage', 'min_quantity', 'max_quantity', 'price', 'product_id', 'setting_id',
+        'name', 'percentage', 'min_quantity', 'max_quantity', 'price', 'product_id', 'setting_id','status','description'
     ];
 
     /**
@@ -39,5 +41,27 @@ class PriceGroup extends Model
         'product_id' => 0,
         'setting_id' => 0,
     ];
+    protected $casts = [
+        'status' => 'boolean',
+    ];
+
+    public static function forPriceList($store_id)
+    {
+        $price_groups = PriceGroup::where('store_id', $store_id)
+                        ->status()
+                        ->get();
+        $pricelist = [];
+        $role =Role::find(Auth::user()->role_id);
+        if ($role->hasPermission('price_group')) {
+             $pricelist[0] = __('Price Group');
+        }
+        foreach ($price_groups as $price_group) {
+            if ($role->hasPermission('price_group.' .$price_group->id)) {
+                $pricelist[$price_group->id] = $price_group->name;
+            }
+        }
+        return $pricelist;
+
+    }
 
 }

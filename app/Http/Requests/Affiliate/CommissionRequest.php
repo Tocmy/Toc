@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Shipping;
+namespace App\Http\Requests\Affiliate;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ShippingRequest extends FormRequest
+class CommissionRequest extends FormRequest
 {
-
-    protected $errorBag = 'shippingErrorBag';
+    protected $errorBag = 'commissionErrorBag';
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -34,17 +33,29 @@ class ShippingRequest extends FormRequest
             case 'DELETE':
                 $this->rules = [];
                 break;
+            //index, create,edit, show
             case 'GET':
-                $this->rules = [];
-                break;
+                $this->rules = [
 
+                ];
+                break;
+            //store
             case 'POST':
-                $this->rules = [];
-                break;
-            case 'PUT':
-                $this->rules = [];
-                break;
+                $this->rules = [
+                    'amount'  => 'required',
+                    'type'    => 'required',
+                    'name'    => 'required'
 
+                ];
+                break;
+            //update
+            case 'PUT':
+                $this->rules = [
+                    'amount'  => 'required',
+                    'type'    => 'required',
+                ];
+                break;
+            //update
             case 'PATCH':
                 $this->rules = [];
                 break;
@@ -55,5 +66,16 @@ class ShippingRequest extends FormRequest
         }
 
         return $this->rules;
+    }
+    public function messages()
+    {
+        return[
+
+               'amount.required'                  => __('Amount is required '),
+               'type.required'                    => __('Commission type is required'),
+               'name.required'                    => __('Commission Cannot be empty')
+
+
+               ];
     }
 }

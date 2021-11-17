@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class AttributeGroupRequest extends FormRequest
 {
+    protected $errorBag = 'attributegroupErrorBag';
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -58,5 +59,17 @@ class AttributeGroupRequest extends FormRequest
         }
 
         return $this->rules;
+    }
+
+    public function messages()
+    {
+        return[
+
+               'name.required'                  => __('CompanyNameRequired '),
+
+
+
+
+               ];
     }
 }

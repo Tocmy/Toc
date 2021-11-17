@@ -102,7 +102,7 @@ class CreateAffiliatesTable extends Migration
 			$table->string('client_ip');
 			$table->string('client_referer');
 			$table->integer('click');
-			
+
 		});
 
         Schema::create('commissions', function(Blueprint $table) {
@@ -114,6 +114,8 @@ class CreateAffiliatesTable extends Migration
 			$table->float('amount', 15,4);
 			$table->string('name');
 			$table->string('type');
+            $table->text('description');
+            $table->tinyInteger('status')->default('0');
 		});
 
 

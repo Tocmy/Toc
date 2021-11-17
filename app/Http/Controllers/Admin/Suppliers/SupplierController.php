@@ -10,6 +10,13 @@ use Illuminate\Http\Request;
 
 class SupplierController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->pageTitle ='Supplier Management';
+        $this->pageIcon  ='';
+    }
+
     /**
      * Display a listing of the resource.
      *

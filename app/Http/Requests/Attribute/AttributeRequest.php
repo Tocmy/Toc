@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class AttributeRequest extends FormRequest
 {
+    protected $errorBag = 'attributeErrorBag';
     /**
      * Determine if the user is authorized to make this request.
      *

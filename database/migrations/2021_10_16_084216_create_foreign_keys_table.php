@@ -2884,13 +2884,8 @@ class CreateForeignKeysTable extends Migration
         });
 
         Schema::table('shippings', function (Blueprint $table) {
-            $table
-                ->bigInteger('module_id')
-                ->unique()
-                ->unsigned();
-            $table
-                ->bigInteger('supplier_id')
-                ->unique()
+            $table->bigInteger('module_id')->unique()->unsigned();
+            $table->bigInteger('supplier_id')->unique()
                 ->unsigned();
             $table->bigInteger('setting_id')->unsigned();
             $table
@@ -2916,8 +2911,7 @@ class CreateForeignKeysTable extends Migration
 
         Schema::table('carriers', function (Blueprint $table) {
 
-            $table
-                ->bigInteger('supplier_id')
+            $table->bigInteger('supplier_id')
                 ->unique()
                 ->unsigned();
 
@@ -2953,9 +2947,9 @@ class CreateForeignKeysTable extends Migration
         });
 
         Schema::table('shipping_rates', function (Blueprint $table) {
-            //carrier_id ==>double check
+
             $table->bigInteger('shipping_id')->unsigned();
-            $table->bigInteger('supplier_id')->unsigned();
+            $table->bigInteger('carrier_id')->unsigned();
             $table->bigInteger('state_id')->unsigned();
             $table->bigInteger('weight_id')->unsigned();
             $table->bigInteger('length_id')->unsigned();
@@ -2963,9 +2957,9 @@ class CreateForeignKeysTable extends Migration
             $table->bigInteger('surcharge_id')->unsigned();
             $table->bigInteger('tax_rate_id')->unsigned();
             $table
-                ->foreign('supplier_id')
+                ->foreign('carrier_id')
                 ->references('id')
-                ->on('suppliers')
+                ->on('carriers')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table
@@ -3005,6 +2999,33 @@ class CreateForeignKeysTable extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
         });
+
+        Schema::table('shipping_services', function (Blueprint $table) {
+
+            $table->bigInteger('zone_id')->unsigned();
+
+            $table
+                ->foreign('zone_id')
+                ->references('id')
+                ->on('zones')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
+        });
+
+        Schema::table('shipping_service_options', function (Blueprint $table) {
+
+            $table->bigInteger('shipping_service_id')->unsigned();
+
+            $table
+                ->foreign('shipping_service_id')
+                ->references('id')
+                ->on('shipping_services')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
+        });
+
 
         Schema::table('packages', function (Blueprint $table) {
             $table->bigInteger('order_id')->unsigned();
@@ -4038,7 +4059,7 @@ class CreateForeignKeysTable extends Migration
 
         Schema::table('service_shippings', function (Blueprint $table) {
             $table->dropForeign(['package_id', 'service_id']);
-            $table->dropForeign([]);
+           
         });
         Schema::table('service_types', function (Blueprint $table) {
             $table->dropForeign(['contract_id', 'service_id']);
@@ -4064,13 +4085,21 @@ class CreateForeignKeysTable extends Migration
         Schema::table('shipping_rates', function (Blueprint $table) {
             $table->dropForeign([
                 'shipping_id',
-                'supplier_id',
+                'carrier_id',
                 'weight_id',
                 'length_id',
                 'geo_id',
                 'surcharge_id',
                 'tax_rate_id',
             ]);
+        });
+
+        Schema::table('shipping_services', function (Blueprint $table) {
+            $table->dropForeign(['zone_id']);
+        });
+
+        Schema::table('shipping_service_options', function (Blueprint $table) {
+            $table->dropForeign(['shipping_service_id']);
         });
 
         Schema::table('packages', function (Blueprint $table) {

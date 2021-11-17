@@ -10,6 +10,12 @@ use App\Http\Requests\Voucher\VoucherRequest;
 
 class VoucherController extends Controller
 {
+
+    public function __construct()
+     {
+         $this->pageTitle ='Voucher Management';
+         $this->pageIcon  ='';
+     }
     /**
      * Display a listing of the resource.
      *

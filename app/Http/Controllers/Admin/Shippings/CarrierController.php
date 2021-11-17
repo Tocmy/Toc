@@ -2,20 +2,29 @@
 
 namespace App\Http\Controllers\Admin\Shippings;
 
+use App\DataTables\Shipping\CarrierDataTable;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Shipping\CarrierRequest;
 use App\Models\Shipping\Carrier;
 use Illuminate\Http\Request;
 
 class CarrierController extends Controller
 {
+
+
+     public function __construct()
+     {
+         $this->pageTitle ='Carrier Management';
+         $this->pageIcon  ='';
+     }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(CarrierDataTable $carrierDataTable)
     {
-        //
+        return $carrierDataTable->render('admin.carriers.index');
     }
 
     /**
@@ -25,7 +34,7 @@ class CarrierController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.carriers.create');
     }
 
     /**
@@ -34,7 +43,7 @@ class CarrierController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CarrierRequest $request)
     {
         //
     }
