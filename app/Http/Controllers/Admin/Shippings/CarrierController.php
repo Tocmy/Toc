@@ -90,6 +90,18 @@ class CarrierController extends Controller
      */
     public function destroy(Carrier $carrier)
     {
-        //
+        $carrier =Carrier::findOrFail($carrier->id);
+        $carrier->delete();
+
+        return redirect()->back()->with('success', __('Carrier had been deleted succefully'));
+    }
+
+    public function deleteSelected(Request $request)
+    {
+        if (isset($request->ids)) {
+            Carrier::whereIn('id', $request->ids)->delete();
+            return redirect()->route('admin.carriers.index')->with('success',__('Selected row deleted'));
+        }
+        return redirect()->route('admin.carriers.index')->with('error', __('Selected one least'));
     }
 }

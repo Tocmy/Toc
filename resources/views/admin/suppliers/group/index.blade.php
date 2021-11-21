@@ -21,26 +21,13 @@ app_name(). '|' . {{ __($pageTitle) }}
                 </div>
             </div>
             <div class="card-body">
-                <table id="Faq" class="table table-bordered">
-                    <thead>
-                       <tr>
-				        <th class="text-left"><input type="checkbox" onclick="$('input[name*=\'selected\']').attr('checked',this.checked);" /></th>
-                         <th >{{__('Country Name ')}}</th>
-                         <th >{{__('Name')}}</th>
-                         <th >{{__('Iso Code')}}</th>
-                         <th >{{__('Status')}}</th>
-                         <th ></th>
-                       </tr>
-                     </thead>
-                     <tbody>
-
-                     </tbody>
-            </table>
+                {!! $dataTable->table(['width' =>'100%']) !!}
+                <div class="clearfix"></div>
             </div>
         </div>
     </div>
 </div>
 @endsection
 @push('script')
-
+{!! $dataTable->script() !!}
 @endpush

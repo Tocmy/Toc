@@ -19,7 +19,42 @@ class AttributeDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'attribute\attributedatatable.action');
+            ->addColumn('checkbox', function($state){
+                return'<div class="dt-checkbox">
+                <input type="checkbox" class="" data-id="'.$state->state_id.'" name="id[]" value="'.$state->state_id.'">
+                <span class="dt-checkbox-label"></span>
+                </div>';
+            })
+            ->editColumn('status',function($state){
+                if ($state->status == 1) {
+                    return '<input class="switch swith-pink" type="checkbox" id="pink" checked /> ';
+                }else {
+                    return '<input class="switch swith-pink" type="checkbox" id="pink" />';
+                }
+            })
+
+            ->addColumn('action', function($state){
+                $action = '<div class="btn-group dropdown">
+                  <button aria-expanded ="false" data-toggle="dropdown" class="btn dropdown" type="button">
+                  <i class="las la-ellipsis-v"></i>
+                  </button>
+                  <div class="dropdown-menu">
+                  <a href="'.route('admin.suppliers.edit', [$state->id]).'" class="dropdown-item">
+                  <i class="las la-pen-nib" aria-hidden="true"></i>
+                  '.__('Edit').'
+                  </a>
+                  <a href="'.route('admin.suppliers.destroy', [$state->id]).'" class="dropdown-item">
+                  <i class="las la-trash aria-hidden="true"></i>
+                  '.__('Delete').'
+                  </a>';
+
+
+
+                $action .='</div></div>';
+                return $action;
+
+            })
+            ->rawColumns(['check','status', 'action']);
     }
 
     /**
@@ -30,7 +65,10 @@ class AttributeDataTable extends DataTable
      */
     public function query(Attribute $model)
     {
-        return $model->newQuery();
+        $model = $model->join('attributegroup', 'attribute.attribute_group_id', '=', 'attributegroup.id')
+                 ->select('attribute.name','attribute.attribute_group_id', 'attribute.position', 'attribute.status' )
+                 ->groupBy('attribute.name');
+        return $model;
     }
 
     /**

@@ -10,6 +10,12 @@ use Illuminate\Http\Request;
 
 class StateController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->pageTitle = 'State Management';
+        $this->pageIcon = '';
+    }
     /**
      * Display a listing of the resource.
      *
@@ -39,7 +45,7 @@ class StateController extends Controller
     public function store(StateRequest $request)
     {
         $states = new State();
-        
+
         $states->save();
     }
 

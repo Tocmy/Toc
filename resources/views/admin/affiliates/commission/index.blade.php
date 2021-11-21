@@ -1,11 +1,11 @@
-@extends('admin.layouts.master')
+@extends('layouts.admin')
 
 @section('title')
- @lang('Affiliate Management')
+app_name(). '|' . {{ __($pageTitle) }}
 @endsection
 
 @section('page-header')
-<h1>@lang('Affiliate Management')</h1>
+
 
 @endsection
 @section('content')
@@ -13,7 +13,7 @@
      <div class="col-sm-12">
        <div class="card">
        <div class="card-header">
-          <div class="card-title"> @lang('Affiliate Management')</div>
+          <div class="card-title"> {{ __($pageTitle) }}</div>
           @role('Admin')
                 <div class="pull-right card-tools">
                 @permission('all')
@@ -27,22 +27,6 @@
           @endrole
        </div><!--card-header-->
        <div class="card-body">
-             <table id="Affiliate " class="table table-bordered">
-                    <thead>
-                       <tr>
-				        <th class="text-left"><input type="checkbox" onclick="$('input[name*=\'selected\']').attr('checked',this.checked);" /></th>
-                         <th >{{__('Name')}}</th>
-                         <th >{{__('Email')}}</th>
-                         <th >{{__('Status')}}</th>
-                         <th >{{__('Approved')}}</th>
-                         <th >{{__('created_at')}}</th>
-                         <th ></th>
-                       </tr>
-                     </thead>
-                     <tbody>
-
-                     </tbody>
-            </table>
 
 
        </div><!--card-body-->

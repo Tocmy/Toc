@@ -1,30 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Suppliers;
+namespace App\Http\Controllers\Admin\Tools;
 
-use App\DataTables\Supplier\SupplierDataTable;
 use App\Http\Controllers\Controller;
-use App\Models\Supplier\Supplier;
-use App\Models\Supplier\SupplierGroup;
+use App\Models\Tool\Event;
 use Illuminate\Http\Request;
 
-class SupplierController extends Controller
+class EventController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->pageTitle ='Supplier Management';
-        $this->pageIcon  ='';
-    }
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(SupplierDataTable $supplierDataTable)
+    public function index()
     {
-        return $supplierDataTable->render('admin.suppliers.index');
+        //
     }
 
     /**
@@ -34,7 +25,7 @@ class SupplierController extends Controller
      */
     public function create()
     {
-        return view('admin.suppliers.create');
+        //
     }
 
     /**
@@ -45,16 +36,16 @@ class SupplierController extends Controller
      */
     public function store(Request $request)
     {
-
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Supplier\Supplier  $supplier
+     * @param  \App\Models\Tool\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function show(Supplier $supplier)
+    public function show(Event $event)
     {
         //
     }
@@ -62,10 +53,10 @@ class SupplierController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Supplier\Supplier  $supplier
+     * @param  \App\Models\Tool\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function edit(Supplier $supplier)
+    public function edit(Event $event)
     {
         //
     }
@@ -74,10 +65,10 @@ class SupplierController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Supplier\Supplier  $supplier
+     * @param  \App\Models\Tool\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Supplier $supplier)
+    public function update(Request $request, Event $event)
     {
         //
     }
@@ -85,11 +76,26 @@ class SupplierController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Supplier\Supplier  $supplier
+     * @param  \App\Models\Tool\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Supplier $supplier)
+    public function destroy(Event $event)
     {
         //
+    }
+
+    public function searchReminders(Request $request)
+    {
+        $request->validate(['query' => 'required']);
+        $query=$request->query;
+        $event =Event::where('title', 'like', "%$query%")
+                       ->orWhere('start_date', 'like', "%$query%")
+                       ->orWhere('end_date', 'like', "%$query%")
+                       ->paginate(5);
+         if (count($event)>0) {
+             return view();
+         }else{
+             return redirect()->back()->with('error', __('Invalid Search, Please Enter available one...'));
+         }
     }
 }

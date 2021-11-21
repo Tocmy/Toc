@@ -2,20 +2,28 @@
 
 namespace App\Http\Controllers\Admin\Suppliers;
 
+use App\DataTables\Supplier\SupplierGroupDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Supplier\SupplierGroup;
 use Illuminate\Http\Request;
 
 class SupplierGroupController extends Controller
 {
+
+
+    public function __construct()
+     {
+         $this->pageTitle ='Supplier Group Management';
+         $this->pageIcon  ='';
+     }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(SupplierGroupDataTable $supplierGroupDataTable)
     {
-        //
+        return $supplierGroupDataTable->render('admin.suppliers.group.index');
     }
 
     /**
@@ -81,6 +89,17 @@ class SupplierGroupController extends Controller
      */
     public function destroy(SupplierGroup $supplierGroup)
     {
-        //
+        $supplierGroup =SupplierGroup::findOrFail($supplierGroup->id);
+        $supplierGroup->delete();
+        return redirect()->back()->with('success', __('Carrier had been deleted succefully'));
+    }
+
+    public function deleteSelected(Request $request)
+    {
+        if (isset($request->ids)) {
+            SupplierGroup::whereIn('id', $request->ids)->delete();
+            return redirect()->route('admin.suppliers.group.index')->with('success',__('Selected row deleted'));
+        }
+        return redirect()->route('admin.suppliers.group.index')->with('error', __('Selected one least'));
     }
 }
