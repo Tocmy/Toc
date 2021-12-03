@@ -15,7 +15,23 @@ class PagesTableSeeder extends Seeder
     public function run()
     {
         $pages=[
-            'title'        => '',
+            'title'        => 'Privacy Policy',
+            'description'  => '',
+            'slug'         => '',
+            'position'     => '',
+            'status'       => '',
+            'page_group_id'=> '',
+            'store_id'     => '',
+
+            'title'        => 'Payment Policy',
+            'description'  => '',
+            'slug'         => '',
+            'position'     => '',
+            'status'       => '',
+            'page_group_id'=> '',
+            'store_id'     => '',
+
+            'title'        => 'Terms and Conditions',
             'description'  => '',
             'slug'         => '',
             'position'     => '',

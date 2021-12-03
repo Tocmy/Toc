@@ -1,14 +1,14 @@
 <?php
 
-namespace App\DataTables\Supplier;
+namespace App\DataTables\Product;
 
-use App\Models\Supplier\Supplier;
+use App\Models\Product\Profile;
 use Illuminate\Support\Facades\URL;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
 
-class SupplierDataTable extends DataTable
+class ProfileDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -21,15 +21,22 @@ class SupplierDataTable extends DataTable
         return datatables()
             ->eloquent($query)
             ->addColumn('checkbox', function ($supplier) {
-                return '<div class="dt-checkbox">  <input type="checkbox" class="" data-id="' .$supplier->supplier_id .
-                    '" name="id[]" value="' .$supplier->supplier_id .'"><span class="dt-checkbox-label"></span>
+                return '<div class="dt-checkbox">  <input type="checkbox" class="" data-id="' .
+                    $supplier->supplier_id .
+                    '" name="id[]" value="' .
+                    $supplier->supplier_id .
+                    '"><span class="dt-checkbox-label"></span>
                 </div>';
             })
             ->editColumn('status', function ($supplier) {
                 if ($supplier->status == 1) {
-                    return '<input class="switch swith-pink" type="checkbox" name="' .$supplier->supplier_id .'" id="pink" checked="" value="" /> ';
+                    return '<input class="switch swith-pink" type="checkbox" name="' .
+                        $supplier->supplier_id .
+                        '" id="pink" checked="" value="" /> ';
                 } else {
-                    return '<input class="switch swith-pink" type="checkbox" name="' .$supplier->supplier_id .'" id="pink" value="" />';
+                    return '<input class="switch swith-pink" type="checkbox" name="' .
+                        $supplier->supplier_id .
+                        '" id="pink" value="" />';
                 }
             })
 
@@ -66,25 +73,23 @@ class SupplierDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Supplier\Supplier $model
+     * @param \App\Models\Product\Profile $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Supplier $model)
+    public function query(Profile $model)
     {
-        return Supplier::query()
-            ->with('suppliergroup')
-            ->select('supplier.*');
+        return $model->newQuery();
     }
 
     /**
      * Optional method if you want to use html builder.
-     *
+     * projectErp/Helper, law. liwere neon
      * @return \Yajra\DataTables\Html\Builder
      */
     public function html()
     {
         return $this->builder()
-            ->setTableId('supplier-table')
+            ->setTableId('product\profiledatatable-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
             ->dom('Bfrtip')
@@ -162,8 +167,11 @@ class SupplierDataTable extends DataTable
                 Button::make([
                     'text' => '<i class="las la-plus"></i>',
                     'className' => 'btn btn-outline',
-                    'action' =>     'function(){
-                                           window.location.href = " ' . URL::current() . '/create";
+                    'action' =>
+                        'function(){
+                                           window.location.href = " ' .
+                        URL::current() .
+                        '/create";
                                        }',
                 ])
             );
@@ -171,36 +179,17 @@ class SupplierDataTable extends DataTable
 
     /**
      * Get columns.
-     * 'defaultContent' => '<div class="dt-checkbox"><input type="checkbox" name="id[]" value="' + $('<div/>').text(data).html() + '"><span class="dt-checkbox-label"></span></div>',
-     *'title'          => $this->form->checkbox('', '', false, ['id' => 'dataTablesCheckbox']),
-     *'data'           => 'checkbox',
-     *'name'           => 'checkbox',
-     *'orderable'      => false,
-     *'searchable'     => false,
-     *'exportable'     => false,
-     *'printable'      => true,
-     *'width'          => '10px',
+     *
      * @return array
      */
     protected function getColumns()
     {
         return [
-            'name' => 'checkbox',
-            'data' => 'checkbox',
-            'title' => '<div class="dt-checkbox"><input type="checkbox" name="id[]" value=""><span class="dt-checkbox-label"></span></div>',
-            'orderable' => false,
-            'searchable' => false,
-            'exportable' => false,
-            'printable' => true,
-            'width' => '10px',
-
-            Column::make('suppliergroup.name')->title('Suppliergroup.name'),
-            Column::make('account')->title(__('account')),
-            Column::make('name')->title(__('name')),
-            Column::make('email')->title(__('email')),
-            Column::make('status')->title(__('Status')),
+            Column::make('id'),
+            Column::make('add your columns'),
+            Column::make('created_at'),
+            Column::make('updated_at'),
             Column::computed('action')
-                ->title(__('Action'))
                 ->exportable(false)
                 ->printable(false)
                 ->width(60)
@@ -215,6 +204,6 @@ class SupplierDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Supplier_' . date('YmdHis');
+        return 'Product\Profile_' . date('YmdHis');
     }
 }

@@ -1,6 +1,6 @@
-@extends('layouts.admin')
+@extends('layout.admin')
 @section('title')
-app_name(). '|' . {{ __($pageTitla) }}
+app_name(). '|' . {{ __($pageTitle) }}
 @endsection
 @section('page-header')
 
@@ -12,7 +12,7 @@ app_name(). '|' . {{ __($pageTitla) }}
             <div class="card-header">
                 <h3 class="card-title">{{ __($pageTitle) }}</h3>
                 <div class="card-tools">
-                   <a href="{!!  !!}" type="button" class="btn btn-circle btn-info" data-toggle="tooltip" title="{{ __('Add') }}" data-placement="top">
+                   <a href="{!! url()  !!}" type="button" class="btn btn-circle btn-info" data-toggle="tooltip" title="{{ __('Add') }}" data-placement="top">
                     <i class="mdi mdi-folder-multiple-plus-outline"></i>
                    </a>
                    <a href="{!!  !!}" type="button" class="btn btn-circle btn-success" data-toggle="tooltip" title="{{ __('Home') }}" data-placement="left">
@@ -21,7 +21,7 @@ app_name(). '|' . {{ __($pageTitla) }}
                 </div>
             </div>
             <div class="card-body">
-            {!! $dataTable->table(['width' => '100%']) !!}
+                {!! $dataTable->table(['width' => '100%']) !!}
             </div>
         </div>
     </div>

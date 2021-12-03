@@ -2,6 +2,7 @@
 
 namespace App\Models\Product;
 
+use App\Models\Product\Relationship\PriceGroupRelationship;
 use App\Models\User\Role;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -9,11 +10,11 @@ use Illuminate\Support\Facades\Auth;
 
 class PriceGroup extends Model
 {
-    use HasFactory;
+    use HasFactory, PriceGroupRelationship;
 
     /**
     * The table associated with the model.
-    *
+    * l8\customerrelationship (copy)
     * @var  string
     */
     protected $table = 'price_groups';

@@ -12,6 +12,13 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
+
+    public function __construct()
+     {
+         $this->pageTitle ='Page Management';
+         $this->pageIcon  ='';
+     }
+
     /**
      * Display a listing of the resource.
      *

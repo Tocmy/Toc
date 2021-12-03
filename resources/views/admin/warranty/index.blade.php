@@ -1,6 +1,6 @@
-@extends()
+@extends('layouts.admin')
 @section('title')
-app_name(). '|' . {{ __('Faq Management') }}
+app_name(). '|' . {{ __($pageTitle) }}
 @endsection
 @section('page-header')
 
@@ -10,7 +10,7 @@ app_name(). '|' . {{ __('Faq Management') }}
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">{{ __('Faq Management') }}</h3>
+                <h3 class="card-title">{{ __($pageTitle) }}</h3>
                 <div class="card-tools">
                    <a href="{!! url()  !!}" type="button" class="btn btn-circle btn-info" data-toggle="tooltip" title="{{ __('Add') }}" data-placement="top">
                     <i class="mdi mdi-folder-multiple-plus-outline"></i>
@@ -21,27 +21,12 @@ app_name(). '|' . {{ __('Faq Management') }}
                 </div>
             </div>
             <div class="card-body">
-                <table id="Faq" class="table table-bordered">
-                    <thead>
-                       <tr>
-				        <th class="text-left"><input type="checkbox" onclick="$('input[name*=\'selected\']').attr('checked',this.checked);" /></th>
-                         <th >{{__('Faq Group Name ')}}</th>
-                         <th >{{__('Question')}}</th>
-                         <th >{{__('Answer')}}</th>
-                          <th >{{__('Position')}}</th>
-                         <th >{{__('Status')}}</th>
-                         <th ></th>
-                       </tr>
-                     </thead>
-                     <tbody>
-
-                     </tbody>
-            </table>
+                {!! $dataTable->table(['width' => '100%']) !!}
             </div>
         </div>
     </div>
 </div>
 @endsection
 @push('script')
-
+{!! $dataTable->script() !!}
 @endpush

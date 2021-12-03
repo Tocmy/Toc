@@ -19,7 +19,7 @@ class Zone extends Model
 
     /**
      * The attributes that are mass assignable.
-     *
+     *locatuin ero44
      * @var  array
      */
     protected $fillable = [

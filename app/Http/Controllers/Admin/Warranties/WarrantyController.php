@@ -47,7 +47,7 @@ class WarrantyController extends Controller
     {
         $warranties = new Warranty();
         $warranties->name = $request->name;
-
+        
         $warranties->save();
     }
 
@@ -129,6 +129,6 @@ class WarrantyController extends Controller
 
     }
 
-    
+
 
 }

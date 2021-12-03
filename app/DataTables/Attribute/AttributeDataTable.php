@@ -3,6 +3,7 @@
 namespace App\DataTables\Attribute;
 
 use App\Models\Attribute\Attribute;
+use Illuminate\Support\Facades\URL;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
@@ -19,42 +20,52 @@ class AttributeDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('checkbox', function($state){
-                return'<div class="dt-checkbox">
-                <input type="checkbox" class="" data-id="'.$state->state_id.'" name="id[]" value="'.$state->state_id.'">
+            ->addColumn('checkbox', function ($attribute) {
+                return '<div class="dt-checkbox">
+                <input type="checkbox" class="" data-id="' .
+                    $attribute->attribute_id .
+                    '" name="id[]" value="' .
+                    $attribute->attribute_id .
+                    '">
                 <span class="dt-checkbox-label"></span>
                 </div>';
             })
-            ->editColumn('status',function($state){
-                if ($state->status == 1) {
-                    return '<input class="switch swith-pink" type="checkbox" id="pink" checked /> ';
-                }else {
-                    return '<input class="switch swith-pink" type="checkbox" id="pink" />';
+            ->editColumn('status', function ($attribute) {
+                if ($attribute->status == 1) {
+                    return '<input class="switch swith-pink" type="checkbox" name="" id="pink" checked="" value="1" /> ';
+                } else {
+                    return '<input class="switch swith-pink" type="checkbox" name="" id="pink" value="0" />';
                 }
             })
 
-            ->addColumn('action', function($state){
-                $action = '<div class="btn-group dropdown">
+            ->addColumn('action', function ($attribute) {
+                $action =
+                    '<div class="btn-group dropdown">
                   <button aria-expanded ="false" data-toggle="dropdown" class="btn dropdown" type="button">
                   <i class="las la-ellipsis-v"></i>
                   </button>
                   <div class="dropdown-menu">
-                  <a href="'.route('admin.suppliers.edit', [$state->id]).'" class="dropdown-item">
+                  <a href="' .
+                    route('admin.suppliers.edit', [$attribute->id]) .
+                    '" class="dropdown-item">
                   <i class="las la-pen-nib" aria-hidden="true"></i>
-                  '.__('Edit').'
+                  ' .
+                    __('Edit') .
+                    '
                   </a>
-                  <a href="'.route('admin.suppliers.destroy', [$state->id]).'" class="dropdown-item">
+                  <a href="' .
+                    route('admin.suppliers.destroy', [$attribute->id]) .
+                    '" class="dropdown-item">
                   <i class="las la-trash aria-hidden="true"></i>
-                  '.__('Delete').'
+                  ' .
+                    __('Delete') .
+                    '
                   </a>';
 
-
-
-                $action .='</div></div>';
+                $action .= '</div></div>';
                 return $action;
-
             })
-            ->rawColumns(['check','status', 'action']);
+            ->rawColumns(['check', 'status', 'action']);
     }
 
     /**
@@ -65,9 +76,20 @@ class AttributeDataTable extends DataTable
      */
     public function query(Attribute $model)
     {
-        $model = $model->join('attributegroup', 'attribute.attribute_group_id', '=', 'attributegroup.id')
-                 ->select('attribute.name','attribute.attribute_group_id', 'attribute.position', 'attribute.status' )
-                 ->groupBy('attribute.name');
+        $model = $model
+            ->join(
+                'attributegroup',
+                'attribute.attribute_group_id',
+                '=',
+                'attributegroup.id'
+            )
+            ->select(
+                'attributegroup.name',
+                'attribute.name',
+                'attribute.position',
+                'attribute.status'
+            )
+            ->groupBy('attribute.name');
         return $model;
     }
 
@@ -79,18 +101,88 @@ class AttributeDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('attribute\attributedatatable-table')
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    ->dom('Bfrtip')
-                    ->orderBy(1)
-                    ->buttons(
-                        Button::make('create'),
-                        Button::make('export'),
-                        Button::make('print'),
-                        Button::make('reset'),
-                        Button::make('reload')
-                    );
+            ->setTableId('attribute\attributedatatable-table')
+            ->columns($this->getColumns())
+            ->minifiedAjax()
+            ->dom('Bfrtip')
+            ->orderBy(1)
+            ->destroy(true)
+            ->responsive(true)
+            ->serverSide(true)
+            ->processing(true)
+            ->parameters([
+                'lengthMenu' => [
+                    [10, 25, 50, 100, -1],
+                    [10, 25, 50, 100, __('All')],
+                ],
+
+                'language' => [
+                    'processing' => __('Processing'),
+                    'lengthMenu' => __('Menu'),
+                    'zeroRecords' => __('ZeroRecords'),
+                    'emptyTable' => __('EmptyTable'),
+                    'info' => __('_START_-_END_ of _TOTAL_ entries'),
+                    'infoEmpty' => __('Info Empty'),
+                    'infoFiltered' => __('Info Filtered'),
+                    'infoPostFix' => '',
+                    'search' => '',
+                    'url' => '',
+                    'thousands' => ',',
+                    'loadingRecords' => __('Loading Record'),
+
+                    'paginate' => [
+                        'first' => '<i class="las la-angle-double-left"></i>',
+                        'last' => '<i class="las la-angle-double-right"></i>',
+                        'next' => '<i class="las la-angle-right"></i>',
+                        'previous' => '<i class="las la-angle-left"></i>',
+                    ],
+                    'aria' => [
+                        'sortAscending' => __('Sort Ascending'),
+                        'sortDescending' => __('Sort Descending'),
+                    ],
+                ],
+                'initComplete' => 'function(){
+
+                        }',
+            ])
+            ->buttons(
+                Button::make([
+                    'extend' => 'excel',
+                    'className' => 'btn btn-outline',
+                    'text' => '<i class="lar la-file-excel"></i>',
+                ]),
+                Button::make([
+                    'extend' => 'csv',
+                    'className' => 'btn btn-outline',
+                    'text' => '<i class="las la-file-csv"></i>',
+                ]),
+                Button::make([
+                    'extend' => 'pdf',
+                    'className' => 'btn btn-outline',
+                    'text' => '<i class="las la-file-pdf"></i>',
+                ]),
+                Button::make([
+                    'extend' => 'print',
+                    'className' => 'btn btn-outline',
+                    'text' => '<i class="las la-print"></i>',
+                ]),
+                Button::make([
+                    'extend' => 'reload',
+                    'className' => 'btn btn-outline',
+                    'text' => '<i class="las la-sync-alt"></i>',
+                ]),
+                Button::make([
+                    'text' => '<i class="las la-trash"></i>',
+                    'className' => 'btn btn-outline',
+                ]),
+                Button::make([
+                    'text' => '<i class="las la-plus"></i>',
+                    'className' => 'btn btn-outline',
+                    'action' =>
+                        'function(){  window.location.href = " ' .
+                        URL::current() . '/create";  }',
+                ])
+            );
     }
 
     /**
@@ -101,15 +193,24 @@ class AttributeDataTable extends DataTable
     protected function getColumns()
     {
         return [
+
+            Column::make('name')
+                    ->name('name')
+                    ->title(__('Name'))
+                    ->addClass('text-center'),
+            Column::make('attributegroup.name')
+                   ->name('attributegroup.name')
+                   ->title(__('Attribute Group Name'))
+                   ->addClass('text-center'),
+            Column::make('position')
+                   ->name('position')
+                   ->title(__('Position'))
+                   ->addClass('text-center'),
             Column::computed('action')
-                  ->exportable(false)
-                  ->printable(false)
-                  ->width(60)
-                  ->addClass('text-center'),
-            Column::make('id'),
-            Column::make('add your columns'),
-            Column::make('created_at'),
-            Column::make('updated_at'),
+                   ->exportable(false)
+                   ->printable(false)
+                   ->width(60)
+                   ->addClass('text-center'),
         ];
     }
 

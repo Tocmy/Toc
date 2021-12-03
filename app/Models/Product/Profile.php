@@ -2,12 +2,13 @@
 
 namespace App\Models\Product;
 
+use App\Models\Product\Relationship\ProfileRelationship;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Profile extends Model
 {
-    use HasFactory;
+    use HasFactory, ProfileRelationship;
     /**
     * The table associated with the model.
     *
@@ -21,7 +22,8 @@ class Profile extends Model
      * @var  array
      */
     protected $fillable = [
-        'position', 'status', 'price', 'frequency', 'duration', 'cycle', 'trial_status', 'trial_price', 'trial_frequency', 'trial_duration',
+        'position', 'status', 'price', 'frequency', 'duration', 'cycle',
+        'trial_status', 'trial_price', 'trial_frequency', 'trial_duration',
         'trial_cycle', 'name',
     ];
 

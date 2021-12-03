@@ -10,6 +10,12 @@ use Illuminate\Http\Request;
 
 class PageGroupController extends Controller
 {
+
+    public function __construct()
+     {
+         $this->pageTitle ='Page Group Management';
+         $this->pageIcon  ='';
+     }
     /**
      * Display a listing of the resource.
      *

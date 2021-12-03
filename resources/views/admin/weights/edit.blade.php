@@ -1,6 +1,6 @@
-@extends('admin.layouts.master')
+@extends('layouts.admin')
 @section('title')
-
+app_name(). '|' . {{ __($pageTitle) }}
 @endsection
 @section('page-header')
 
@@ -10,9 +10,9 @@
     <div class="col-lg-12 col-sm-12">
         <div class="card">
             <div class="card-header">
-                <div class="card-title">{{ __('Add Brand') }}</div>
+                <div class="card-title">{{ __($pageTitle) }}</div>
                 <div class="card-tools">
-                    {!! Form::open()->post()->multipart()->route('brand.store') !!}
+                    {!! Form::open()->post()->multipart()->route('admin.weights.store') !!}
                     {!! Form::button(['type' =>'submit', 'name' => 'save', 'class'=>'btn btn-circle btn-info ripple', 'data-toggle' =>'tooltip', 'title' => '{{__('Save')}}' ],
                     <i class="mdi mdi-content-save"></i>) !!}
                     {!! Form::button(['type' =>'submit', 'name' => 'cancel', 'class'=>'btn btn-circle btn-danger ripple', 'data-toggle' =>'tooltip',
@@ -21,7 +21,7 @@
             </div>
             <div class="card-body">
 
-                @include('admin.brand.form')
+                @include('admin.weights.form')
                 {!! Form::close() !!}
             </div>
         </div>

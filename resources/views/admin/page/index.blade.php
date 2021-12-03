@@ -1,7 +1,7 @@
-@extends('admin.layouts.master')
+@extends('layouts.admin')
 
 @section('title')
- {{ __('Module Management') }}
+app_name(). '|' . {{ __($pageTitle) }}
 @endsection
 
 @section('page-header')
@@ -13,7 +13,7 @@
      <div class="col-sm-12">
        <div class="card">
        <div class="card-header">
-          <div class="card-title"> {{ __('Page Management') }}</div>
+          <div class="card-title"> {{ __($pageTitle) }}</div>
 
                 <div class="card-tools">
 

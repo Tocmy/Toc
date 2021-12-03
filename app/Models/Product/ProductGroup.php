@@ -2,12 +2,13 @@
 
 namespace App\Models\Product;
 
+use App\Models\Product\Relationship\ProductGroupRelationship;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class ProductGroup extends Model
 {
-    use HasFactory;
+    use HasFactory, ProductGroupRelationship;
 
     /**
     * The table associated with the model.
@@ -21,8 +22,14 @@ class ProductGroup extends Model
      *
      * @var  array
      */
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var  array
+     */
     protected $fillable = [
-        'setting_id', 'customer_group_id', 'customer_group_price', 'product_id', 'product_price', 'qty_block', 'min_order_qty', 'name', 'handler', 'image', 'master_group', 'status',
+        'customer_group_price', 'product_price', 'qty_block', 'min_order_qty', 'name',
+        'handler', 'image', 'master_group', 'status', 'setting_id', 'customer_group_id',
     ];
 
     /**
@@ -31,10 +38,7 @@ class ProductGroup extends Model
     * @var  array
     */
     protected $attributes = [
-        'setting_id' => 0,
-        'customer_group_id' => 0,
         'customer_group_price' => '0.0000',
-        'product_id' => 0,
         'product_price' => '0.0000',
         'qty_block' => 0,
         'min_order_qty' => 0,
@@ -43,6 +47,8 @@ class ProductGroup extends Model
         'image' => '',
         'master_group' => NULL,
         'status' => NULL,
+        'setting_id' => 0,
+        'customer_group_id' => 0,
     ];
 
     /**
@@ -54,4 +60,5 @@ class ProductGroup extends Model
         'master_group' => 'boolean',
         'status' => 'boolean',
     ];
+
 }

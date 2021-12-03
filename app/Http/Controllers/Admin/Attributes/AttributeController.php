@@ -11,6 +11,13 @@ use Illuminate\Http\Request;
 
 class AttributeController extends Controller
 {
+    public function __construct()
+     {
+         $this->pageTitle ='Attribute Management';
+         $this->pageIcon  ='';
+     }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -93,6 +100,9 @@ class AttributeController extends Controller
      */
     public function destroy(Attribute $attribute)
     {
-        //
+        $attribute =Attribute::findOrFail($attribute->id);
+        $attribute->delete();
+
+        return redirect()->back()->with('success', __('Attribute had been deleted succefully'));
     }
 }

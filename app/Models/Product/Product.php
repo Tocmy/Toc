@@ -25,15 +25,10 @@ class Product extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'deleted_at', 'model', 'image', 'price', 'cost', 'msrp', 'quote', 'age_minimum', 'date_available', 'position', 'status', 'quantity', 'minimum', 'subtract',
-        'shipping', 'sku', 'upc', 'ean', 'jan', 'isbn', 'mpn', 'length', 'width', 'height',
-        'length_id', 'weight',
-        'weight_id',
-        'brand_id', 'tax_id',
-        'status_id', 'viewed',
-        'bar_code', 'summary', 'name', 'description', 'title',
-        'tag_id',
-        'meta_id', 'slug'
+        'model', 'image', 'price', 'cost', 'msrp', 'quote', 'age_minimum', 'date_available',
+        'position', 'status', 'quantity', 'minimum', 'subtract', 'shipping', 'sku', 'upc', 'ean',
+         'jan', 'isbn', 'mpn', 'length', 'width', 'height', 'weight', 'viewed', 'bar_code', 'summary',
+         'name', 'description', 'title', 'slug', 'length_id', 'weight_id', 'brand_id', 'tax_id', 'status_id', 'category_id', 'store_id',
     ];
 
     /**

@@ -2,12 +2,13 @@
 
 namespace App\Models\Product;
 
+use App\Models\Product\Relationship\DiscountRelationship;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Discount extends Model
 {
-    use HasFactory;
+    use HasFactory, DiscountRelationship;
     /**
      * The table associated with the model.
      *

@@ -5,11 +5,13 @@ namespace App\Models\Page;
 use App\Traits\Seoable;
 use App\Traits\Taggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+//use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
+use App\Models\BaseModel;
 use Kyslik\ColumnSortable\Sortable;
 
-class Page extends Model
+class Page extends BaseModel
 {
     use HasFactory, SoftDeletes, Sortable, Seoable, Taggable;
     /**
@@ -20,7 +22,7 @@ class Page extends Model
 
     protected $table = 'pages';
 
-    /**
+    /**currency/blog
      * The attributes that are mass assignable.
      *amend scheme
      * @var array
@@ -50,6 +52,23 @@ class Page extends Model
 
     public $sortable = ['position'];
 
+    public function setTitleAttribute($value)
+    {
+        $this->attributes['title'] = $value;
+        if (!$this->exists) {
+             $this->setUniqueSlug($value, '');
+        }
+    }
 
+    protected function setUniqueSlug($title, $extra)
+    {
+        $slug = Str::slug($title. '-'. $extra);
+        if (static::whereSlug($slug)->exists()) {
+             $this->setUniqueSlug($title, $extra+1);
+             return;
+        }
+        $this->attributes['slug'] = $slug;
+
+    }
 
 }
