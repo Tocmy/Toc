@@ -6,23 +6,17 @@
                     {{__('General')}}
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" id="data-tab" data-toggle="tab" href="#data" role="tab" aria-controls="data" aria-selected="data">
-                    {{__('Data')}}
-                </a>
-            </li>
+            
 
 
 
         </ul>
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="general-tab">
-                @include('admin.faq.tabs.general')
+                @include('admin.weights.general')
             </div>
-            <div class="tab-pane fade" id="data" role="tabpanel" aria-labelledby="data-tab">
-               @include('admin.faq.tabs.data')
-            </div>
-            
+
+
 
         </div>
     </div>

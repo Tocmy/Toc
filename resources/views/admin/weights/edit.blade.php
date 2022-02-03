@@ -16,7 +16,7 @@ app_name(). '|' . {{ __($pageTitle) }}
                     {!! Form::button(['type' =>'submit', 'name' => 'save', 'class'=>'btn btn-circle btn-info ripple', 'data-toggle' =>'tooltip', 'title' => '{{__('Save')}}' ],
                     <i class="mdi mdi-content-save"></i>) !!}
                     {!! Form::button(['type' =>'submit', 'name' => 'cancel', 'class'=>'btn btn-circle btn-danger ripple', 'data-toggle' =>'tooltip',
-                    'title' => '{{__('Cancel')}}' 'route' => 'brand.index' ],<i class="mdi mdi-close-thick"></i>) !!}
+                    'title' => '{{__('Cancel')}}' 'route' => 'admin.weights.index' ],<i class="mdi mdi-close-thick"></i>) !!}
                 </div>
             </div>
             <div class="card-body">
